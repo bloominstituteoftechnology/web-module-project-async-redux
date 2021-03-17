@@ -14,7 +14,6 @@ export const fetchData = () => {
               dispatch({ type: FETCH_RICKS_SUCCESS, payload: res.data.results})
           })
           .catch(err => {
-
               dispatch({ type: FETCH_RICKS_ERROR, payload: err.message})
           })
     }

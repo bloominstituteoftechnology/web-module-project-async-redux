@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   isLoading: false,
-  ricks: [],
+  characterList: [],
   error: ''
 };
 
@@ -20,7 +20,7 @@ export const reducer = (state = initialState, action) => {
             case FETCH_RICKS_SUCCESS:
                 return{
                     ...state,
-                    ricks: action.payload,
+                    characterList: action.payload,
                     isLoading: false,
                     error: '',
                 }

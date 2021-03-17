@@ -1,4 +1,4 @@
-import RickList  from './components/rickList'
+import CharacterList  from './components/characters'
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <h1> I am alive!</h1>
       </header>
-      <RickList />
+      <CharacterList />
     </div>
   );
 }
