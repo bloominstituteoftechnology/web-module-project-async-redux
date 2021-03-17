@@ -10,7 +10,7 @@ import { reducer } from './store'
 import App from './App';
 import './index.css';
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk,logger));
 
 ReactDOM.render(
   <Provider store = {store}>

@@ -1,7 +1,14 @@
-
+import { fetchData } from '../store'
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
 
 
 const RickList = (props) => {
+  const {fetchData } = props;
+
+  useEffect(() => {
+      fetchData();
+  }, [fetchData])
 
 
     return (
@@ -11,5 +18,12 @@ const RickList = (props) => {
         </div>
     )
 }
+ const mapStateToProps = (state) => {
+     return{
+         isLoading: state.isLoading,
+         ricks: state.ricks,
+         error: state.error,
+     };
+ };
 
-export default RickList
+export default connect(mapStateToProps,{fetchData})(RickList);
