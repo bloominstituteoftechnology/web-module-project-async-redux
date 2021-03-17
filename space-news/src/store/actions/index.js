@@ -8,7 +8,6 @@ export const fetchData = () => {
   return (dispatch) => {
     dispatch({type: FETCH_SPELLS_START})
     axios
-      // .get('https://www.dnd5eapi.co/api/spells')
       .get('https://ll.thespacedevs.com/2.0.0/config/spacecraft/')
       .then((res) => (
         // console.log(res.data.results)

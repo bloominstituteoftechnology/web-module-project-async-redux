@@ -11,16 +11,15 @@ const Spacecraft = (props) => {
   
   return (
     <div className="spacecraft-wrapper">
+      <h1>SPACECRAFT CHRONICLES</h1>
       {props.isLoading ? <Loader type='Circles' color='#00BFFF' height={100} width={100} timeout={3000}/> : null}
       {props.error ? <p style={{color: 'red'}}>{props.error}</p>  : null}
       {props.spacecrafts.map((spacecraft) => (
         <div className='spacecraft'>
           <h3 key={spacecraft.id}>{spacecraft.name}</h3>
           <img src={spacecraft.image_url} alt={spacecraft.spacecraft} />
-          <p> Description: {spacecraft.description }</p>
-          <p> {spacecraft.administrator }</p>
-          <p> Founding Year: {spacecraft.founding_year }</p>
-          
+          <pre> {spacecraft.agency.administrator } | Founding Year: {spacecraft.agency.founding_year }</pre>
+          <p>{spacecraft.agency.description }</p>      
         </div>
       ))}
     </div>

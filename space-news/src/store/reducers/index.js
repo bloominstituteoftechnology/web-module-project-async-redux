@@ -12,7 +12,7 @@ export const reducer = (state = initialState, action) => {
     case FETCH_SPELLS_SUCCESS:
       return {
         ...state,
-        spacecraftsc: action.payload,        
+        spacecrafts: action.payload,        
         isLoading: false
       }
     case FETCH_SPELLS_START:
