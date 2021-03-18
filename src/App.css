@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+  background: lightgray;
+}
+h1 {
+  font-family: serif;
+  margin-bottom: 0;
+}
+.mainTitle {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+article {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+button {
+  background: red;
+  border-radius: 15px;
+  padding: 1%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  border: none;
+}
+button:hover {
+  background: orange;
+  border: none;
+}
+.imageWrapper {
+  width: 200px;
+  float: left;
+  padding-right: 25px;
+  padding-bottom: 10px;
+}
+.imageWrapper img {
+  width: 100%;
+}
+
+.imageWrapper span {
+  font-family: sans-serif;
+  font-size: 10px;
+  color: #ccc;
+}
+
+.article-meta {
+  font-family: sans-serif;
+  color: #aaa;
+  font-size: 12px;
+}
+p {
+  font-size: 14px;
+}
