@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import { reducer } from './reducers/index';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
