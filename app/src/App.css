@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -21,10 +25,6 @@
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -32,4 +32,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.poke-grid {
+  width: 100%;
+  display: grid;
+  grid-template: auto / repeat(10, 10%);
+}
+
+.poke-card {
+  grid-column-end: auto;
 }

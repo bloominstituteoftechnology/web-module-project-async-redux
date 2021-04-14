@@ -18,11 +18,13 @@ function App({ pokemon, isLoading, error, fetchData }) {
           <p>L O A D I N G</p>
         </div>
       ) : null}
-      <h3>
+      <div className="poke-grid">
         {pokemon.map((singlePokemon) => (
-          <p key={singlePokemon.url}>{singlePokemon.name}</p>
+          <div className="poke-card">
+            <h4 key={singlePokemon.url}>{singlePokemon.name}</h4>
+          </div>
         ))}
-      </h3>
+      </div>
     </div>
   );
 }
