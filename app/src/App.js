@@ -31,8 +31,8 @@ const mapStateToProps = (state) => {
   return {
     ...state,
     pokemon: state.pokemon,
-    isLoading: false,
-    error: "",
+    isLoading: state.isLoading,
+    error: state.error,
   };
 };
 
