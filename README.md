@@ -29,7 +29,7 @@ In this project you'll choose an api to consume. You will build an application f
 - [X] Run `npx create-react-app app --use-npm` to make a CRA app.
 - [X] CD into the react app `cd app`.
 - [X] Start up the app using `npm start`.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [X] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [X] Push commits: git push origin `<firstName-lastName>`.
 
