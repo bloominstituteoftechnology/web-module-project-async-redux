@@ -1,0 +1,8 @@
+/*
+fetch
+start
+success
+failure
+reset loading
+
+ */

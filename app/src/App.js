@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { connect } from "react-redux";
 
-function App() {
+import logo from "./logo.svg";
+import "./App.css";
+
+function App({ pokemon, isLoading, error }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>YAPA!</h1>
+      <h2>Yet Another Poke App</h2>
+      {isLoading ? (
+        <div className="loading-animaiton">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>L O A D I N G</p>
+        </div>
+      ) : null}
+      <h3>
+        {pokemon.map((singlePokemon) => (
+          <p key={singlePokemon.url}>{singlePokemon.name}</p>
+        ))}
+      </h3>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    pokemon: state.pokemon,
+    isLoading: true,
+    error: "",
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
