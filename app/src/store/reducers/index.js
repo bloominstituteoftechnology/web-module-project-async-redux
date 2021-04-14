@@ -3,7 +3,7 @@ import { TEST_REDUCER } from '../actions/index'
 export const initialState = {
     isWorking: true,
     title: 'Hello I am Working!',
-    spells: []
+    pokemon: []
 }
 
 export const reducer = ( state = initialState, action) => {
