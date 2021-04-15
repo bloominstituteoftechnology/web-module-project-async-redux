@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchData } from "./store";
+import { fetchPokemon, fetchSinglePokemon } from "./store";
 
 import PokeGrid from "./components/PokeGrid";
 
 import logo from "./logo.svg";
 import "./App.css";
 
-function App({ pokemon, isLoading, error, fetchData }) {
-  useEffect(() => fetchData(), []);
+function App({ pokemon, isLoading, error, fetchPokemon, fetchSinglePokemon }) {
+  useEffect(() => {
+    fetchPokemon();
+    fetchSinglePokemon();
+  }, []);
 
   return (
     <div className="App">
@@ -38,4 +41,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchData })(App);
+export default connect(mapStateToProps, { fetchPokemon, fetchSinglePokemon })(
+  App
+);

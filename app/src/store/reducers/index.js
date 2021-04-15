@@ -3,6 +3,10 @@ import {
   FETCH_POKEMON_SUCCESS,
   FETCH_POKEMON_FAILURE,
   FETCH_POKEMON_COMPLETE,
+  FETCH_SINGLE_POKEMON_START,
+  FETCH_SINGLE_POKEMON_SUCCESS,
+  FETCH_SINGLE_POKEMON_FAILURE,
+  FETCH_SINGLE_POKEMON_COMPLETE,
 } from "../actions";
 
 const initialState = {
@@ -23,14 +27,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         pokemon: action.payload,
-        // isLoading: false,
       };
 
     case FETCH_POKEMON_FAILURE:
       return {
         ...state,
         error: action.payload,
-        // isLoading: false,
       };
 
     case FETCH_POKEMON_COMPLETE:
@@ -38,6 +40,9 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
       };
+
+    case FETCH_SINGLE_POKEMON_SUCCESS:
+      return { ...state, singlePokemon: action.payload };
 
     default:
       return state;
