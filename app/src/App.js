@@ -33,7 +33,6 @@ function App({ pokemon, isLoading, error, fetchData }) {
 const mapStateToProps = (state) => {
   return {
     ...state,
-    pokemon: state.pokemon,
     isLoading: state.isLoading,
     error: state.error,
   };

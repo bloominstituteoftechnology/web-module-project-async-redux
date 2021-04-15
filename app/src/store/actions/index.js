@@ -8,27 +8,33 @@ export const FETCH_POKEMON_COMPLETE = "FETCH_POKEMON_COMPLETE";
 
 ///////////////////// ACTION CREATOR /////////////////////
 
-// export const
+const actionCreator = (type, payload) => {
+  return {
+    type: type,
+    payload: payload,
+  };
+};
+
+///////////////////// ACTION THUNK /////////////////////
 
 export const fetchData = () => {
   return (dispatch) => {
     // Render loading
-    dispatch({ type: FETCH_POKEMON_START });
+    dispatch(actionCreator(FETCH_POKEMON_START));
 
     axios
       .get("https://pokeapi.co/api/v2/pokemon?limit=151")
-      .then((res) => {
-        return dispatch({
-          type: FETCH_POKEMON_SUCCESS,
-          payload: res.data.results,
-        });
-      })
-      .catch((err) => {
-        return dispatch({
-          type: FETCH_POKEMON_FAILURE,
-          payload: `${err.response.status} ${err.response.data}`,
-        });
-      })
-      .finally(() => dispatch({ type: FETCH_POKEMON_COMPLETE }));
+      .then((res) =>
+        dispatch(actionCreator(FETCH_POKEMON_SUCCESS, res.data.results))
+      )
+      .catch((err) =>
+        dispatch(
+          actionCreator(
+            FETCH_POKEMON_FAILURE,
+            `${err.response.status} ${err.response.data}`
+          )
+        )
+      )
+      .finally(() => dispatch(actionCreator(FETCH_POKEMON_COMPLETE)));
   };
 };
