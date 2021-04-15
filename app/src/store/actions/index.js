@@ -24,7 +24,7 @@ export const fetchData = () => {
           type: FETCH_POKEMON_FAILURE,
           payload: `${err.response.status} ${err.response.data}`,
         });
-      });
-    // .finally(dispatch({ type: FETCH_POKEMON_COMPLETE }));
+      })
+      .finally(() => dispatch({ type: FETCH_POKEMON_COMPLETE }));
   };
 };

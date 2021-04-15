@@ -15,7 +15,11 @@ function App({ pokemon, isLoading, error, fetchData }) {
       {isLoading ? (
         <div className="loading-animation">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>L O A D I N G</p>
+          <h3>L O A D I N G</h3>
+        </div>
+      ) : error ? (
+        <div className="error-box">
+          <h3>{error}</h3>
         </div>
       ) : null}
       <div className="poke-grid">
