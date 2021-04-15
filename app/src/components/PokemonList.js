@@ -1,9 +1,21 @@
+import { connect } from 'react-redux';
+
 const PokemonList = ( props ) => {
     return (
-        <>
-            <h2>Hey there!</h2>
-        </>
+        <div className='pokemon-wrapper'>
+            {props.pokemon.map(poke => {
+                return (
+                    <p key={poke.name}>{poke.name}</p>
+                )
+            })}
+        </div>
     )
 }
 
-export default PokemonList
+const mapStateToProps = (state) => {
+    return {
+        pokemon: state.pokemon
+    }
+}
+
+export default connect(mapStateToProps, {})(PokemonList);
