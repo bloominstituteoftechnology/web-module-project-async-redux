@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { fetchData } from '../store';
 
 const PokemonList = ( props ) => {
+
+    useEffect(() => {
+        props.fetchData();
+    }, [])
+
     return (
         <div className='pokemon-wrapper'>
             {props.pokemon.map(poke => {
@@ -18,4 +25,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(PokemonList);
+export default connect(mapStateToProps, {  fetchData })(PokemonList);

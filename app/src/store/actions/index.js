@@ -1,5 +1,10 @@
-export const TEST_REDUCER = 'TEST_REDUCER';
+import axios from 'axios';
 
-export const testReducer = () => {
-    return { type: TEST_REDUCER }
+export const fetchData = () => {
+    return (dispatch) => {
+        axios
+            .get('https://pokeapi.co/api/v2/pokemon/?limit=151')
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
 }
