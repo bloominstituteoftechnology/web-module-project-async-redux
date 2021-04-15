@@ -6,6 +6,10 @@ export const FETCH_POKEMON_SUCCESS = "FETCH_POKEMON_SUCCESS";
 export const FETCH_POKEMON_FAILURE = "FETCH_POKEMON_FAILURE";
 export const FETCH_POKEMON_COMPLETE = "FETCH_POKEMON_COMPLETE";
 
+///////////////////// ACTION CREATOR /////////////////////
+
+// export const
+
 export const fetchData = () => {
   return (dispatch) => {
     // Render loading

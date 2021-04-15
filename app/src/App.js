@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "./store";
 
+import PokeGrid from "./components/PokeGrid";
+
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -21,14 +23,9 @@ function App({ pokemon, isLoading, error, fetchData }) {
         <div className="error-box">
           <h3>{error}</h3>
         </div>
-      ) : null}
-      <div className="poke-grid">
-        {pokemon.map((singlePokemon) => (
-          <div className="poke-card">
-            <h4 key={singlePokemon.url}>{singlePokemon.name}</h4>
-          </div>
-        ))}
-      </div>
+      ) : (
+        <PokeGrid />
+      )}
     </div>
   );
 }
