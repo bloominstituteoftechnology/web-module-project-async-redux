@@ -1,24 +1,16 @@
-
+import { FETCH_POKEMON_SUCCESS } from '../actions';
 
 export const initialState = {
-    pokemon: [
-        {
-            name:"bulbasaur",
-            url:"https://pokeapi.co/api/v2/pokemon/1/"
-        },
-        {
-            name:"ivysaur",
-            url:"https://pokeapi.co/api/v2/pokemon/2/"
-        },
-        {
-            name:"venusaur",
-            url:"https://pokeapi.co/api/v2/pokemon/3/"
-        }
-    ]
+    pokemon: []
 }
 
 export const reducer = ( state = initialState, action) => {
     switch(action.type) {
+        case FETCH_POKEMON_SUCCESS:
+            return {
+                ...state,
+                pokemon: action.payload
+            }
         default:
             return state;
 
