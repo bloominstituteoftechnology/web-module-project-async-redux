@@ -37,7 +37,7 @@
 .poke-grid {
   width: 100%;
   display: grid;
-  grid-template: auto / repeat(10, 10%);
+  grid-template: auto / repeat(10, 1fr);
 }
 
 .poke-card {
