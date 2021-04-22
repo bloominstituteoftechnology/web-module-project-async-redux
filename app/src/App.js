@@ -11,7 +11,7 @@ function App({ pokemon, isLoading, error, fetchPokemon, fetchSinglePokemon }) {
   useEffect(() => {
     fetchPokemon();
     fetchSinglePokemon();
-  }, []);
+  }, [fetchPokemon, fetchSinglePokemon]);
 
   return (
     <div className="App">
