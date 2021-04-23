@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
+import { fetchPkmn } from "../store";
+import PokeCard from "./PokeCard";
 
-const PokeGrid = ({ pokemon }) => {
+const PokeGrid = ({ pokemon, fetchPkmn }) => {
   return (
     <div className="poke-grid">
-      {pokemon.map((singlePokemon) => (
-        <div className="poke-card">
-          <h4 key={singlePokemon.url}>{singlePokemon.name}</h4>
-        </div>
-      ))}
+      {pokemon.map((pkmn) => {
+        return <PokeCard key={pkmn.url} pkmn={pkmn} />;
+      })}
     </div>
   );
 };
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(PokeGrid);
+export default connect(mapStateToProps, { fetchPkmn })(PokeGrid);

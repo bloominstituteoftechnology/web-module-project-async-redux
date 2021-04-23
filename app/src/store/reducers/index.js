@@ -3,16 +3,17 @@ import {
   FETCH_POKEMON_SUCCESS,
   FETCH_POKEMON_FAILURE,
   FETCH_POKEMON_COMPLETE,
-  // FETCH_SINGLE_POKEMON_START,
-  FETCH_SINGLE_POKEMON_SUCCESS,
-  // FETCH_SINGLE_POKEMON_FAILURE,
-  // FETCH_SINGLE_POKEMON_COMPLETE,
+  FETCH_PKMN_START,
+  FETCH_PKMN_SUCCESS,
+  FETCH_PKMN_FAILURE,
+  FETCH_PKMN_COMPLETE,
 } from "../actions";
 
 const initialState = {
   isLoading: false,
   error: "",
   pokemon: [{ name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/" }],
+  pkmnList: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -41,8 +42,8 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
       };
 
-    case FETCH_SINGLE_POKEMON_SUCCESS:
-      return { ...state, singlePokemon: action.payload };
+    case FETCH_PKMN_SUCCESS:
+      return { ...state, pkmnList: [...state.pkmnList, action.payload] };
 
     default:
       return state;

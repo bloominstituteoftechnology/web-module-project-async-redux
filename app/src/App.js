@@ -1,22 +1,26 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchPokemon, fetchSinglePokemon } from "./store";
+import { fetchPokemon, fetchPkmn } from "./store";
 
 import PokeGrid from "./components/PokeGrid";
 
 import logo from "./logo.svg";
 import "./App.css";
 
-function App({ pokemon, isLoading, error, fetchPokemon, fetchSinglePokemon }) {
+function App({ pokemon, isLoading, error, fetchPokemon, fetchPkmn }) {
   useEffect(() => {
     fetchPokemon();
-    fetchSinglePokemon();
-  }, [fetchPokemon, fetchSinglePokemon]);
+    // .then(() => pokemon.forEach((pkmn) => fetchPkmn(pkmn.url)))
+    // .catch(() => {});
+  }, [fetchPokemon]);
 
   return (
     <div className="App">
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
+      <button onClick={() => fetchPkmn("https://pokeapi.co/api/v2/pokemon/1/")}>
+        Test
+      </button>
       {isLoading ? (
         <div className="loading-animation">
           <img src={logo} className="App-logo" alt="logo" />
@@ -38,9 +42,9 @@ const mapStateToProps = (state) => {
     ...state,
     isLoading: state.isLoading,
     error: state.error,
+    pokemon: state.pokemon,
+    pkmnList: state.pkmnList,
   };
 };
 
-export default connect(mapStateToProps, { fetchPokemon, fetchSinglePokemon })(
-  App
-);
+export default connect(mapStateToProps, { fetchPokemon, fetchPkmn })(App);

@@ -6,10 +6,10 @@ export const FETCH_POKEMON_SUCCESS = "FETCH_POKEMON_SUCCESS";
 export const FETCH_POKEMON_FAILURE = "FETCH_POKEMON_FAILURE";
 export const FETCH_POKEMON_COMPLETE = "FETCH_POKEMON_COMPLETE";
 
-export const FETCH_SINGLE_POKEMON_START = "FETCH_SINGLE_POKEMON_START";
-export const FETCH_SINGLE_POKEMON_SUCCESS = "FETCH_SINGLE_POKEMON_SUCCESS";
-export const FETCH_SINGLE_POKEMON_FAILURE = "FETCH_SINGLE_POKEMON_FAILURE";
-export const FETCH_SINGLE_POKEMON_COMPLETE = "FETCH_SINGLE_POKEMON_COMPLETE";
+export const FETCH_PKMN_START = "FETCH_PKMN_START";
+export const FETCH_PKMN_SUCCESS = "FETCH_PKMN_SUCCESS";
+export const FETCH_PKMN_FAILURE = "FETCH_PKMN_FAILURE";
+export const FETCH_PKMN_COMPLETE = "FETCH_PKMN_COMPLETE";
 
 ///////////////////// ACTION CREATOR /////////////////////
 
@@ -66,31 +66,33 @@ const fetchData = (
           )
         )
       )
-      .catch((err) =>
-        dispatch(
-          actionCreator(
-            failureAction,
-            `${err.response.status} ${err.response.data}`
-          )
-        )
-      )
+      .catch((err) => dispatch(actionCreator(failureAction, `${err.message}`)))
       .finally(() => dispatch(actionCreator(completeAction)));
   };
 };
 
+// Let reducer sort res
+
 export const fetchPokemon = fetchData(
-  "https://pokeapi.co/api/v2/pokemon?limit=151",
+  "https://pokeapi.co/api/v2/pokemon?limit=3",
   FETCH_POKEMON_START,
   FETCH_POKEMON_SUCCESS,
   FETCH_POKEMON_FAILURE,
   FETCH_POKEMON_COMPLETE,
-  "res.data.results"
+  1
 );
 
-export const fetchSinglePokemon = fetchData(
-  "https://pokeapi.co/api/v2/pokemon/10",
-  FETCH_SINGLE_POKEMON_START,
-  FETCH_SINGLE_POKEMON_SUCCESS,
-  FETCH_SINGLE_POKEMON_FAILURE,
-  FETCH_SINGLE_POKEMON_COMPLETE
-);
+export const fetchPkmn = (url) => {
+  return (dispatch) => {
+    // Render loading
+    dispatch(actionCreator(FETCH_PKMN_START));
+
+    axios
+      .get(url)
+      .then((res) => dispatch(actionCreator(FETCH_PKMN_SUCCESS, res.data)))
+      .catch((err) =>
+        dispatch(actionCreator(FETCH_PKMN_FAILURE, `${err.message}`))
+      )
+      .finally(() => dispatch(actionCreator(FETCH_PKMN_COMPLETE)));
+  };
+};
