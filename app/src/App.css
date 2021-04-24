@@ -7,7 +7,7 @@
 }
 
 .App-logo {
-  height: 20vmin;
+  max-height: 40vmin;
   pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
 .poke-grid {
   width: 100%;
   display: grid;
-  grid-template: auto / repeat(10, 1fr);
+  grid-template: auto / repeat(4, 1fr);
 }
 
 .poke-card {

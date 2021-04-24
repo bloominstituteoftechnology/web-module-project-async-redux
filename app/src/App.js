@@ -1,27 +1,34 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchPokemon, fetchSinglePokemon } from "./store";
+import { fetchUrlPokemon, fetchPkmn } from "./store";
 
 import PokeGrid from "./components/PokeGrid";
-
-import logo from "./logo.svg";
 import "./App.css";
+import LoadingSpinner from "./components/LoadingSpinner";
 
-function App({ pokemon, isLoading, error, fetchPokemon, fetchSinglePokemon }) {
-  useEffect(() => {
-    fetchPokemon();
-    fetchSinglePokemon();
-  }, [fetchPokemon, fetchSinglePokemon]);
+function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
+  //
+  useEffect(() => fetchUrlPokemon(3), [fetchUrlPokemon]);
+
+  useEffect(
+    () =>
+      urlPokemon.forEach((pkmn) => {
+        fetchPkmn(pkmn.url);
+      }),
+    [urlPokemon, fetchPkmn]
+  );
 
   return (
     <div className="App">
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
+      <button
+        onClick={() => fetchPkmn("https://pokeapi.co/api/v2/pokemon/13/")}
+      >
+        Test
+      </button>
       {isLoading ? (
-        <div className="loading-animation">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h3>L O A D I N G</h3>
-        </div>
+        <LoadingSpinner />
       ) : error ? (
         <div className="error-box">
           <h3>{error}</h3>
@@ -38,9 +45,9 @@ const mapStateToProps = (state) => {
     ...state,
     isLoading: state.isLoading,
     error: state.error,
+    urlPokemon: state.urlPokemon,
+    pokemonList: state.pokemonList,
   };
 };
 
-export default connect(mapStateToProps, { fetchPokemon, fetchSinglePokemon })(
-  App
-);
+export default connect(mapStateToProps, { fetchUrlPokemon, fetchPkmn })(App);

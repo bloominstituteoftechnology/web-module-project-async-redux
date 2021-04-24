@@ -1,48 +1,81 @@
 import {
-  FETCH_POKEMON_START,
-  FETCH_POKEMON_SUCCESS,
-  FETCH_POKEMON_FAILURE,
-  FETCH_POKEMON_COMPLETE,
-  // FETCH_SINGLE_POKEMON_START,
-  FETCH_SINGLE_POKEMON_SUCCESS,
-  // FETCH_SINGLE_POKEMON_FAILURE,
-  // FETCH_SINGLE_POKEMON_COMPLETE,
+  FETCH_URL_POKEMON_START,
+  FETCH_URL_POKEMON_SUCCESS,
+  FETCH_URL_POKEMON_FAILURE,
+  FETCH_URL_POKEMON_COMPLETE,
+  // FETCH_PKMN_START,
+  FETCH_PKMN_SUCCESS,
+  // FETCH_PKMN_FAILURE,
+  // FETCH_PKMN_COMPLETE,
 } from "../actions";
 
 const initialState = {
   isLoading: false,
   error: "",
-  pokemon: [{ name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/" }],
+  urlPokemon: [],
+  pokemonList: [],
+  pagination: {
+    pokemonCount: "",
+    nextCall: null,
+    prevCall: null,
+  },
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POKEMON_START:
+    case FETCH_URL_POKEMON_START:
       return {
         ...state,
         isLoading: true,
       };
 
-    case FETCH_POKEMON_SUCCESS:
+    case FETCH_URL_POKEMON_SUCCESS:
       return {
         ...state,
-        pokemon: action.payload,
+        urlPokemon: action.payload.results,
       };
 
-    case FETCH_POKEMON_FAILURE:
+    case FETCH_URL_POKEMON_FAILURE:
       return {
         ...state,
         error: action.payload,
       };
 
-    case FETCH_POKEMON_COMPLETE:
+    case FETCH_URL_POKEMON_COMPLETE:
       return {
         ...state,
         isLoading: false,
       };
 
-    case FETCH_SINGLE_POKEMON_SUCCESS:
-      return { ...state, singlePokemon: action.payload };
+    // case FETCH_PKMN_START:
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //   };
+
+    case FETCH_PKMN_SUCCESS:
+      if (!state.pokemonList.find((pkmn) => pkmn.id === action.payload.id)) {
+        return {
+          ...state,
+          pokemonList: [...state.pokemonList, action.payload].sort(
+            (a, b) => a.id - b.id
+          ),
+        };
+      } else {
+        return state;
+      }
+
+    // case FETCH_PKMN_FAILURE:
+    //   return {
+    //     ...state,
+    //     error: action.payload,
+    //   };
+
+    // case FETCH_PKMN_COMPLETE:
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //   };
 
     default:
       return state;
