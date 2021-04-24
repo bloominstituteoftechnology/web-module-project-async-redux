@@ -3,11 +3,6 @@ import { connect } from "react-redux";
 import { fetchPkmn } from "../store";
 
 const PokeCard = ({ pkmn, fetchPkmn }) => {
-  // useEffect(() => {
-  //   console.log("effecting", pkmn.url);
-  //   fetchPkmn(pkmn.url);
-  // }, [pkmn, fetchPkmn]);
-
   return (
     <div className="poke-card">
       <h4>{pkmn.name}</h4>
@@ -19,7 +14,7 @@ const PokeCard = ({ pkmn, fetchPkmn }) => {
 const mapStateToProps = (state) => {
   return {
     ...state,
-    pokemonURLs: state.pokemonURLs,
+    urlPokemon: state.urlPokemon,
   };
 };
 

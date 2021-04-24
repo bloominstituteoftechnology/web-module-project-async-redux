@@ -1,46 +1,52 @@
 import {
-  FETCH_POKEMON_URLS_START,
-  FETCH_POKEMON_URLS_SUCCESS,
-  FETCH_POKEMON_URLS_FAILURE,
-  FETCH_POKEMON_URLS_COMPLETE,
-  FETCH_PKMN_START,
+  FETCH_URL_POKEMON_START,
+  FETCH_URL_POKEMON_SUCCESS,
+  FETCH_URL_POKEMON_FAILURE,
+  FETCH_URL_POKEMON_COMPLETE,
+  // FETCH_PKMN_START,
   FETCH_PKMN_SUCCESS,
-  FETCH_PKMN_FAILURE,
-  FETCH_PKMN_COMPLETE,
+  // FETCH_PKMN_FAILURE,
+  // FETCH_PKMN_COMPLETE,
 } from "../actions";
 
 const initialState = {
   isLoading: false,
   error: "",
-  pokemonURLs: [],
+  urlPokemon: [],
   pkmnList: [],
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POKEMON_URLS_START:
+    case FETCH_URL_POKEMON_START:
       return {
         ...state,
         isLoading: true,
       };
 
-    case FETCH_POKEMON_URLS_SUCCESS:
+    case FETCH_URL_POKEMON_SUCCESS:
       return {
         ...state,
-        pokemonURLs: action.payload,
+        urlPokemon: action.payload,
       };
 
-    case FETCH_POKEMON_URLS_FAILURE:
+    case FETCH_URL_POKEMON_FAILURE:
       return {
         ...state,
         error: action.payload,
       };
 
-    case FETCH_POKEMON_URLS_COMPLETE:
+    case FETCH_URL_POKEMON_COMPLETE:
       return {
         ...state,
         isLoading: false,
       };
+
+    // case FETCH_PKMN_START:
+    //   return {
+    //     ...state,
+    //     isLoading: true,
+    //   };
 
     case FETCH_PKMN_SUCCESS:
       if (!state.pkmnList.find((pkmn) => pkmn.id === action.payload.id)) {
@@ -48,6 +54,18 @@ export const reducer = (state = initialState, action) => {
       } else {
         return state;
       }
+
+    // case FETCH_PKMN_FAILURE:
+    //   return {
+    //     ...state,
+    //     error: action.payload,
+    //   };
+
+    // case FETCH_PKMN_COMPLETE:
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //   };
 
     default:
       return state;
