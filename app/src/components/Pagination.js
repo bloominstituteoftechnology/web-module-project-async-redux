@@ -6,9 +6,17 @@ import { fetchUrlPokemon } from "../store";
 const Pagination = ({ pagination, onDisplayCount, fetchUrlPokemon }) => {
   return (
     <div className="pagination">
-      {pagination.prevCall ? <button>Prev</button> : null}
+      {pagination.prevCall ? (
+        <button
+          onClick={() => {
+            fetchUrlPokemon(pagination.prevCall);
+          }}
+        >
+          Prev
+        </button>
+      ) : null}
       <p>
-        Displaying {onDisplayCount} of {pagination.pokemonCount} Pokemon
+        Displaying {onDisplayCount} of {pagination.totPokemonCount} Pokemon
       </p>
       {pagination.nextCall ? (
         <button

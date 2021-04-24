@@ -15,10 +15,34 @@ const initialState = {
   urlPokemon: [],
   pokemonList: [],
   pagination: {
-    pokemonCount: "",
-    nextCall: null,
-    prevCall: null,
+    totPokemonCount: 0,
+    nextCall: 0,
+    prevCall: 0,
   },
+};
+
+// How many now
+// How many prev
+// How many next
+
+const parseCall = (totCount, count, prev, next) => {
+  let prevCount;
+  let nextCount;
+  const url = prev ? prev : next;
+  const splitUrl = url.split("=");
+  if (prev) {
+    prevCount = totCount - parseInt(splitUrl)[2] + parseInt(splitUrl)[1];
+    nextCount = totCount - (prevCount + parseInt(splitUrl[2]));
+  } else {
+    nextCount = totCount - parseInt(splitUrl[2]);
+    prevCount = 0;
+  }
+
+  return {
+    callCount: count,
+    prevCount: prevCount,
+    nextCount: nextCount,
+  };
 };
 
 export const reducer = (state = initialState, action) => {
@@ -31,14 +55,16 @@ export const reducer = (state = initialState, action) => {
       };
 
     case FETCH_URL_POKEMON_SUCCESS:
+      const { results, count, next, previous } = payload;
       return {
         ...state,
-        urlPokemon: payload.results,
+        urlPokemon: results,
         pagination: {
           ...state.pagination,
-          pokemonCount: payload.count,
-          nextCall: payload.next,
-          prevCall: payload.previous,
+          totPokemonCount: count,
+          nextCall: next,
+          prevCall: previous,
+          currentCall: parseCall(count, results.length, previous, next),
         },
       };
 

@@ -20,7 +20,7 @@ const PokeCard = ({ pkmn }) => {
       />
       <LoadingSpinner hidden={!isLoading} />
       <h4>{pkmn.name}</h4>
-      <button onClick={() => {}}>Get data</button>
+      <button onClick={() => {}}>Do Nothing</button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import Pagination from "./components/Pagination";
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
   useEffect(
-    () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?limit=3`),
+    () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=3`),
     [fetchUrlPokemon]
   );
 
@@ -28,7 +28,13 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
       <button
-        onClick={() => fetchPkmn("https://pokeapi.co/api/v2/pokemon/13/")}
+        onClick={() =>
+          console.log(
+            parseInt(
+              "https://pokeapi.co/api/v2/pokemon?offset=6&limit=3".split("=")[1]
+            )
+          )
+        }
       >
         Test
       </button>
