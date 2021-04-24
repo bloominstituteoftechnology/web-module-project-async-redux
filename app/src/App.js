@@ -44,14 +44,30 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapRe = (...props) => (state) => {
+  const map = {
     ...state,
-    isLoading: state.isLoading,
-    error: state.error,
-    urlPokemon: state.urlPokemon,
-    pokemonList: state.pokemonList,
   };
+  props.forEach((prop) => (map[prop] = state[prop]));
+
+  return map;
 };
+
+const mapStateToProps = mapRe(
+  "isLoading",
+  "error",
+  "urlPokemon",
+  "pokemonList"
+);
+
+// const mapStateToProps = (state) => {
+//   return {
+//     ...state,
+//     isLoading: state.isLoading,
+//     error: state.error,
+//     urlPokemon: state.urlPokemon,
+//     pokemonList: state.pokemonList,
+//   };
+// };
 
 export default connect(mapStateToProps, { fetchUrlPokemon, fetchPkmn })(App);
