@@ -22,6 +22,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+  const payload = action.payload;
   switch (action.type) {
     case FETCH_URL_POKEMON_START:
       return {
@@ -32,13 +33,18 @@ export const reducer = (state = initialState, action) => {
     case FETCH_URL_POKEMON_SUCCESS:
       return {
         ...state,
-        urlPokemon: action.payload.results,
+        urlPokemon: payload.results,
+        // pagination: {
+        //   ...state.pagination,
+        //   pokemonCount: payload.count,
+        //   nextCall:
+        // }
       };
 
     case FETCH_URL_POKEMON_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        error: payload,
       };
 
     case FETCH_URL_POKEMON_COMPLETE:
@@ -54,10 +60,10 @@ export const reducer = (state = initialState, action) => {
     //   };
 
     case FETCH_PKMN_SUCCESS:
-      if (!state.pokemonList.find((pkmn) => pkmn.id === action.payload.id)) {
+      if (!state.pokemonList.find((pkmn) => pkmn.id === payload.id)) {
         return {
           ...state,
-          pokemonList: [...state.pokemonList, action.payload].sort(
+          pokemonList: [...state.pokemonList, payload].sort(
             (a, b) => a.id - b.id
           ),
         };
@@ -68,7 +74,7 @@ export const reducer = (state = initialState, action) => {
     // case FETCH_PKMN_FAILURE:
     //   return {
     //     ...state,
-    //     error: action.payload,
+    //     error: payload,
     //   };
 
     // case FETCH_PKMN_COMPLETE:
