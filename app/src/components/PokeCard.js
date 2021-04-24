@@ -5,8 +5,8 @@ import { fetchPkmn } from "../store";
 const PokeCard = ({ pkmn, fetchPkmn }) => {
   // useEffect(() => {
   //   console.log("effecting", pkmn.url);
-  //   // fetchPkmn(pkmn.url);
-  // }, []);
+  //   fetchPkmn(pkmn.url);
+  // }, [pkmn, fetchPkmn]);
 
   return (
     <div className="poke-card">
@@ -19,7 +19,7 @@ const PokeCard = ({ pkmn, fetchPkmn }) => {
 const mapStateToProps = (state) => {
   return {
     ...state,
-    pokemon: state.pokemon,
+    pokemonURLs: state.pokemonURLs,
   };
 };
 

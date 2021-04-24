@@ -1,8 +1,8 @@
 import {
-  FETCH_POKEMON_START,
-  FETCH_POKEMON_SUCCESS,
-  FETCH_POKEMON_FAILURE,
-  FETCH_POKEMON_COMPLETE,
+  FETCH_POKEMON_URLS_START,
+  FETCH_POKEMON_URLS_SUCCESS,
+  FETCH_POKEMON_URLS_FAILURE,
+  FETCH_POKEMON_URLS_COMPLETE,
   FETCH_PKMN_START,
   FETCH_PKMN_SUCCESS,
   FETCH_PKMN_FAILURE,
@@ -12,38 +12,42 @@ import {
 const initialState = {
   isLoading: false,
   error: "",
-  pokemon: [{ name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/" }],
+  pokemonURLs: [],
   pkmnList: [],
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POKEMON_START:
+    case FETCH_POKEMON_URLS_START:
       return {
         ...state,
         isLoading: true,
       };
 
-    case FETCH_POKEMON_SUCCESS:
+    case FETCH_POKEMON_URLS_SUCCESS:
       return {
         ...state,
-        pokemon: action.payload,
+        pokemonURLs: action.payload,
       };
 
-    case FETCH_POKEMON_FAILURE:
+    case FETCH_POKEMON_URLS_FAILURE:
       return {
         ...state,
         error: action.payload,
       };
 
-    case FETCH_POKEMON_COMPLETE:
+    case FETCH_POKEMON_URLS_COMPLETE:
       return {
         ...state,
         isLoading: false,
       };
 
     case FETCH_PKMN_SUCCESS:
-      return { ...state, pkmnList: [...state.pkmnList, action.payload] };
+      if (!state.pkmnList.find((pkmn) => pkmn.id === action.payload.id)) {
+        return { ...state, pkmnList: [...state.pkmnList, action.payload] };
+      } else {
+        return state;
+      }
 
     default:
       return state;

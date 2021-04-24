@@ -1,10 +1,10 @@
 import axios from "axios";
 
 ///////////////////// ACTION TYPES /////////////////////
-export const FETCH_POKEMON_START = "FETCH_POKEMON_START";
-export const FETCH_POKEMON_SUCCESS = "FETCH_POKEMON_SUCCESS";
-export const FETCH_POKEMON_FAILURE = "FETCH_POKEMON_FAILURE";
-export const FETCH_POKEMON_COMPLETE = "FETCH_POKEMON_COMPLETE";
+export const FETCH_POKEMON_URLS_START = "FETCH_POKEMON_URLS_START";
+export const FETCH_POKEMON_URLS_SUCCESS = "FETCH_POKEMON_URLS_SUCCESS";
+export const FETCH_POKEMON_URLS_FAILURE = "FETCH_POKEMON_URLS_FAILURE";
+export const FETCH_POKEMON_URLS_COMPLETE = "FETCH_POKEMON_URLS_COMPLETE";
 
 export const FETCH_PKMN_START = "FETCH_PKMN_START";
 export const FETCH_PKMN_SUCCESS = "FETCH_PKMN_SUCCESS";
@@ -25,39 +25,39 @@ const actionCreator = (type, payload) => {
 // export const fetchData = () => {
 //   return (dispatch) => {
 //     // Render loading
-//     dispatch(actionCreator(FETCH_POKEMON_START));
+//     dispatch(actionCreator(FETCH_POKEMON_URLS_START));
 
 //     axios
 //       .get("https://pokeapi.co/api/v2/pokemon?limit=151")
 //       .then((res) =>
-//         dispatch(actionCreator(FETCH_POKEMON_SUCCESS, res.data.results))
+//         dispatch(actionCreator(FETCH_POKEMON_URLS_SUCCESS, res.data.results))
 //       )
 //       .catch((err) =>
 //         dispatch(
 //           actionCreator(
-//             FETCH_POKEMON_FAILURE,
+//             FETCH_POKEMON_URLS_FAILURE,
 //             `${err.response.status} ${err.response.data}`
 //           )
 //         )
 //       )
-//       .finally(() => dispatch(actionCreator(FETCH_POKEMON_COMPLETE)));
+//       .finally(() => dispatch(actionCreator(FETCH_POKEMON_URLS_COMPLETE)));
 //   };
 // };
 
-export const fetchPokemon = () => {
+export const fetchPokemonURLs = () => {
   return (dispatch) => {
     // Render loading
-    dispatch(actionCreator(FETCH_POKEMON_START));
+    dispatch(actionCreator(FETCH_POKEMON_URLS_START));
 
     axios
       .get("https://pokeapi.co/api/v2/pokemon?limit=3")
       .then((res) =>
-        dispatch(actionCreator(FETCH_POKEMON_SUCCESS, res.data.results))
+        dispatch(actionCreator(FETCH_POKEMON_URLS_SUCCESS, res.data.results))
       )
       .catch((err) =>
-        dispatch(actionCreator(FETCH_POKEMON_FAILURE, `${err.message}`))
+        dispatch(actionCreator(FETCH_POKEMON_URLS_FAILURE, `${err.message}`))
       )
-      .finally(() => dispatch(actionCreator(FETCH_POKEMON_COMPLETE)));
+      .finally(() => dispatch(actionCreator(FETCH_POKEMON_URLS_COMPLETE)));
   };
 };
 

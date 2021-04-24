@@ -2,10 +2,10 @@ import { connect } from "react-redux";
 import { fetchPkmn } from "../store";
 import PokeCard from "./PokeCard";
 
-const PokeGrid = ({ pokemon, fetchPkmn }) => {
+const PokeGrid = ({ pokemonURLs, fetchPkmn }) => {
   return (
     <div className="poke-grid">
-      {pokemon.map((pkmn) => {
+      {pokemonURLs.map((pkmn) => {
         return <PokeCard key={pkmn.url} pkmn={pkmn} />;
       })}
     </div>
@@ -15,7 +15,7 @@ const PokeGrid = ({ pokemon, fetchPkmn }) => {
 const mapStateToProps = (state) => {
   return {
     ...state,
-    pokemon: state.pokemon,
+    pokemonURLs: state.pokemonURLs,
   };
 };
 

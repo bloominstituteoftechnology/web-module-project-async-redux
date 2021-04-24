@@ -1,2 +1,2 @@
 export { reducer } from "./reducers";
-export { fetchPokemon, fetchPkmn } from "./actions";
+export { fetchPokemonURLs, fetchPkmn } from "./actions";
