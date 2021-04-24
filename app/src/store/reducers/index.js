@@ -34,11 +34,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         urlPokemon: payload.results,
-        // pagination: {
-        //   ...state.pagination,
-        //   pokemonCount: payload.count,
-        //   nextCall:
-        // }
+        pagination: {
+          ...state.pagination,
+          pokemonCount: payload.count,
+          nextCall: payload.next,
+          prevCall: payload.previous,
+        },
       };
 
     case FETCH_URL_POKEMON_FAILURE:

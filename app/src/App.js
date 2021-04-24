@@ -5,6 +5,7 @@ import { fetchUrlPokemon, fetchPkmn } from "./store";
 import PokeGrid from "./components/PokeGrid";
 import "./App.css";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Pagination from "./components/Pagination";
 
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   //
@@ -34,7 +35,10 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
           <h3>{error}</h3>
         </div>
       ) : (
-        <PokeGrid />
+        <>
+          <PokeGrid />
+          <Pagination onDisplayCount={urlPokemon.length} />
+        </>
       )}
     </div>
   );
