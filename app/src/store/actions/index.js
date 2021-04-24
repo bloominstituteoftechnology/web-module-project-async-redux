@@ -38,14 +38,14 @@ const fetchData = (dispatch, start, success, failure, complete, url) => {
     .finally(() => dispatch(actionCreator(complete)));
 };
 
-export const fetchUrlPokemon = (limit) => (dispatch) =>
+export const fetchUrlPokemon = (url) => (dispatch) =>
   fetchData(
     dispatch,
     FETCH_URL_POKEMON_START,
     FETCH_URL_POKEMON_SUCCESS,
     FETCH_URL_POKEMON_FAILURE,
     FETCH_URL_POKEMON_COMPLETE,
-    `https://pokeapi.co/api/v2/pokemon?limit=${limit}`
+    url
   );
 
 export const fetchPkmn = (url) => (dispatch) =>

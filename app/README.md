@@ -1,4 +1,3 @@
-- refractor
 - css grid
 - individual pkmn error handling
 - pagination

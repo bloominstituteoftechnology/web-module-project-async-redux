@@ -10,7 +10,10 @@ import Pagination from "./components/Pagination";
 
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
-  useEffect(() => fetchUrlPokemon(3), [fetchUrlPokemon]);
+  useEffect(
+    () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?limit=3`),
+    [fetchUrlPokemon]
+  );
 
   useEffect(
     () =>
