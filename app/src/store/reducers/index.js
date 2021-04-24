@@ -14,6 +14,11 @@ const initialState = {
   error: "",
   urlPokemon: [],
   pokemonList: [],
+  pagination: {
+    pokemonCount: "",
+    nextCall: null,
+    prevCall: null,
+  },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -27,7 +32,7 @@ export const reducer = (state = initialState, action) => {
     case FETCH_URL_POKEMON_SUCCESS:
       return {
         ...state,
-        urlPokemon: action.payload,
+        urlPokemon: action.payload.results,
       };
 
     case FETCH_URL_POKEMON_FAILURE:

@@ -1,4 +1,6 @@
-- create api hook
+- refractor
+- css grid
+- individual pkmn error handling
 - pagination
 
 # Getting Started with Create React App

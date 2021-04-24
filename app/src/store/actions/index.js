@@ -22,56 +22,38 @@ const actionCreator = (type, payload) => {
 
 ///////////////////// ACTION THUNKS /////////////////////
 
-// export const fetchData = () => {
-//   return (dispatch) => {
-//     // Render loading
-//     dispatch(actionCreator(FETCH_URL_POKEMON_START));
+const fetchData = (dispatch, start, success, failure, complete, url) => {
+  // set isLoading
+  dispatch(actionCreator(start, url));
 
-//     axios
-//       .get("https://pokeapi.co/api/v2/pokemon?limit=151")
-//       .then((res) =>
-//         dispatch(actionCreator(FETCH_URL_POKEMON_SUCCESS, res.data.results))
-//       )
-//       .catch((err) =>
-//         dispatch(
-//           actionCreator(
-//             FETCH_URL_POKEMON_FAILURE,
-//             `${err.response.status} ${err.response.data}`
-//           )
-//         )
-//       )
-//       .finally(() => dispatch(actionCreator(FETCH_URL_POKEMON_COMPLETE)));
-//   };
-// };
-
-export const fetchUrlPokemon = (limit) => {
-  return (dispatch) => {
-    // Render loading
-    dispatch(actionCreator(FETCH_URL_POKEMON_START));
-
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
-      .then((res) =>
-        dispatch(actionCreator(FETCH_URL_POKEMON_SUCCESS, res.data.results))
-      )
-      .catch((err) =>
-        dispatch(actionCreator(FETCH_URL_POKEMON_FAILURE, `${err.message}`))
-      )
-      .finally(() => dispatch(actionCreator(FETCH_URL_POKEMON_COMPLETE)));
-  };
+  axios
+    .get(url)
+    .then((res) => {
+      ///////////////////// /////////////////////
+      console.log(res.data);
+      /////////////////////  /////////////////////
+      dispatch(actionCreator(success, res.data));
+    })
+    .catch((err) => dispatch(actionCreator(failure, `${err.message}`)))
+    .finally(() => dispatch(actionCreator(complete)));
 };
 
-export const fetchPkmn = (url) => {
-  return (dispatch) => {
-    // Render loading
-    dispatch(actionCreator(FETCH_PKMN_START, url));
+export const fetchUrlPokemon = (limit) => (dispatch) =>
+  fetchData(
+    dispatch,
+    FETCH_URL_POKEMON_START,
+    FETCH_URL_POKEMON_SUCCESS,
+    FETCH_URL_POKEMON_FAILURE,
+    FETCH_URL_POKEMON_COMPLETE,
+    `https://pokeapi.co/api/v2/pokemon?limit=${limit}`
+  );
 
-    axios
-      .get(url)
-      .then((res) => dispatch(actionCreator(FETCH_PKMN_SUCCESS, res.data)))
-      .catch((err) =>
-        dispatch(actionCreator(FETCH_PKMN_FAILURE, `${err.message}`))
-      )
-      .finally(() => dispatch(actionCreator(FETCH_PKMN_COMPLETE)));
-  };
-};
+export const fetchPkmn = (url) => (dispatch) =>
+  fetchData(
+    dispatch,
+    FETCH_PKMN_START,
+    FETCH_PKMN_SUCCESS,
+    FETCH_PKMN_FAILURE,
+    FETCH_PKMN_COMPLETE,
+    url
+  );
