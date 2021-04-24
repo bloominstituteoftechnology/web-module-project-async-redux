@@ -1,11 +1,14 @@
 import React from "react";
 import logo from "../logo.svg";
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ hidden }) => {
   return (
-    <div className="loading-animation">
+    <div
+      className="loading-animation"
+      style={hidden ? { display: "none" } : {}}
+    >
       <img src={logo} className="App-logo" alt="logo" />
-      <h3>L O A D I N G</h3>
+      <h4>L O A D I N G</h4>
     </div>
   );
 };

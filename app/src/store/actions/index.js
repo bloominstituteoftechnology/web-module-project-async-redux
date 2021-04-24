@@ -64,7 +64,7 @@ export const fetchUrlPokemon = () => {
 export const fetchPkmn = (url) => {
   return (dispatch) => {
     // Render loading
-    dispatch(actionCreator(FETCH_PKMN_START));
+    dispatch(actionCreator(FETCH_PKMN_START, url));
 
     axios
       .get(url)
@@ -75,3 +75,5 @@ export const fetchPkmn = (url) => {
       .finally(() => dispatch(actionCreator(FETCH_PKMN_COMPLETE)));
   };
 };
+
+export const test = (dispatch) => actionCreator("TEST");

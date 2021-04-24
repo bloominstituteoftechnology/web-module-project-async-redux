@@ -13,7 +13,7 @@ const initialState = {
   isLoading: false,
   error: "",
   urlPokemon: [],
-  pkmnList: [],
+  pokemonList: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -49,8 +49,13 @@ export const reducer = (state = initialState, action) => {
     //   };
 
     case FETCH_PKMN_SUCCESS:
-      if (!state.pkmnList.find((pkmn) => pkmn.id === action.payload.id)) {
-        return { ...state, pkmnList: [...state.pkmnList, action.payload] };
+      if (!state.pokemonList.find((pkmn) => pkmn.id === action.payload.id)) {
+        return {
+          ...state,
+          pokemonList: [...state.pokemonList, action.payload].sort(
+            (a, b) => a.id - b.id
+          ),
+        };
       } else {
         return state;
       }
