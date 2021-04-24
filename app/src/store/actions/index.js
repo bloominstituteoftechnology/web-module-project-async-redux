@@ -44,13 +44,13 @@ const actionCreator = (type, payload) => {
 //   };
 // };
 
-export const fetchUrlPokemon = () => {
+export const fetchUrlPokemon = (limit) => {
   return (dispatch) => {
     // Render loading
     dispatch(actionCreator(FETCH_URL_POKEMON_START));
 
     axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=3")
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
       .then((res) =>
         dispatch(actionCreator(FETCH_URL_POKEMON_SUCCESS, res.data.results))
       )
@@ -75,5 +75,3 @@ export const fetchPkmn = (url) => {
       .finally(() => dispatch(actionCreator(FETCH_PKMN_COMPLETE)));
   };
 };
-
-export const test = (dispatch) => actionCreator("TEST");

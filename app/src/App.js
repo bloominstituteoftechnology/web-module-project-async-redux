@@ -10,7 +10,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import { test } from "./store/actions";
 
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
-  useEffect(() => fetchUrlPokemon(), [fetchUrlPokemon]);
+  useEffect(() => fetchUrlPokemon(151), [fetchUrlPokemon]);
 
   useEffect(
     () =>
