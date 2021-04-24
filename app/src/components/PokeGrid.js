@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { mapStateToProps } from "../helpers/mapStateToProps";
 import PokeCard from "./PokeCard";
 
 const PokeGrid = ({ pokemonList }) => {
@@ -11,11 +12,6 @@ const PokeGrid = ({ pokemonList }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    pokemonList: state.pokemonList,
-  };
-};
+const mapState = mapStateToProps("pokemonList");
 
-export default connect(mapStateToProps, {})(PokeGrid);
+export default connect(mapState, {})(PokeGrid);

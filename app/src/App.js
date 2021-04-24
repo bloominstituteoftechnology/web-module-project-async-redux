@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUrlPokemon, fetchPkmn } from "./store";
-
+import { mapStateToProps } from "./helpers/mapStateToProps";
+//\/\/\/\/\/\/\/\/\/\ Components /\/\/\/\/\/\/\/\/\/\\
 import PokeGrid from "./components/PokeGrid";
 import "./App.css";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Pagination from "./components/Pagination";
 
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
-  //
+  //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
   useEffect(() => fetchUrlPokemon(3), [fetchUrlPokemon]);
 
   useEffect(
@@ -44,30 +45,11 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   );
 }
 
-const mapRe = (...props) => (state) => {
-  const map = {
-    ...state,
-  };
-  props.forEach((prop) => (map[prop] = state[prop]));
-
-  return map;
-};
-
-const mapStateToProps = mapRe(
+const mapState = mapStateToProps(
   "isLoading",
   "error",
   "urlPokemon",
   "pokemonList"
 );
 
-// const mapStateToProps = (state) => {
-//   return {
-//     ...state,
-//     isLoading: state.isLoading,
-//     error: state.error,
-//     urlPokemon: state.urlPokemon,
-//     pokemonList: state.pokemonList,
-//   };
-// };
-
-export default connect(mapStateToProps, { fetchUrlPokemon, fetchPkmn })(App);
+export default connect(mapState, { fetchUrlPokemon, fetchPkmn })(App);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-///////////////////// ACTION TYPES /////////////////////
+//\/\/\/\/\/\/\/\/\/\ ACTION TYPES /\/\/\/\/\/\/\/\/\/\\
 export const FETCH_URL_POKEMON_START = "FETCH_URL_POKEMON_START";
 export const FETCH_URL_POKEMON_SUCCESS = "FETCH_URL_POKEMON_SUCCESS";
 export const FETCH_URL_POKEMON_FAILURE = "FETCH_URL_POKEMON_FAILURE";
@@ -11,7 +11,7 @@ export const FETCH_PKMN_SUCCESS = "FETCH_PKMN_SUCCESS";
 export const FETCH_PKMN_FAILURE = "FETCH_PKMN_FAILURE";
 export const FETCH_PKMN_COMPLETE = "FETCH_PKMN_COMPLETE";
 
-///////////////////// ACTION CREATOR /////////////////////
+//\/\/\/\/\/\/\/\/\/\ ACTION CREATOR /\/\/\/\/\/\/\/\/\/\\
 
 const actionCreator = (type, payload) => {
   return {
@@ -20,7 +20,7 @@ const actionCreator = (type, payload) => {
   };
 };
 
-///////////////////// ACTION THUNKS /////////////////////
+//\/\/\/\/\/\/\/\/\/\ ACTION THUNKS /\/\/\/\/\/\/\/\/\/\\
 
 const fetchData = (dispatch, start, success, failure, complete, url) => {
   // set isLoading
@@ -29,9 +29,9 @@ const fetchData = (dispatch, start, success, failure, complete, url) => {
   axios
     .get(url)
     .then((res) => {
-      ///////////////////// /////////////////////
+      //\/\/\/\/\/\/\/\/\/\ /\/\/\/\/\/\/\/\/\/\\
       console.log(res.data);
-      /////////////////////  /////////////////////
+      //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
       dispatch(actionCreator(success, res.data));
     })
     .catch((err) => dispatch(actionCreator(failure, `${err.message}`)))

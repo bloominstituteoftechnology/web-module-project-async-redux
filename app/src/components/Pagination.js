@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { mapStateToProps } from "../helpers/mapStateToProps";
 
 const Pagination = ({ pagination, onDisplayCount }) => {
   return (
@@ -13,11 +14,6 @@ const Pagination = ({ pagination, onDisplayCount }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    pagination: state.pagination,
-  };
-};
+const mapState = mapStateToProps("pagination");
 
-export default connect(mapStateToProps, {})(Pagination);
+export default connect(mapState, {})(Pagination);
