@@ -44,43 +44,22 @@ const actionCreator = (type, payload) => {
 //   };
 // };
 
-const fetchData = (
-  url,
-  startAction,
-  successAction,
-  failureAction,
-  completeAction,
-  formOfResponse
-) => () => {
+export const fetchPokemon = () => {
   return (dispatch) => {
     // Render loading
-    dispatch(actionCreator(startAction));
+    dispatch(actionCreator(FETCH_POKEMON_START));
 
     axios
-      .get(url)
+      .get("https://pokeapi.co/api/v2/pokemon?limit=3")
       .then((res) =>
-        dispatch(
-          actionCreator(
-            successAction,
-            formOfResponse ? res.data.results : res.data
-          )
-        )
+        dispatch(actionCreator(FETCH_POKEMON_SUCCESS, res.data.results))
       )
-      .catch((err) => dispatch(actionCreator(failureAction, `${err.message}`)))
-      .finally(() => dispatch(actionCreator(completeAction)));
+      .catch((err) =>
+        dispatch(actionCreator(FETCH_POKEMON_FAILURE, `${err.message}`))
+      )
+      .finally(() => dispatch(actionCreator(FETCH_POKEMON_COMPLETE)));
   };
 };
-
-// Let reducer sort res
-
-export const fetchPokemon = fetchData(
-  "https://pokeapi.co/api/v2/pokemon?limit=3",
-  FETCH_POKEMON_START,
-  FETCH_POKEMON_SUCCESS,
-  FETCH_POKEMON_FAILURE,
-  FETCH_POKEMON_COMPLETE,
-  1
-);
 
 export const fetchPkmn = (url) => {
   return (dispatch) => {
