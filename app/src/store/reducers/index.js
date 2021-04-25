@@ -26,10 +26,6 @@ const initialState = {
   },
 };
 
-// How many now
-// How many prev
-// How many next
-
 const parseCall = (totCount, count, prev, next) => {
   let prevCount;
   let nextCount;

@@ -6,7 +6,6 @@ import { mapStateToProps } from "./helpers/mapStateToProps";
 import PokeGrid from "./components/PokeGrid";
 import "./App.css";
 import LoadingSpinner from "./components/LoadingSpinner";
-import Pagination from "./components/Pagination";
 
 function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
   //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
@@ -29,10 +28,8 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
       <h2>Yet Another Poke App</h2>
       <button
         onClick={() =>
-          console.log(
-            parseInt(
-              "https://pokeapi.co/api/v2/pokemon?offset=6&limit=3".split("=")[1]
-            )
+          fetchUrlPokemon(
+            `https://pokeapi.co/api/v2/pokemon?offset=750&limit=3`
           )
         }
       >
@@ -47,7 +44,6 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
       ) : (
         <>
           <PokeGrid />
-          <Pagination onDisplayCount={urlPokemon.length} />
         </>
       )}
     </div>

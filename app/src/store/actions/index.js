@@ -29,9 +29,6 @@ const fetchData = (dispatch, start, success, failure, complete, url) => {
   axios
     .get(url)
     .then((res) => {
-      //\/\/\/\/\/\/\/\/\/\ /\/\/\/\/\/\/\/\/\/\\
-      console.log(res.data);
-      //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
       dispatch(actionCreator(success, res.data));
     })
     .catch((err) => dispatch(actionCreator(failure, `${err.message}`)))
