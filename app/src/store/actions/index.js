@@ -1,6 +1,10 @@
 import axios from "axios";
 
 //\/\/\/\/\/\/\/\/\/\ ACTION TYPES /\/\/\/\/\/\/\/\/\/\\
+
+export const SET_KEYDOWN = "SET_KEYDOWN";
+
+//\/\/\/\/\/\/\/\/\/\ FETCHES /\/\/\/\/\/\/\/\/\/\\
 export const FETCH_URL_POKEMON_START = "FETCH_URL_POKEMON_START";
 export const FETCH_URL_POKEMON_SUCCESS = "FETCH_URL_POKEMON_SUCCESS";
 export const FETCH_URL_POKEMON_FAILURE = "FETCH_URL_POKEMON_FAILURE";
@@ -20,7 +24,7 @@ const actionCreator = (type, payload) => {
   };
 };
 
-//\/\/\/\/\/\/\/\/\/\ ACTION THUNKS /\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\ ACTIONS /\/\/\/\/\/\/\/\/\/\\
 
 const fetchData = (dispatch, start, success, failure, complete, url) => {
   // set isLoading
@@ -54,3 +58,5 @@ export const fetchPkmn = (url) => (dispatch) =>
     FETCH_PKMN_COMPLETE,
     url
   );
+
+export const setKeydown = (key) => actionCreator(SET_KEYDOWN, key);

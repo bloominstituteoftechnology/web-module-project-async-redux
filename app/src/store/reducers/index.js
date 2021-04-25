@@ -5,6 +5,7 @@ import {
   FETCH_URL_POKEMON_COMPLETE,
   // FETCH_PKMN_START,
   FETCH_PKMN_SUCCESS,
+  SET_KEYDOWN,
   // FETCH_PKMN_FAILURE,
   // FETCH_PKMN_COMPLETE,
 } from "../actions";
@@ -24,6 +25,7 @@ const initialState = {
       nextCount: 0,
     },
   },
+  userKeyDown: "yeu",
 };
 
 const parseCall = (totCount, count, prev, next) => {
@@ -110,6 +112,12 @@ export const reducer = (state = initialState, action) => {
     //     ...state,
     //     isLoading: false,
     //   };
+
+    case SET_KEYDOWN:
+      return {
+        ...state,
+        userKeyDown: payload,
+      };
 
     default:
       return state;

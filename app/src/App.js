@@ -6,9 +6,17 @@ import { mapStateToProps } from "./helpers/mapStateToProps";
 import PokeGrid from "./components/PokeGrid";
 import "./App.css";
 import LoadingSpinner from "./components/LoadingSpinner";
+import { setKeydown } from "./store/actions";
 
-function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
-  //\/\/\/\/\/\/\/\/\/\  /\/\/\/\/\/\/\/\/\/\\
+function App({
+  urlPokemon,
+  isLoading,
+  error,
+  fetchUrlPokemon,
+  fetchPkmn,
+  setKeydown,
+}) {
+  //\/\/\/\/\/\/\/\/\/\ EFFECTS  /\/\/\/\/\/\/\/\/\/\\
   useEffect(
     () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=3`),
     [fetchUrlPokemon]
@@ -22,8 +30,18 @@ function App({ urlPokemon, isLoading, error, fetchUrlPokemon, fetchPkmn }) {
     [urlPokemon, fetchPkmn]
   );
 
+  const handleKeyDown = (e) => {
+    console.log(e.key);
+    if (e.key === "ArrowLeft" || "ArrowRight") {
+      e.preventDefault();
+      setKeydown(e.key);
+    }
+  };
+
+  //\/\/\/\/\/\/\/\/\/\ RENDER /\/\/\/\/\/\/\/\/\/\\
+
   return (
-    <div className="App">
+    <div autoFocus tabIndex="0" onKeyDown={handleKeyDown} className="App">
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
       <button
@@ -57,4 +75,6 @@ const mapState = mapStateToProps(
   "pokemonList"
 );
 
-export default connect(mapState, { fetchUrlPokemon, fetchPkmn })(App);
+export default connect(mapState, { fetchUrlPokemon, fetchPkmn, setKeydown })(
+  App
+);

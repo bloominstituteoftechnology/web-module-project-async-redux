@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../helpers/mapStateToProps";
 import { fetchUrlPokemon } from "../store";
 
-const Pagination = ({ pagination, onDisplayCount, fetchUrlPokemon }) => {
+const Pagination = ({
+  pagination,
+  onDisplayCount,
+  fetchUrlPokemon,
+  userKeyDown,
+}) => {
   //
   const { totPokemonCount, nextCall, prevCall, currentCall } = pagination;
+
+  useEffect(() => {
+    if (userKeyDown === "ArrowLeft") {
+      fetchUrlPokemon(prevCall);
+      console.log(userKeyDown);
+      // alert("hey")
+    } else if (userKeyDown === "ArrowRight") {
+      fetchUrlPokemon(nextCall);
+    }
+  }, [userKeyDown]);
 
   return (
     <div className="pagination">
@@ -34,6 +49,6 @@ const Pagination = ({ pagination, onDisplayCount, fetchUrlPokemon }) => {
   );
 };
 
-const mapState = mapStateToProps("pagination");
+const mapState = mapStateToProps("pagination", "userKeyDown");
 
 export default connect(mapState, { fetchUrlPokemon })(Pagination);
