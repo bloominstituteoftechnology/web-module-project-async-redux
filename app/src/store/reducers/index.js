@@ -16,8 +16,13 @@ const initialState = {
   pokemonList: [],
   pagination: {
     totPokemonCount: 0,
-    nextCall: 0,
-    prevCall: 0,
+    nextCall: null,
+    prevCall: null,
+    currentCall: {
+      callCount: 0,
+      prevCount: 0,
+      nextCount: 0,
+    },
   },
 };
 
@@ -31,7 +36,7 @@ const parseCall = (totCount, count, prev, next) => {
   const url = prev ? prev : next;
   const splitUrl = url.split("=");
   if (prev) {
-    prevCount = totCount - parseInt(splitUrl)[2] + parseInt(splitUrl)[1];
+    prevCount = parseInt(splitUrl[2]) + parseInt(splitUrl[1]);
     nextCount = totCount - (prevCount + parseInt(splitUrl[2]));
   } else {
     nextCount = totCount - parseInt(splitUrl[2]);

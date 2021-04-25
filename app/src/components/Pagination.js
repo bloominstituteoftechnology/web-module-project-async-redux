@@ -4,27 +4,30 @@ import { mapStateToProps } from "../helpers/mapStateToProps";
 import { fetchUrlPokemon } from "../store";
 
 const Pagination = ({ pagination, onDisplayCount, fetchUrlPokemon }) => {
+  //
+  const { totPokemonCount, nextCall, prevCall, currentCall } = pagination;
+
   return (
     <div className="pagination">
-      {pagination.prevCall ? (
+      {prevCall ? (
         <button
           onClick={() => {
-            fetchUrlPokemon(pagination.prevCall);
+            fetchUrlPokemon(prevCall);
           }}
         >
-          Prev
+          Previous {currentCall.callCount} of {currentCall.prevCount}
         </button>
       ) : null}
       <p>
-        Displaying {onDisplayCount} of {pagination.totPokemonCount} Pokemon
+        Displaying {onDisplayCount} of {totPokemonCount} Pokemon
       </p>
-      {pagination.nextCall ? (
+      {nextCall ? (
         <button
           onClick={() => {
-            fetchUrlPokemon(pagination.nextCall);
+            fetchUrlPokemon(nextCall);
           }}
         >
-          Next
+          Next {currentCall.callCount} of {currentCall.nextCount}
         </button>
       ) : null}
     </div>
