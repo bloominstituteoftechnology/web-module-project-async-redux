@@ -59,4 +59,4 @@ export const fetchPkmn = (url) => (dispatch) =>
     url
   );
 
-export const setKeydown = (key) => actionCreator(SET_KEYDOWN, key);
+export const setKeyDown = (key) => actionCreator(SET_KEYDOWN, key);

@@ -9,6 +9,10 @@
 -[] fetchPkmn error provides error in case of api failure
 -[] PokeCard displays error notice
 
+[x] keyDown navigation -[x] Focused for key nav
+-[] ReEnabled f5
+-[] Prevented null navigation
+
 [] Set url to reflect pagination
 -[] Set up Router
 -[] Sep limit and offset to state
@@ -25,4 +29,4 @@
 
 [] Capitalized Pokemon names
 [] Edge cases
--[] Type: Null
+-[] Pkmn: "Type: Null"

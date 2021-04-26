@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { fetchUrlPokemon, fetchPkmn } from "./store";
 import { mapStateToProps } from "./helpers/mapStateToProps";
@@ -6,7 +6,7 @@ import { mapStateToProps } from "./helpers/mapStateToProps";
 import PokeGrid from "./components/PokeGrid";
 import "./App.css";
 import LoadingSpinner from "./components/LoadingSpinner";
-import { setKeydown } from "./store/actions";
+import { setKeyDown } from "./store";
 
 function App({
   urlPokemon,
@@ -14,9 +14,14 @@ function App({
   error,
   fetchUrlPokemon,
   fetchPkmn,
-  setKeydown,
+  setKeyDown,
 }) {
-  //\/\/\/\/\/\/\/\/\/\ EFFECTS  /\/\/\/\/\/\/\/\/\/\\
+  //\/\/\/\/\/\/\/\/\/\ HOOKS  /\/\/\/\/\/\/\/\/\/\\
+
+  const appRef = useRef(null);
+
+  //\/\/\/\/\/\/\/\/\/\ EFFECTS /\/\/\/\/\/\/\/\/\/\\
+
   useEffect(
     () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=3`),
     [fetchUrlPokemon]
@@ -30,17 +35,27 @@ function App({
     [urlPokemon, fetchPkmn]
   );
 
+  useEffect(() => appRef.current.focus(), []);
+
+  //\/\/\/\/\/\/\/\/\/\ HELPERS /\/\/\/\/\/\/\/\/\/\\
+
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft" || "ArrowRight") {
       e.preventDefault();
-      setKeydown(e.key);
+      setKeyDown(e.key);
     }
   };
 
   //\/\/\/\/\/\/\/\/\/\ RENDER /\/\/\/\/\/\/\/\/\/\\
 
   return (
-    <div autoFocus tabIndex="0" onKeyDown={handleKeyDown} className="App">
+    <div
+      autofocus
+      tabIndex="-1"
+      ref={appRef}
+      onKeyDown={handleKeyDown}
+      className="App"
+    >
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
       <button
@@ -74,6 +89,6 @@ const mapState = mapStateToProps(
   "pokemonList"
 );
 
-export default connect(mapState, { fetchUrlPokemon, fetchPkmn, setKeydown })(
+export default connect(mapState, { fetchUrlPokemon, fetchPkmn, setKeyDown })(
   App
 );
