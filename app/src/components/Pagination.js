@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../helpers/mapStateToProps";
 import { fetchUrlPokemon, setKeyDown } from "../store";
@@ -12,33 +12,20 @@ const Pagination = ({
 }) => {
   //
 
-  // const handleKeyDown = (e) => {
-  //   console.log(e.key);
-  //   if (e.key === "ArrowLeft" || "ArrowRight") {
-  //     e.preventDefault();
-  //     setKeyDown(e.key);
-  //   }
-  // };
-
   const { totPokemonCount, nextCall, prevCall, currentCall } = pagination;
-
-  // const nextButton = useRef();
 
   useEffect(() => {
     if (userKeyDown === "ArrowLeft") {
-      fetchUrlPokemon(prevCall);
+      prevCall
+        ? fetchUrlPokemon(prevCall)
+        : console.log("You're at the beginning");
     } else if (userKeyDown === "ArrowRight") {
-      fetchUrlPokemon(nextCall);
+      nextCall ? fetchUrlPokemon(nextCall) : console.log("You're at the end");
     }
   }, [userKeyDown, fetchUrlPokemon, prevCall, nextCall]);
 
   return (
-    <div
-      // autofocus
-      // tabIndex="-1"
-      // onKeyDown={handleKeyDown}
-      className="pagination"
-    >
+    <div className="pagination">
       {prevCall ? (
         <button
           onClick={() => {
@@ -58,7 +45,6 @@ const Pagination = ({
           onClick={() => {
             fetchUrlPokemon(nextCall);
           }}
-          // ref={nextButton}
         />
       ) : null}
     </div>

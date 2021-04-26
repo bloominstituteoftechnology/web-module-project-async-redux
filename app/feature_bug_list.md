@@ -10,8 +10,7 @@
 -[] PokeCard displays error notice
 
 [x] keyDown navigation -[x] Focused for key nav
--[] ReEnabled f5
--[] Prevented null navigation
+-[] ReEnabled f5 -[x] Prevented null navigation
 
 [] Set url to reflect pagination
 -[] Set up Router
