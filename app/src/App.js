@@ -40,7 +40,8 @@ function App({
   //\/\/\/\/\/\/\/\/\/\ HELPERS /\/\/\/\/\/\/\/\/\/\\
 
   const handleKeyDown = (e) => {
-    if (e.key === "ArrowLeft" || "ArrowRight") {
+    const key = e.key;
+    if (key === "ArrowLeft" || key === "ArrowRight") {
       e.preventDefault();
       setKeyDown(e.key);
     }
