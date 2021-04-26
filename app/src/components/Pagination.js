@@ -27,13 +27,13 @@ const Pagination = ({
   return (
     <div className="pagination">
       {prevCall ? (
-        <button
+        <input
+          type="button"
           onClick={() => {
             fetchUrlPokemon(prevCall);
           }}
-        >
-          Previous {currentCall.callCount} of {currentCall.prevCount}
-        </button>
+          value={`Previous ${currentCall.callCount} of ${currentCall.prevCount}`}
+        />
       ) : null}
       <p>
         Displaying {onDisplayCount} of {totPokemonCount} Pokemon
