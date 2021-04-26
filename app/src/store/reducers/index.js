@@ -25,7 +25,7 @@ const initialState = {
       nextCount: 0,
     },
   },
-  userKeyDown: "yeu",
+  userKeyDown: null,
 };
 
 const parseCall = (totCount, count, prev, next) => {
@@ -55,6 +55,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        userKeyDown: null,
       };
 
     case FETCH_URL_POKEMON_SUCCESS:

@@ -15,12 +15,10 @@ const Pagination = ({
   useEffect(() => {
     if (userKeyDown === "ArrowLeft") {
       fetchUrlPokemon(prevCall);
-      console.log(userKeyDown);
-      // alert("hey")
     } else if (userKeyDown === "ArrowRight") {
       fetchUrlPokemon(nextCall);
     }
-  }, [userKeyDown]);
+  }, [userKeyDown, fetchUrlPokemon, prevCall, nextCall]);
 
   return (
     <div className="pagination">

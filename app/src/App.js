@@ -31,7 +31,6 @@ function App({
   );
 
   const handleKeyDown = (e) => {
-    console.log(e.key);
     if (e.key === "ArrowLeft" || "ArrowRight") {
       e.preventDefault();
       setKeydown(e.key);
