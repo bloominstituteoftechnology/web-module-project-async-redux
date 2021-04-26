@@ -1,21 +1,24 @@
 import { connect } from "react-redux";
+import { mapStateToProps } from "../helpers/mapStateToProps";
+import { fetchUrlPokemon } from "../store/actions";
+import Pagination from "./Pagination";
 import PokeCard from "./PokeCard";
 
-const PokeGrid = ({ pokemonList }) => {
+const PokeGrid = ({ pokemonList, urlPokemon, fetchUrlPokemon }) => {
   return (
-    <div className="poke-grid">
-      {pokemonList.map((pkmn) => {
-        return <PokeCard key={pkmn.id} pkmn={pkmn} />;
-      })}
-    </div>
+    <section className="container">
+      <div className="poke-grid">
+        {pokemonList.map((pkmn) =>
+          urlPokemon.find((urlPkmn) => urlPkmn.name === pkmn.name) ? (
+            <PokeCard key={pkmn.id} pkmn={pkmn} />
+          ) : null
+        )}
+      </div>
+      <Pagination onDisplayCount={urlPokemon.length} />
+    </section>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    pokemonList: state.pokemonList,
-  };
-};
+const mapState = mapStateToProps("pokemonList", "urlPokemon");
 
-export default connect(mapStateToProps, {})(PokeGrid);
+export default connect(mapState, { fetchUrlPokemon })(PokeGrid);

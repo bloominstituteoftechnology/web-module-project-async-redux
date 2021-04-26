@@ -35,11 +35,8 @@
 }
 
 .poke-grid {
-  width: 100%;
-  display: grid;
-  grid-template: auto / repeat(4, 1fr);
-}
-
-.poke-card {
-  grid-column-end: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
 }

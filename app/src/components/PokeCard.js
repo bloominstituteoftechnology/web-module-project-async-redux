@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { mapStateToProps } from "../helpers/mapStateToProps";
 import LoadingSpinner from "./LoadingSpinner";
 
 const PokeCard = ({ pkmn }) => {
@@ -19,16 +20,11 @@ const PokeCard = ({ pkmn }) => {
       />
       <LoadingSpinner hidden={!isLoading} />
       <h4>{pkmn.name}</h4>
-      <button onClick={() => {}}>Get data</button>
+      <button onClick={() => {}}>Do Nothing</button>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    urlPokemon: state.urlPokemon,
-  };
-};
+const mapState = mapStateToProps("urlPokemon");
 
-export default connect(mapStateToProps, {})(PokeCard);
+export default connect(mapState, {})(PokeCard);
