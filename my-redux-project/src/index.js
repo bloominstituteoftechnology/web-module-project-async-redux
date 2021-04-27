@@ -15,3 +15,4 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<Provider store={store}><App/></Provider>, rootElement)
 
 //THIS PAGE SHOULD BE COMPLETE IN SETUP
+//installed all dependencies and libraries in package.json
