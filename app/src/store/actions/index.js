@@ -7,6 +7,8 @@ export const SET_KEYDOWN = "SET_KEYDOWN";
 //\/\/\/\/\/\/\/\/\/\ FETCH ACTION TYPES /\/\/\/\/\/\/\/\/\/\\
 
 export const URL_POKEMON = "URL_POKEMON";
+export const PREV_URL_POKEMON = "PREV_URL_POKEMON";
+export const NEXT_URL_POKEMON = "NEXT_URL_POKEMON";
 export const PKMN = "PKMN";
 export const fSTART = (dataName) => `FETCH_${dataName}_START`;
 export const fSUCCESS = (dataName) => `FETCH_${dataName}_SUCCESS`;
@@ -46,10 +48,10 @@ export const fetchPkmn = (url) => (dispatch) => fetchData(dispatch, PKMN, url);
 
 export const fetchPrevNextUrlPokemon = (prevCall, nextCall) => (dispatch) => {
   if (prevCall) {
-    fetchData(dispatch /* prevCall actions sets the pokemon */);
+    fetchData(dispatch, PREV_URL_POKEMON, prevCall);
   }
   if (nextCall) {
-    fetchData(dispatch /* nextCall actions sets the pokemon */);
+    fetchData(dispatch, NEXT_URL_POKEMON, nextCall);
   }
 };
 

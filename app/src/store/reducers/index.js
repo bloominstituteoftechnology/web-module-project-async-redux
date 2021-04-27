@@ -1,11 +1,13 @@
 import {
   SET_KEYDOWN,
-  URL_POKEMON,
-  PKMN,
   fSTART,
   fSUCCESS,
   fFAILURE,
   fCOMPLETE,
+  URL_POKEMON,
+  PKMN,
+  PREV_URL_POKEMON,
+  NEXT_URL_POKEMON,
 } from "../actions";
 
 const initialState = {
@@ -51,6 +53,12 @@ const parseCall = (totCount, count, prev, next) => {
 export const reducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
+    case SET_KEYDOWN:
+      return {
+        ...state,
+        userKeyDown: payload,
+      };
+
     case fSTART(URL_POKEMON):
       return {
         ...state,
@@ -114,10 +122,16 @@ export const reducer = (state = initialState, action) => {
     //     isLoading: false,
     //   };
 
-    case SET_KEYDOWN:
+    case fSUCCESS(NEXT_URL_POKEMON):
       return {
         ...state,
-        userKeyDown: payload,
+        nextUrlPokemon: payload,
+      };
+
+    case fSUCCESS(PREV_URL_POKEMON):
+      return {
+        ...state,
+        prevUrlPokemon: payload,
       };
 
     default:
