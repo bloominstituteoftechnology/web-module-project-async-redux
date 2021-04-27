@@ -19,8 +19,7 @@ const PokeCard = ({ pkmn }) => {
         alt={pkmn.name}
       />
       <LoadingSpinner hidden={!isLoading} />
-      <h4>{pkmn.name}</h4>
-      <button onClick={() => {}}>Do Nothing</button>
+      <h4>{pkmn.name[0].toUpperCase() + pkmn.name.substring(1)}</h4>
     </div>
   );
 };

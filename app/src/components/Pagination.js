@@ -8,11 +8,12 @@ const Pagination = ({
   onDisplayCount,
   fetchUrlPokemon,
   userKeyDown,
-  setKeyDown,
 }) => {
   //
 
   const { totPokemonCount, nextCall, prevCall, currentCall } = pagination;
+
+  const setPrevNextUrlPokemon = (prev, next) => {};
 
   useEffect(() => {
     if (userKeyDown === "ArrowLeft") {

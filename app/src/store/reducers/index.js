@@ -1,19 +1,19 @@
 import {
-  FETCH_URL_POKEMON_START,
-  FETCH_URL_POKEMON_SUCCESS,
-  FETCH_URL_POKEMON_FAILURE,
-  FETCH_URL_POKEMON_COMPLETE,
-  // FETCH_PKMN_START,
-  FETCH_PKMN_SUCCESS,
   SET_KEYDOWN,
-  // FETCH_PKMN_FAILURE,
-  // FETCH_PKMN_COMPLETE,
+  URL_POKEMON,
+  PKMN,
+  fSTART,
+  fSUCCESS,
+  fFAILURE,
+  fCOMPLETE,
 } from "../actions";
 
 const initialState = {
   isLoading: false,
   error: "",
   urlPokemon: [],
+  prevUrlPokemon: [],
+  nextUrlPokemon: [],
   pokemonList: [],
   pagination: {
     totPokemonCount: 0,
@@ -51,14 +51,14 @@ const parseCall = (totCount, count, prev, next) => {
 export const reducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
-    case FETCH_URL_POKEMON_START:
+    case fSTART(URL_POKEMON):
       return {
         ...state,
         isLoading: true,
         userKeyDown: null,
       };
 
-    case FETCH_URL_POKEMON_SUCCESS:
+    case fSUCCESS(URL_POKEMON):
       const { results, count, next, previous } = payload;
       return {
         ...state,
@@ -72,25 +72,25 @@ export const reducer = (state = initialState, action) => {
         },
       };
 
-    case FETCH_URL_POKEMON_FAILURE:
+    case fFAILURE(URL_POKEMON):
       return {
         ...state,
         error: payload,
       };
 
-    case FETCH_URL_POKEMON_COMPLETE:
+    case fCOMPLETE(URL_POKEMON):
       return {
         ...state,
         isLoading: false,
       };
 
-    // case FETCH_PKMN_START:
+    // case fSTART(PKMN):
     //   return {
     //     ...state,
     //     isLoading: true,
     //   };
 
-    case FETCH_PKMN_SUCCESS:
+    case fSUCCESS(PKMN):
       if (!state.pokemonList.find((pkmn) => pkmn.id === payload.id)) {
         return {
           ...state,
@@ -102,13 +102,13 @@ export const reducer = (state = initialState, action) => {
         return state;
       }
 
-    // case FETCH_PKMN_FAILURE:
+    // case fFAILURE(PKMN):
     //   return {
     //     ...state,
     //     error: payload,
     //   };
 
-    // case FETCH_PKMN_COMPLETE:
+    // case fCOMPLETE(PKMN):
     //   return {
     //     ...state,
     //     isLoading: false,

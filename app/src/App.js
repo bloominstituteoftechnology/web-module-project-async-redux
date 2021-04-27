@@ -23,7 +23,8 @@ function App({
   //\/\/\/\/\/\/\/\/\/\ EFFECTS /\/\/\/\/\/\/\/\/\/\\
 
   useEffect(
-    () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=3`),
+    () =>
+      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=180&limit=3`),
     [fetchUrlPokemon]
   );
 
@@ -50,13 +51,7 @@ function App({
   //\/\/\/\/\/\/\/\/\/\ RENDER /\/\/\/\/\/\/\/\/\/\\
 
   return (
-    <div
-      autofocus
-      tabIndex="-1"
-      ref={appRef}
-      onKeyDown={handleKeyDown}
-      className="App"
-    >
+    <div tabIndex="-1" ref={appRef} onKeyDown={handleKeyDown} className="App">
       <h1>YAPA!</h1>
       <h2>Yet Another Poke App</h2>
       <button

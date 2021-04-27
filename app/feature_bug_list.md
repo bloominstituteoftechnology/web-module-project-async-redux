@@ -9,7 +9,6 @@
 -[] fetchPkmn error provides error in case of api failure
 -[] PokeCard displays error notice
 
-
 [] Set url to reflect pagination
 -[] Set up Router
 -[] Sep limit and offset to state
@@ -24,7 +23,8 @@
 
 ## Bugs
 
-[] Capitalized Pokemon names
+[] keynav doesn't work when sub components focused
 [] Edge cases
+[] Capitalized Pokemon names
 -[] Pkmn: "Type: Null"
--[] f5 not functional with keyDown event
+[x] f5 not functional with keyDown event

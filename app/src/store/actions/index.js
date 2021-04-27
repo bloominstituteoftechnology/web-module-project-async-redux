@@ -4,16 +4,14 @@ import axios from "axios";
 
 export const SET_KEYDOWN = "SET_KEYDOWN";
 
-//\/\/\/\/\/\/\/\/\/\ FETCHES /\/\/\/\/\/\/\/\/\/\\
-export const FETCH_URL_POKEMON_START = "FETCH_URL_POKEMON_START";
-export const FETCH_URL_POKEMON_SUCCESS = "FETCH_URL_POKEMON_SUCCESS";
-export const FETCH_URL_POKEMON_FAILURE = "FETCH_URL_POKEMON_FAILURE";
-export const FETCH_URL_POKEMON_COMPLETE = "FETCH_URL_POKEMON_COMPLETE";
+//\/\/\/\/\/\/\/\/\/\ FETCH ACTION TYPES /\/\/\/\/\/\/\/\/\/\\
 
-export const FETCH_PKMN_START = "FETCH_PKMN_START";
-export const FETCH_PKMN_SUCCESS = "FETCH_PKMN_SUCCESS";
-export const FETCH_PKMN_FAILURE = "FETCH_PKMN_FAILURE";
-export const FETCH_PKMN_COMPLETE = "FETCH_PKMN_COMPLETE";
+export const URL_POKEMON = "URL_POKEMON";
+export const PKMN = "PKMN";
+export const fSTART = (dataName) => `FETCH_${dataName}_START`;
+export const fSUCCESS = (dataName) => `FETCH_${dataName}_SUCCESS`;
+export const fFAILURE = (dataName) => `FETCH_${dataName}_FAILURE`;
+export const fCOMPLETE = (dataName) => `FETCH_${dataName}_COMPLETE`;
 
 //\/\/\/\/\/\/\/\/\/\ ACTION CREATOR /\/\/\/\/\/\/\/\/\/\\
 
@@ -26,37 +24,39 @@ const actionCreator = (type, payload) => {
 
 //\/\/\/\/\/\/\/\/\/\ ACTIONS /\/\/\/\/\/\/\/\/\/\\
 
-const fetchData = (dispatch, start, success, failure, complete, url) => {
+const fetchData = (dispatch, dataName, url) => {
   // set isLoading
-  dispatch(actionCreator(start, url));
+  dispatch(actionCreator(fSTART(dataName), url));
 
   axios
     .get(url)
     .then((res) => {
-      dispatch(actionCreator(success, res.data));
+      dispatch(actionCreator(fSUCCESS(dataName), res.data));
     })
-    .catch((err) => dispatch(actionCreator(failure, `${err.message}`)))
-    .finally(() => dispatch(actionCreator(complete)));
+    .catch((err) =>
+      dispatch(actionCreator(fFAILURE(dataName), `${err.message}`))
+    )
+    .finally(() => dispatch(actionCreator(fCOMPLETE(dataName))));
 };
 
 export const fetchUrlPokemon = (url) => (dispatch) =>
-  fetchData(
-    dispatch,
-    FETCH_URL_POKEMON_START,
-    FETCH_URL_POKEMON_SUCCESS,
-    FETCH_URL_POKEMON_FAILURE,
-    FETCH_URL_POKEMON_COMPLETE,
-    url
-  );
+  fetchData(dispatch, URL_POKEMON, url);
 
-export const fetchPkmn = (url) => (dispatch) =>
+export const fetchPkmn = (url) => (dispatch) => fetchData(dispatch, PKMN, url);
+
+export const fetchPrevNextUrlPokemon = (prevCall, nextCall) => (dispatch) => {
+  if (prevCall) {
+    fetchData(dispatch /* prevCall actions sets the pokemon */);
+  }
+  if (nextCall) {
+    fetchData(dispatch /* nextCall actions sets the pokemon */);
+  }
+};
+
+export const fetchPrevNextPkmn = (url) => (dispatch) =>
   fetchData(
-    dispatch,
-    FETCH_PKMN_START,
-    FETCH_PKMN_SUCCESS,
-    FETCH_PKMN_FAILURE,
-    FETCH_PKMN_COMPLETE,
-    url
+    dispatch
+    // next/prev pkmn actions
   );
 
 export const setKeyDown = (key) => actionCreator(SET_KEYDOWN, key);
