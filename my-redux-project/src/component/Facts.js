@@ -17,10 +17,20 @@ const Facts = (props) => {
 
     return(
         <>
-            <h3>{props.data.text}</h3> {/*This is where I need to see the data, this is meant to display the character's sentence*/}
+            <h3>{props.fact}</h3> {/*This is where I need to see the data, this is meant to display the cat fact*/}
             <button onClick={() => props.fetchFact()}>Fetch Cat Fact!</button>
         
         </>
     )
 }
 
+    const mapStateToProps = (state) => {
+        return {
+            fact: state.fact,                //Here I'm writing the state as props! See how I'm using fact as a prop above in the h3
+            loading: state.loading
+
+        }
+    };
+    const mapDispatchToProps = {fetchFact} //This is the action 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Facts);
