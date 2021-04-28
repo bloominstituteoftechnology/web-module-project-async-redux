@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-//import { fetchFact } from "../actions/actions"; - this will change to whatever action I'm creating
+import { fetchFact } from "../actions/actions"; 
 
 const Facts = (props) => {
     useEffect(() => {
         props.fetchFact();
-    }, [props.fetchFact]); //what is this line doing? - the CDM?
+    }, [] ); 
 
     if (props.loading) { //include the 'loading' in the initial state in the reducer
         return(

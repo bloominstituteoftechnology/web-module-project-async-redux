@@ -11,8 +11,8 @@ export const fetchFact = () => (dispatch) => {
     dispatch({type: FETCHING_START});
     axios.get("https://cat-fact.herokuapp.com/facts")
         .then((res => {
-            console.log("Cat Data:", res.data[0]); //res.data[0]? -- what is this doing?
-            dispatch({type: FETCHING_SUCCESS, payload: res.data[0]})
+            console.log("Cat Data:", res.data[0].text); //first thing after your .then just console.log, CHECK NOW before writing the Dispatch - b/c once the dispatch fires you can't see the data
+            dispatch({type: FETCHING_SUCCESS, payload: res.data[0].text}) //dealing with an array of objects - have not figure out how to go through the entire array
         }))
         .catch(err => {
             console.log(err);
