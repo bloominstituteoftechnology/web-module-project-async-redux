@@ -13,6 +13,7 @@ import {
 const initialState = {
   isLoading: false,
   error: "",
+  pendingCalls: [],
   urlPokemon: [],
   prevUrlPokemon: [],
   nextUrlPokemon: [],
@@ -121,13 +122,13 @@ export const reducer = (state = initialState, action) => {
     case fSUCCESS(NEXT_URL_POKEMON):
       return {
         ...state,
-        nextUrlPokemon: payload,
+        nextUrlPokemon: payload.results,
       };
 
     case fSUCCESS(PREV_URL_POKEMON):
       return {
         ...state,
-        prevUrlPokemon: payload,
+        prevUrlPokemon: payload.results,
       };
 
     default:
