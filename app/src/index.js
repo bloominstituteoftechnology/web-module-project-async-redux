@@ -6,8 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { logger } from "redux-logger";
+import { jokeReducer } from "./reducers/jokeReducer";
+import thunk from "redux-thunk";
 
-const store = createStore(applyMiddleware(logger));
+const store = createStore(jokeReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <React.StrictMode>

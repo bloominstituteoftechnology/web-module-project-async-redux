@@ -1,8 +1,8 @@
 import {
-  FETCHING_FAILURE,
-  FETCHING_SUCCESS,
   FETCHING_START,
-} from "./actions/jokeActions";
+  FETCHING_SUCCESS,
+  FETCHING_FAILURE,
+} from "../actions/jokeActions";
 
 const initialState = {
   joke: {},
