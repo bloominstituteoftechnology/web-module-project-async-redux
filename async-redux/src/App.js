@@ -1,9 +1,12 @@
 import "./App.css";
+import { Header } from "./components/Header";
+import Advice from "./components/Advice";
 
 function App() {
   return (
     <div className="App">
-      <p>Main App</p>
+      <Header />
+      <Advice />
     </div>
   );
 }
