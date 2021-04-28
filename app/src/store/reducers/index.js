@@ -99,16 +99,12 @@ export const reducer = (state = initialState, action) => {
     //   };
 
     case fSUCCESS(PKMN):
-      if (!state.pokemonList.find((pkmn) => pkmn.id === payload.id)) {
-        return {
-          ...state,
-          pokemonList: [...state.pokemonList, payload].sort(
-            (a, b) => a.id - b.id
-          ),
-        };
-      } else {
-        return state;
-      }
+      return {
+        ...state,
+        pokemonList: [...state.pokemonList, payload].sort(
+          (a, b) => a.id - b.id
+        ),
+      };
 
     // case fFAILURE(PKMN):
     //   return {
