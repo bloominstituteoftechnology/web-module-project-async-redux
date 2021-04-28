@@ -2,7 +2,7 @@
 
 ## Features
 
-[] Cleaned up css grid
+[] Cleaned up css grid/ flexbox
 -[] Set breakpoints
 
 [] individual pkmn error handling

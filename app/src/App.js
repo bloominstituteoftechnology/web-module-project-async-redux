@@ -24,12 +24,13 @@ function App({
 
   useEffect(
     () =>
-      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=180&limit=3`),
+      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=10&limit=3`),
     [fetchUrlPokemon]
   );
 
   useEffect(
     () =>
+      //\/\/\/\/\/\/\/\/\/\ Bring conditional logic before fetch from reducer /\/\/\/\/\/\/\/\/\/\\
       urlPokemon.forEach((pkmn) => {
         fetchPkmn(pkmn.url);
       }),
