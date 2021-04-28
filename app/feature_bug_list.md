@@ -2,13 +2,12 @@
 
 ## Features
 
-[] Cleaned up css grid
+[] Cleaned up css grid/ flexbox
 -[] Set breakpoints
 
 [] individual pkmn error handling
 -[] fetchPkmn error provides error in case of api failure
 -[] PokeCard displays error notice
-
 
 [] Set url to reflect pagination
 -[] Set up Router
@@ -24,7 +23,8 @@
 
 ## Bugs
 
-[] Capitalized Pokemon names
+[] keynav doesn't work when sub components focused
 [] Edge cases
+[] Capitalized Pokemon names
 -[] Pkmn: "Type: Null"
--[] f5 not functional with keyDown event
+[x] f5 not functional with keyDown event

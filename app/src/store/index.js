@@ -1,2 +1,8 @@
 export { reducer } from "./reducers";
-export { fetchUrlPokemon, fetchPkmn, setKeyDown } from "./actions";
+export {
+  setKeyDown,
+  fetchUrlPokemon,
+  fetchPkmn,
+  fetchPrevNextUrlPokemon,
+  fetchPrevNextPkmn,
+} from "./actions";

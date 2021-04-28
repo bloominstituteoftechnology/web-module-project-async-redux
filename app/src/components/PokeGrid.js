@@ -4,7 +4,7 @@ import { fetchUrlPokemon } from "../store/actions";
 import Pagination from "./Pagination";
 import PokeCard from "./PokeCard";
 
-const PokeGrid = ({ pokemonList, urlPokemon, fetchUrlPokemon }) => {
+const PokeGrid = ({ pokemonList, urlPokemon }) => {
   return (
     <section className="container">
       <div className="poke-grid">
