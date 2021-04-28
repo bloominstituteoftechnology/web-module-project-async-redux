@@ -6,7 +6,9 @@ const Advice = (props) => {
   // useEffect goes here
 
   useEffect(() => {
-    props.giveAdvice();
+    const pause = setTimeout(() => {
+      props.giveAdvice(pause);
+    }, 1000);
   }, []);
 
   if (props.loading) {
@@ -18,8 +20,15 @@ const Advice = (props) => {
   }
   return (
     <section className="adviceSection">
-      <div className="adviceCard">
-        <h2>{props.advice}</h2>
+      <div className="adviceCard flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
+            <h2>Revealing...</h2>
+          </div>
+          <div className="flip-card-back">
+            <h2>{props.advice}</h2>
+          </div>
+        </div>
       </div>
       <button onClick={() => props.giveAdvice()} className="button">
         Get Advice!
