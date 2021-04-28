@@ -44,7 +44,17 @@ const fetchData = (dispatch, dataName, url) => {
 export const fetchUrlPokemon = (url) => (dispatch) =>
   fetchData(dispatch, URL_POKEMON, url);
 
-export const fetchPkmn = (url) => (dispatch) => fetchData(dispatch, PKMN, url);
+export const fetchPkmn = (url) => (dispatch, getState) => {
+  debugger;
+  const pokemonList = getState().pokemonList;
+  const idFromUrl = parseInt(
+    url.split("https://pokeapi.co/api/v2/pokemon/")[1].slice(0, -1)
+  );
+  const matchingPkmn = pokemonList.find((pkmn) => pkmn.id === idFromUrl);
+  if (!matchingPkmn) {
+    fetchData(dispatch, PKMN, url);
+  }
+};
 
 export const fetchPrevNextUrlPokemon = (prevCall, nextCall) => (dispatch) => {
   if (prevCall) {
