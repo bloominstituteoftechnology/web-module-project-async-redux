@@ -36,13 +36,13 @@ function App({
   }, [urlPokemon, fetchPkmn]);
 
   useEffect(() => {
-    prevUrlPokemon.forEach((pkmn) => {
+    prevUrlPokemon.results.forEach((pkmn) => {
       fetchPkmn(pkmn.url);
     });
   }, [prevUrlPokemon, fetchPkmn]);
 
   useEffect(() => {
-    nextUrlPokemon.forEach((pkmn) => {
+    nextUrlPokemon.results.forEach((pkmn) => {
       fetchPkmn(pkmn.url);
     });
   }, [nextUrlPokemon, fetchPkmn]);
