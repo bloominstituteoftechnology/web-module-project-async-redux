@@ -76,7 +76,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        userKeyDown: null,
       };
     case fSUCCESS(URL_POKEMON):
       const { results, count, next, previous } = payload;
