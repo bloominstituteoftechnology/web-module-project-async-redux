@@ -25,8 +25,7 @@ function App({
   //\/\/\/\/\/\/\/\/\/\ EFFECTS /\/\/\/\/\/\/\/\/\/\\
 
   useEffect(
-    () =>
-      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=251&limit=3`),
+    () => fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=3`),
     [fetchUrlPokemon]
   );
 
@@ -68,9 +67,7 @@ function App({
       <h2>Yet Another Poke App</h2>
       <button
         onClick={() =>
-          fetchUrlPokemon(
-            `https://pokeapi.co/api/v2/pokemon?offset=950&limit=3`
-          )
+          fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=50&limit=3`)
         }
       >
         Test
