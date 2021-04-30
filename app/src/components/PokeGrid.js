@@ -8,8 +8,8 @@ import PokeCard from "./PokeCard";
 const PokeGrid = ({
   pokemonList,
   urlPokemon,
-  prevUrlPokemon,
-  nextUrlPokemon,
+  // prevUrlPokemon,
+  // nextUrlPokemon,
 }) => {
   const [isPreloaded, setIsPreloaded] = useState(false);
 
@@ -43,9 +43,9 @@ const PokeGrid = ({
 
 const mapState = mapStateToProps(
   "pokemonList",
-  "urlPokemon",
-  "prevUrlPokemon",
-  "nextUrlPokemon"
+  "urlPokemon"
+  // "prevUrlPokemon",
+  // "nextUrlPokemon"
 );
 
 export default connect(mapState, { fetchUrlPokemon })(PokeGrid);

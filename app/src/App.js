@@ -26,7 +26,7 @@ function App({
 
   useEffect(
     () =>
-      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=250&limit=3`),
+      fetchUrlPokemon(`https://pokeapi.co/api/v2/pokemon?offset=251&limit=3`),
     [fetchUrlPokemon]
   );
 
@@ -69,7 +69,7 @@ function App({
       <button
         onClick={() =>
           fetchUrlPokemon(
-            `https://pokeapi.co/api/v2/pokemon?offset=750&limit=3`
+            `https://pokeapi.co/api/v2/pokemon?offset=950&limit=3`
           )
         }
       >
