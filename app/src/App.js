@@ -6,7 +6,7 @@ import PokemonList from './components/PokemonList'
 function App() {
   return (
     <div className="App">
-      <h1>The Original 150 Pokemon List</h1>
+      <h1>Dungeons and Dragons Spell List</h1>
       <PokemonList />
     </div>
   );
