@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchData } from '../store';
-
+// Initial //
 const PokemonList = ( props ) => {
 
     useEffect(() => {
