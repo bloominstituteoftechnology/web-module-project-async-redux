@@ -1,6 +1,7 @@
 import React from "react";
 import { FaMusic } from "react-icons/fa";
 import styled from "styled-components";
+import Genre from "./Genre";
 
 //Styles
 const StyledDiv = styled.div`
@@ -37,8 +38,9 @@ const Generate = (props) => {
           </Button>
         </StyledIcon>
       </StyledDiv>
+
       <div>
-        <h3>{props.genre}</h3>
+        <Genre />
       </div>
     </div>
   );

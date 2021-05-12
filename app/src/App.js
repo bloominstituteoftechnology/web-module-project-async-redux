@@ -16,6 +16,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     genre: state.genre,
+    isFetching: state.isFetching,
   };
 };
 
