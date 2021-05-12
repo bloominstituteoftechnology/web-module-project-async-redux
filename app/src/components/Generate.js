@@ -26,16 +26,21 @@ const handleClick = () => {
   console.log("anything");
 };
 
-const Generate = () => {
+const Generate = (props) => {
   return (
-    <StyledDiv>
-      <StyledTitle>Generate Random Genre</StyledTitle>
-      <StyledIcon>
-        <Button onClick={handleClick}>
-          <FaMusic className="App-logo" />
-        </Button>
-      </StyledIcon>
-    </StyledDiv>
+    <div>
+      <StyledDiv>
+        <StyledTitle>Generate Random Genre</StyledTitle>
+        <StyledIcon>
+          <Button onClick={handleClick}>
+            <FaMusic className="App-logo" />
+          </Button>
+        </StyledIcon>
+      </StyledDiv>
+      <div>
+        <h3>{props.genre}</h3>
+      </div>
+    </div>
   );
 };
 

@@ -1,15 +1,22 @@
 import "./App.css";
 import Generate from "./components/Generate";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
   return (
     <div
       className="App"
       style={{ background: "linear-gradient(#e66465, #9198e5)" }}
     >
-      <Generate />
+      <Generate genre={props.genre} />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    genre: state.genre,
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
