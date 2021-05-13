@@ -1,12 +1,13 @@
 .App {
   height: 100vh;
   margin: 0;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .App-logo {
-  width: 35vmin;
+  width: 30vmin;
   height: 40vmin;
+
   pointer-events: none;
 }
 
@@ -38,4 +39,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }

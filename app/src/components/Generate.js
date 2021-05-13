@@ -12,7 +12,8 @@ const StyledDiv = styled.div`
 `;
 
 const StyledIcon = styled.div`
-  margin-top: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;
 
 const StyledTitle = styled.h1`
@@ -23,6 +24,10 @@ const Button = styled.button`
   background: none;
   border: none;
   outline: none;
+`;
+
+const StyledGenre = styled.div`
+  text-align: center;
 `;
 
 const Generate = (props) => {
@@ -46,9 +51,9 @@ const Generate = (props) => {
         </StyledIcon>
       </StyledDiv>
 
-      <div>
+      <StyledGenre>
         <Genre isFetching={props.isFetching} />
-      </div>
+      </StyledGenre>
     </div>
   );
 };

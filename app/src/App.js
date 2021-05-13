@@ -1,6 +1,7 @@
 import "./App.css";
 import Generate from "./components/Generate";
 import { connect } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App(props) {
   return (
