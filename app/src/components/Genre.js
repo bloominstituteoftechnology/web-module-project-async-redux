@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 const Genre = (props) => {
+  if (props.isFetching) {
+    return <h1>Generating...</h1>;
+  }
+
   return (
     <div>
-      <h3>{props.genre}</h3>
+      <h1>{props.genre}</h1>
     </div>
   );
 };

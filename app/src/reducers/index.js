@@ -1,8 +1,8 @@
-import { ADD_GENRE } from "../actions/index";
+import { ADD_GENRE, FETCHING_GENRE } from "../actions/index";
 
 export const initialState = {
   genre: null,
-  isFetching: false,
+  isFetching: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +11,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         genre: action.payload,
+        isFetching: false,
+      };
+    case FETCHING_GENRE:
+      return {
+        ...state,
+        isFetching: true,
       };
 
     default:
