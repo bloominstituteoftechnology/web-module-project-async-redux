@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMusic } from "react-icons/fa";
 import styled from "styled-components";
 import Genre from "./Genre";
 import { connect } from "react-redux";
-import { fetchingGenre, addGenre } from "../actions/index";
-import axios from "axios";
+import { getGenre } from "../actions/index";
 
 //Styles
 const StyledDiv = styled.div`
@@ -29,14 +28,12 @@ const Button = styled.button`
 const Generate = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
-    props.fetchingGenre();
-    axios
-      .get("https://binaryjazz.us/wp-json/genrenator/v1/genre/")
-      .then((res) => {
-        props.addGenre(res.data);
-      })
-      .catch((err) => console.log(err));
+    props.getGenre();
   };
+
+  useEffect(() => {
+    props.getGenre();
+  }, [getGenre]);
 
   return (
     <div>
@@ -63,4 +60,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchingGenre, addGenre })(Generate);
+export default connect(mapStateToProps, { getGenre })(Generate);
