@@ -8,7 +8,7 @@ import CatFact from "./components/BA";
 import { appReducer } from "./reducers/reducers";
 import thunk from "redux-thunk";
 
-// Redux Step 1: create the store
+
 const store = createStore(appReducer, applyMiddleware(logger, thunk));
 
 function App() {
@@ -19,6 +19,6 @@ function App() {
   );
 }
 
-// Redux step 2: provide the store
+
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Provider store={store}><App /></Provider>, rootElement);
