@@ -7,10 +7,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={bitcoin} className="App-logo" alt="logo" />
+        <Coins />
         <p>
           WELCOME TO MY JUNGLE        
         </p>
-        <Coins />
       </header>
     </div>
   );
