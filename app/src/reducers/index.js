@@ -9,11 +9,11 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_FETCHING_COIN:
-        return {
-            ...state,
-            isFetching: true
-        }
+            return {
+                ...state,
+                isFetching: true
+            }
         default:
-        return state;
+            return state;
     }
 };

@@ -11,12 +11,14 @@ const Coins = ({ coin, isFetching, error, getRandomCoin }) => {
         return <h2> We got an error: {error} </h2>
     }
     if (isFetching) {
-        return <h2> Fetchingcoin for ya! </h2>
+        return <h2> Fetching coin for ya! </h2>
     }
     return (
         <>
-<h2>{coin.text}</h2>
-<button onClick={()=> getRandomCoin()}>Get new coin</button>
+            <h2>{coin.id}</h2>
+            <h2>{coin.symbol}</h2>
+            <h2>{coin.name}</h2>
+            <button onClick={() => getRandomCoin()}>Get new coin</button>
         </>
     );
 };
