@@ -1,4 +1,5 @@
 import STAN from './STAN.png';
+import Coins from './components/Coins';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
           WELCOME TO MY JUNGLE        
         </p>
       </header>
+      <Coins />
     </div>
   );
 }
