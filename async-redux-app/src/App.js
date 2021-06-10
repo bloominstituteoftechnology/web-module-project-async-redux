@@ -1,11 +1,13 @@
 import './App.css';
+import Cat from './components/Cat';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>New Async Redux App</h1>
+        <h1>Async Redux CatApp</h1>
       </header>
+        <Cat />
     </div>
   );
 }
