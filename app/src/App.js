@@ -8,9 +8,7 @@ function App() {
       <header className="App-header">
         <img src={bitcoin} className="App-logo" alt="logo" />
         <Coins />
-        <p>
-          WELCOME TO MY JUNGLE        
-        </p>
+        <p>WELCOME TO MY JUNGLE</p>
       </header>
     </div>
   );
