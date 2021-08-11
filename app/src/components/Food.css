@@ -1,0 +1,21 @@
+.body{
+    padding-top: 5%;
+    background-color: bisque;
+    padding-bottom: 5%;
+}
+.body button{
+    padding: 3%;
+    background-color: bisque;
+}
+.body button:hover{
+    cursor: pointer;
+    color: bisque;
+    background-color:black;
+    border-color: bisque;
+    transition: 0.5s;
+}
+
+.body img{
+    height: 450px;
+    width: 450px;
+}
