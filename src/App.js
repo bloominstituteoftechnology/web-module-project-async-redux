@@ -1,19 +1,40 @@
 import { fetchFail, fetchStart, fetchSuccess } from "./actions";
 import { connect } from "react-redux"
 import axios from "axios";
+import { useEffect } from "react";
+import Chapter from "./components/Chapter";
 
-function App() {
+function App(props) {
+  const { getData, data, error, fetching } = props;
+  
+  useEffect(() => {
+    getData()
+  }, [])
+
+  if (fetching) (<h2>getting chapters now</h2>)
+
+  if (error) (<h2>Error: {error}</h2>)
+
   return (
-    <div>
+    <main>
+      <h1>The Qurans Chapters</h1>
+      <ul>
+        {data?.map(chapter => 
+          <Chapter 
+            chapter={chapter} 
+            key={chapter.id}  
+            />
+        )}
+      </ul>
+    </main>
 
-    </div>
   );
 }
 
 const getData = () => dispatch => {
   dispatch(fetchStart())
-  axios.get("https://api.spacexdata.com/v4/launches/latest")
-    .then(res => dispatch(fetchSuccess(res.data)))
+  axios.get("https://api.quran.com/api/v4/chapters?language=en")
+    .then(res => dispatch(fetchSuccess(res.data.chapters)))
     .catch(err => dispatch(fetchFail(err)))
 }
 
