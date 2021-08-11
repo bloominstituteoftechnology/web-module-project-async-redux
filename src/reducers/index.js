@@ -1,10 +1,11 @@
 
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from "../actions";
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, CHANGE_LANGUAGE } from "../actions";
 
 const intitialState = {
     data: [],
     error: "",
-    fetching: false
+    fetching: false,
+    english: true
 }
 
 const reducer = (state = intitialState, action) => {
@@ -25,6 +26,11 @@ const reducer = (state = intitialState, action) => {
                 ...state,
                 fetching: false,
                 error: action.payload    
+            }
+        case CHANGE_LANGUAGE:
+            return {
+                ...state,
+                english: !state.english
             }
         default: 
             return state

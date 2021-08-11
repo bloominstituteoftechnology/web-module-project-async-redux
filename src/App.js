@@ -1,23 +1,42 @@
-import { fetchFail, fetchStart, fetchSuccess } from "./actions";
-import { connect } from "react-redux"
-import axios from "axios";
+import { getData,  changeLanguage } from "./actions";
+import { connect } from "react-redux";
 import { useEffect } from "react";
 import Chapter from "./components/Chapter";
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`
 
 function App(props) {
-  const { getData, data, error, fetching } = props;
+  const { getData, changeLanguage, data, error, fetching } = props;
   
   useEffect(() => {
     getData()
   }, [])
+
 
   if (fetching) (<h2>getting chapters now</h2>)
 
   if (error) (<h2>Error: {error}</h2>)
 
   return (
-    <main>
-      <h1>The Qurans Chapters</h1>
+    <StyledMain>
+      <h1 onClick={changeLanguage}>The Qurans Chapters</h1>
       <ul>
         {data?.map(chapter => 
           <Chapter 
@@ -26,16 +45,8 @@ function App(props) {
             />
         )}
       </ul>
-    </main>
-
+    </StyledMain>
   );
-}
-
-const getData = () => dispatch => {
-  dispatch(fetchStart())
-  axios.get("https://api.quran.com/api/v4/chapters?language=en")
-    .then(res => dispatch(fetchSuccess(res.data.chapters)))
-    .catch(err => dispatch(fetchFail(err)))
 }
 
 const mapStateToProps = (state) => ({
@@ -44,4 +55,4 @@ const mapStateToProps = (state) => ({
   fetching: state.fetching
 })
 
-export default connect(mapStateToProps, { getData })(App);
+export default connect(mapStateToProps, { getData, changeLanguage })(App);
