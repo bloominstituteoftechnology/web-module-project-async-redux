@@ -19,9 +19,16 @@ const Breweries = (props) => {
     }
 
     return(<div>
-        {breweries.map((brewery, index) => {
-            return <BreweryCard key={index} brewery={brewery}/>
-        })}
+            <div class='breweries'
+                style={{
+                display: 'flex',
+                flexWrap:'wrap',
+                justifyContent:'space-evenly'
+            }}>
+                {breweries.map((brewery, index) => {
+                    return <BreweryCard key={index} brewery={brewery}/>
+                })}
+            </div>
         </div>
     )
 }
