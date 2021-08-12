@@ -1,3 +1,4 @@
+//Imports
 import axios from 'axios';
 
 
@@ -20,21 +21,24 @@ export const getMonster = () =>
                 //Generate a random number to randomly choose a monster
                 var randomNumber = Math.floor(Math.random() * 300);
 
+                //invoke dispatch, pass in fetchSuccess with randomnumber,
+                //which determines the monster we are calling. Assign to results
                 dispatch(fetchSuccess(res.data.results[`${randomNumber}`]));
-                //dispatch(fetchSuccess(res.data.results[100]));
-                console.log("NAMEEEEE>>>>",res.data.results[`${randomNumber}`].name);
-                console.log(res.data.results[`${randomNumber}`].url);
-                console.log("RESULTS>>>>", res.data.results);
+               
+                //Log the index from the api return
+                console.log(res.data.results[`${randomNumber}`].index);
+              
+                //Assign the index to a variable
                 const monsterName = res.data.results[`${randomNumber}`].index;
-                console.log("NEWMONSTERNAME", monsterName);
-                
-                //axios.get(`https://www.dnd5eapi.co/api/monsters/${randomNumber}.name`)
-
+    
+                //Call API again, append the index to the api
                 axios.get(`https://www.dnd5eapi.co/api/monsters/${monsterName}`)
                 .then(res =>
                     {
                         console.log("url >>>>>",res.data.special_abilities, "<<<")
-                        //console.log("url >>>>>",res.data.special_abilities[0].name, "<<<")
+                        res.data.special_abilities.map((item) => (
+                            console.log("MAP Name>>>", item.name + ": " + item.desc)
+                       ))
                         dispatch(fetchSuccess(res.data))
                     })
                    

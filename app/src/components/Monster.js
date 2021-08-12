@@ -8,9 +8,9 @@ import "./monster.css"
 const Monster = (props) =>
 {
     //destructure props
-    const {monster, isFetching, error} = props;
+    const {monster,  isFetching, error} = props;
 
-   // const name = props.name;
+   //const name = props.name;
     //Create the useEffect hook that comes in from actions
     useEffect(() => 
     {
@@ -31,7 +31,6 @@ const Monster = (props) =>
         props.getMonster();
     }
 
-    // console.log("ABILITIES>>>", monster.special_abilities)
 
     return (
         <>
@@ -45,17 +44,14 @@ const Monster = (props) =>
                     <div className = "subDiv"> Type: {monster.type}</div>
                     <div className = "subDiv"> Size: {monster.size}</div>
                     <div className = "subDiv"> Special Abilities: </div>
-
-                    {/* {monster.special_abilities.map(({key, ability}) => {
-                        <div key = {key}> 
-                            <div>{ability.name}</div>
-                            <div>{ability.desc}</div>
-                        </div>
-                    )}}
-                        */}
-                        {/* {monster.special_abilities.map(({ name, desc }) => (
-            <p key={name}> {name} in a {desc} size.</p>
-        ))} */}
+                    {/* <div>{special_abilities}</div> */}
+                        
+                    {/* {special_abilities.map((item,i) => (
+                         <p key={i}> {item.name} in a {item.desc} size.</p>
+                    ))}
+                    </div> */}
+                    
+                       
                 </div>
                 <button onClick={handleClick}>Get new monster</button>
                 <button onClick={()=> { props.fetchFail("Pressed the Error button!!!"); }}> Error Button</button>
