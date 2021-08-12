@@ -11,8 +11,8 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { reducer } from './reducers'
 
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk, logger)))
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 ReactDOM.render(
   <React.StrictMode>

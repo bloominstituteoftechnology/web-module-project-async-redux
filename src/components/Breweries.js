@@ -5,14 +5,14 @@ import BreweryCard from './BreweryCard'
 import { getBreweries } from '../actions'
 
 const Breweries = (props) => {
-    const { breweries, isFetching, error } = props
+    const { breweries, isFetching, error, getBreweries } = props
 
     useEffect(() => {
         getBreweries()
     },[])
 
     if(isFetching) {
-        return <h2>Fetching the breweries</h2>
+        return <h2>Fetching the breweries...</h2>
     }
     if(error) {
         return <h2>There was an error: </h2>

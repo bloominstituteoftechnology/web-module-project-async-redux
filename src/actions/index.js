@@ -1,15 +1,17 @@
 import axios from 'axios'
 
 export const getBreweries = () => {
-    console.log('start of getBreweries')
     return (dispatch) => {
         dispatch(isFetching());
-        axios.get('https://api.openbrewerydb.org/breweries/')
-            .then(res=> console.log(res)
-                // console.log(res),
-                // dispatch(setBreweries(res))
-            )
-            .catch(err => console.log(err))
+        setTimeout(()=> {
+            axios.get('https://api.openbrewerydb.org/breweries/')
+                .then(res=> {
+                    dispatch(fetchSuccess(res.data));
+                }
+                    // dispatch(setBreweries(res))
+                )
+                .catch(err => dispatch(fetchFail(err)))
+        }, 1500)
     }
 }
 

@@ -4,8 +4,12 @@ const BreweryCard = (props) => {
     const { brewery } = props
 
     return (
-        <div>
-            <p>{brewery.id}</p>
+        <div style={{
+                display:'flex',
+                justifyContent:'space-around'
+            }}>
+            <p>{brewery.name}</p>
+            <p>{brewery.city}, {brewery.state}</p>
         </div>
     )
 }
