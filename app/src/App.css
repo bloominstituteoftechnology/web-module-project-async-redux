@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+  /* background-image: url("/dd.jpg"); */
 }
-
+/* .masterDiv
+{
+    background-color: black;
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

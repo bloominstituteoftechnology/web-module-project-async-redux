@@ -11,7 +11,8 @@ export const getMonster = () =>
         //Call dispatch, pass in fetchStart()
         dispatch(fetchStart());
         //Get the monsters
-        axios.get("https://www.dnd5eapi.co/api/monsters")
+        axios.get("https://www.dnd5eapi.co/api/monsters/")
+
 
             //Then set the data
             .then(res=>
@@ -21,12 +22,22 @@ export const getMonster = () =>
 
                 dispatch(fetchSuccess(res.data.results[`${randomNumber}`]));
                 //dispatch(fetchSuccess(res.data.results[100]));
-                console.log(res.data.results[`${randomNumber}`]);
+                console.log("NAMEEEEE>>>>",res.data.results[`${randomNumber}`].name);
                 console.log(res.data.results[`${randomNumber}`].url);
                 console.log("RESULTS>>>>", res.data.results);
+                const monsterName = res.data.results[`${randomNumber}`].index;
+                console.log("NEWMONSTERNAME", monsterName);
                 
-                // axios.get(`https://www.dnd5eapi.co/api/monsters/${randomNumber}.name`)
-                // .then(res.data.results)
+                //axios.get(`https://www.dnd5eapi.co/api/monsters/${randomNumber}.name`)
+
+                axios.get(`https://www.dnd5eapi.co/api/monsters/${monsterName}`)
+                .then(res =>
+                    {
+                        console.log("url >>>>>",res.data.special_abilities, "<<<")
+                        //console.log("url >>>>>",res.data.special_abilities[0].name, "<<<")
+                        dispatch(fetchSuccess(res.data))
+                    })
+                   
                
             })
 

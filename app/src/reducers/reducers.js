@@ -8,10 +8,11 @@ const initialState =
     //Monster object
     monster: 
     {
-        name: "wingnut",
-        url: ""
-        // size: "",
-        //alignment: ""
+        name: "",
+        type: "",
+        size: "",
+        alignment: "",
+        special_abilities:[ {desc: "The aboleth can breathe air and water."}]
 
     },
 
