@@ -44,7 +44,7 @@ const Monster = (props) =>
                     <div className = "subDiv"> Type: {monster.type}</div>
                     <div className = "subDiv"> Size: {monster.size}</div>
                     <div className = "subDiv"> Special Abilities: </div>
-                    {/* <div>{special_abilities}</div> */}
+                    {/* <div>{monster.special_abilities.name}</div> */}
                         
                     {/* {special_abilities.map((item,i) => (
                          <p key={i}> {item.name} in a {item.desc} size.</p>

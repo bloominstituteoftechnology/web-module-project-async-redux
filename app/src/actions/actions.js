@@ -37,7 +37,7 @@ export const getMonster = () =>
                     {
                         console.log("url >>>>>",res.data.special_abilities, "<<<")
                         res.data.special_abilities.map((item) => (
-                            console.log("MAP Name>>>", item.name + ": " + item.desc)
+                            console.log("ABILITIES>>>", item.name + ": " + item.desc)
                        ))
                         dispatch(fetchSuccess(res.data))
                     })

@@ -41,13 +41,6 @@ export const reducer = (state = initialState, action) =>
             isFetching: false
           });
 
-           //Success2 case
-        // case(FETCH_SUCCESS2):
-        // return({
-        //   ...state,
-        //   monster: action.payload,
-        //   isFetching: false
-        // });
 
           //Fail case
         case(FETCH_FAIL):
