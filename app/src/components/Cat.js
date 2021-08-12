@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { getCat, fetchFail } from '../actions';
 import { connect } from 'react-redux';
+import '../App.css';
+
 
 const Cat = (props) => {
   const { cat, isFetching, error } = props;
@@ -23,8 +25,8 @@ const Cat = (props) => {
 
   return (
     <>
-      <div>
-        <h2> {cat.text}</h2>
+      <div className="App">
+        <h2 className="App"> {cat}</h2>
       </div>
       <button onClick={handleClick}>Get new cat</button>
       <button onClick={()=> {

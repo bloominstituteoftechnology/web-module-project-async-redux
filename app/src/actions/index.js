@@ -6,7 +6,7 @@ export const getCat = () =>{
         axios.get('https://cat-fact.herokuapp.com/facts')
         .then(res=>{
             console.log(res.data[0].text)
-            dispatch(fetchSuccess(res.data.text))
+            dispatch(fetchSuccess(res.data.map(item => item.text)))
         })
         .catch(err=>{
             dispatch(fetchFail(err));

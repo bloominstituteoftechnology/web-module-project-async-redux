@@ -5,7 +5,7 @@ import Cat from './components/Cat'
 function App() {
   return (
     <div className="App">
-      <h1>Do u take care of your Cat?</h1>
+      <h1>Interesting facts about cat</h1>
       <Cat/>
     </div>
   );
