@@ -6,7 +6,7 @@ This project allows you to practice the concepts and techniques learned in this 
 
 This is the chance to let your skills shine! You have learned _sooo_ much the last month, and now you get to put all of your hard-earned skills to work. Choose an open api ([this list](https://github.com/public-apis/public-apis) has a lot of great ones - look for ones with `Auth: no` and `HTTPS: yes` - or just do a google search for `open apis`). Protip - don't take too long choosing an API. Pick one that looks interesting, and get building.
 
-Once you have chosen an API to consume, build an app that makes sense for the data you will be retrieving. Have fun with this. You get to be the creative mind. You get to make all the decisions here. I'm excited to see what you build!
+Once have chosen an API to consume, build an app that makes sense for the data you will be retrieving. Have fun with this. You get to be the creative mind. You get to make all the decisions here. I'm excited to see what you build!
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this project.**
 
@@ -35,11 +35,11 @@ In this project you'll choose an api to consume. You will build an application f
 
 ### Task 2: Minimum Viable Product
 
-- [ ] Build a React Redux app
-- [ ] Fetch data inside an async action creator from an API of your choosing
-- [ ] Add the data from the API to the Redux store
-- [ ] Display the data from the store in a component
-- [ ] _Some_ styling must be applied. It can be basic, but the app must not only use browser default stylings
+- [x] Build a React Redux app
+- [x] Fetch data inside an async action creator from an API of your choosing
+- [x] Add the data from the API to the Redux store
+- [x] Display the data from the store in a component
+- [x] _Some_ styling must be applied. It can be basic, but the app must not only use browser default stylings
 
 ### Task 3: Stretch Problems
 
