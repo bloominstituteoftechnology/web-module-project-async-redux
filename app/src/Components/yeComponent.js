@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { getQuote } from '../Actions/yeIndex.js';
 
 const Quote =(props)=>{
