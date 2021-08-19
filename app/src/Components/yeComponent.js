@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { getQuote } from '../Actions/yeIndex';
+import { getQuote } from '../Actions/yeIndex.js';
 
 const Quote =(props)=>{
     const { quote, isFetching, error} = props;
@@ -25,7 +25,7 @@ const Quote =(props)=>{
     return (
         <>
             <div>
-                <h2>The prophet once said: {quote} - Yeezus Christ </h2>
+                <h2>The prophet once said:<br/> {quote}<br/> - Yeezus Christ </h2>
                 <button onClick={handleClick}>Hear more words to live by from the prophet.</button>
             </div>
         </>

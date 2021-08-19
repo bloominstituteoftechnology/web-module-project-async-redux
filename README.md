@@ -39,7 +39,7 @@ In this project you'll choose an api to consume. You will build an application f
 - [x] Fetch data inside an async action creator from an API of your choosing
 - [x] Add the data from the API to the Redux store
 - [x] Display the data from the store in a component
-- [ ] _Some_ styling must be applied. It can be basic, but the app must not only use browser default stylings
+- [x] _Some_ styling must be applied. It can be basic, but the app must not only use browser default stylings
 
 ### Task 3: Stretch Problems
 

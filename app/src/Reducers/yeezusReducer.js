@@ -1,4 +1,4 @@
-import {FETCH_FAIL, FETCH_SUCCESS, FETCH_START} from '../Actions/yeIndex'
+import {FETCH_FAIL, FETCH_SUCCESS, FETCH_START} from '../Actions/yeIndex.js'
 
 const initialState={
     quote: "",
