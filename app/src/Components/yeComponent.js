@@ -7,7 +7,7 @@ const Quote =(props)=>{
 
     useEffect(()=>{
         props.getQuote();
-    }, []);
+    }, [quote]);
 
     if (error) {
         return <h2>Error: {error} </h2>;
