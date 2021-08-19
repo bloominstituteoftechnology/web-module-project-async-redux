@@ -25,7 +25,7 @@ const Quote =(props)=>{
     return (
         <>
             <div>
-                <h2>The prophet once said:<br/> {quote}<br/> - Yeezus Christ </h2>
+                <h2>The prophet once spit:<br/> {quote}<br/> - Yeezus Christ </h2>
                 <button onClick={handleClick}>Hear more words to live by from the prophet.</button>
             </div>
         </>
