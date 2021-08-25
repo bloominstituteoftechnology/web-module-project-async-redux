@@ -12,10 +12,9 @@ const initialState =
         type: "",
         size: "",
         alignment: "",
-        special_abilities:[ {desc: "The aboleth can breathe air and water."}]
-
+        special_abilities:  { name: "", desc: "", },
+        
     },
-
     isFetching: false,
     error: ""
 }
@@ -38,7 +37,7 @@ export const reducer = (state = initialState, action) =>
           return({
             ...state,
             monster: action.payload,
-            isFetching: false
+            isFetching: false,
           });
 
 

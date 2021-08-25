@@ -8,7 +8,9 @@ import "./monster.css"
 const Monster = (props) =>
 {
     //destructure props
-    const {monster,  isFetching, error} = props;
+    const {monster, specialAbilities, isFetching, error} = props;
+
+    console.log("MONSTER.JS SA >>> ", specialAbilities);
 
    //const name = props.name;
     //Create the useEffect hook that comes in from actions
@@ -20,8 +22,8 @@ const Monster = (props) =>
         //Empty dependency to prevent endless calls
     },[]);
 
-    /* Switch to a switch */
-    if (error) { return <p> ERROR, HUMAN! </p>  }
+  
+    if (error) { return <p> ERROR, HUMAN! Try again, or get eaten!</p>  }
 
     if (isFetching) {return <p> The Monster is coming; be patient! </p>}
 
@@ -43,13 +45,13 @@ const Monster = (props) =>
                     <div className = "subDiv"> Alignment: {monster.alignment}</div>
                     <div className = "subDiv"> Type: {monster.type}</div>
                     <div className = "subDiv"> Size: {monster.size}</div>
-                    <div className = "subDiv"> Special Abilities: </div>
+                    <div className = "subDiv"> Special Abilities: {}</div>
                     {/* <div>{monster.special_abilities.name}</div> */}
-                        
-                    {/* {special_abilities.map((item,i) => (
-                         <p key={i}> {item.name} in a {item.desc} size.</p>
-                    ))}
-                    </div> */}
+{/*                         
+                    {monster.special_abilities.map((item,i) => 
+                         <div key={i}> {item.name} in a {item.desc} size.</div>
+                    )}
+                     */}
                     
                        
                 </div>
@@ -67,7 +69,8 @@ const mapStateToProps = state =>
     return {
       monster: state.monster,
       isFetching: state.isFetching,
-      error: state.error
+      error: state.error,
+      specialAbilities: state.monster.special_abilities
     };
   };
 
