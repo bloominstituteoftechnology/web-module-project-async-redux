@@ -11,8 +11,8 @@ export const getTeams = () => {
 
         axios.get('https://statsapi.web.nhl.com/api/v1/teams/')
         .then(res => {
-            console.log('RES',res.data.teams)
-            dispatch(fetchSuccess(res.data.teams));
+            console.log('RES',res.data.teams[0])
+            dispatch(fetchSuccess(res.data.teams[0]));
         })
         .catch(err => {
             dispatch(fetchFail(err));

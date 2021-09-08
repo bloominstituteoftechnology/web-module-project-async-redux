@@ -15,7 +15,7 @@ const Teams = (props) => {
     }
 
     if (isFetching) {
-        return <h2>Fetching avs...</h2>;
+        return <h2>Fetching team...</h2>;
     }
 
     const handleClick = () => {

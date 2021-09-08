@@ -3,9 +3,10 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from './../actions';
 const initialState = {
     teams: {
         name: '',
-        isFetching: false,
-        error: ''
-    }
+        
+    },
+    isFetching: false,
+    error: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,7 +15,7 @@ const reducer = (state = initialState, action) => {
             // console.log('fetch start works')
             return ({
                 ...state,
-                name: '',
+                teams: {},
                 isFetching: true,
                 error: ''
             });
@@ -22,14 +23,14 @@ const reducer = (state = initialState, action) => {
             // console.log('fetch success works')
             return ({
                 ...state,
-                name: action.payload,
+                teams: action.payload,
                 isFetching: false,
                 error: ''
             });
         case (FETCH_FAIL):
             return ({
                 ...state,
-                name: '',
+                teams: {},
                 isFetching: false,
                 error: action.payload
             })
