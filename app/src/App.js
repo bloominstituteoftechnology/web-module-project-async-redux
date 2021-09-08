@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Avs from './components/Avs';
+import Teams from './components/Teams';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <h1>Colorado Avalanche Stats</h1>
-      <Avs/>
+      <h1>Hockey Stats</h1>
+      <Teams/>
     </div>
   );
 }

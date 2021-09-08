@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAvs, fetchFail } from '../actions';
+import { getTeams, fetchFail } from '../actions';
 
-const Avs = (props) => {
+const Teams = (props) => {
     const { teams, isFetching, error } = props;
 
     useEffect(() => {
         // console.log('useEffect works')
-        props.getAvs();
+        props.getTeams();
     }, []);
 
     if (error) {
@@ -20,7 +20,7 @@ const Avs = (props) => {
 
     const handleClick = () => {
         // console.log('click works')
-        props.getAvs();
+        props.getTeams();
     }
 
     return(
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { getAvs, fetchFail })(Avs);
+export default connect(mapStateToProps, { getTeams, fetchFail })(Teams);
