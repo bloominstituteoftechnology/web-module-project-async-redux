@@ -1,16 +1,18 @@
 import axios from 'axios';
 
-export const FETCH_START = "FETCH_START";
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_FAIL = "FETCH_FAIL";
+export const FETCH_START = 'FETCH_START';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAIL = 'FETCH_FAIL';
 
-export const getTabs = () => {
+export const getAvs = () => {
+    // console.log('getTabs works')
     return(dispatch) => {
         dispatch(fetchStart());
 
-        axios.get('https://www.songsterr.com/a/ra/songs/byartists.xml?artists=TomWaits,%22Tom%20Waits%22')
+        axios.get('https://statsapi.web.nhl.com/api/v1/teams/21')
         .then(res => {
-            dispatch(fetchSuccess(res.data));
+            console.log('RES',res.data.teams)
+            dispatch(fetchSuccess(res.data.teams));
         })
         .catch(err => {
             dispatch(fetchFail(err));
@@ -22,8 +24,8 @@ export const fetchStart = () => {
     return ({ type: FETCH_START });
 }
 
-export const fetchSuccess = (tabs) => {
-    return ({ type: FETCH_SUCCESS, payload: tabs });
+export const fetchSuccess = (teams) => {
+    return ({ type: FETCH_SUCCESS, payload: teams });
 }
 
 export const fetchFail = (error) => {

@@ -1,37 +1,35 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from './../actions';
 
 const initialState = {
-    tabs: {
-        title: "",
-        tabTypes: "",
+    teams: {
+        name: '',
         isFetching: false,
-        error: ""
+        error: ''
     }
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case (FETCH_START):
+            // console.log('fetch start works')
             return ({
                 ...state,
-                title: {},
-                tabTypes: "",
+                name: '',
                 isFetching: true,
                 error: ''
             });
         case (FETCH_SUCCESS):
+            // console.log('fetch success works')
             return ({
                 ...state,
-                title: action.payload,
-                tabTypes: '',
+                name: action.payload,
                 isFetching: false,
                 error: ''
             });
         case (FETCH_FAIL):
             return ({
                 ...state,
-                title: {},
-                tabTypes: "",
+                name: '',
                 isFetching: false,
                 error: action.payload
             })
