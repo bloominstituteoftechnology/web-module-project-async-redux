@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+div {
+  background-color: blueviolet;
+  width: 90vw;
+  margin-left: 3vw;
+}
