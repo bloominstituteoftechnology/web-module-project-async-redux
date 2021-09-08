@@ -23,7 +23,7 @@ const initialState = {
   error: "",
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START:
       return {
@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_SUCCESS:
       return {
         ...state,
-        cryptos: [action.payload],
+        cryptos: [...state.cryptos, action.payload],
         isFetching: false,
         error: "",
       };
@@ -49,5 +49,3 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default reducer;

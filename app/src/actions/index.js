@@ -13,8 +13,8 @@ export const getCoinData = () => {
       )
       .then((res) => {
         //dispatch({ type: FETCH_SUCCESS, payload: res.data. whatever else needed })
-        //dispatch(fetchSuccess(res.data. whatever else needed))
-        console.log(res);
+        // dispatch(fetchSuccess(res.data));
+        console.log(res.data);
       })
       .catch((err) => {
         //dispatch({ type: FETCH_FAIL, payload: err })

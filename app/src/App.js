@@ -1,16 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import List from "./components/List";
 import Favorites from "./components/List";
 
 import "./App.css";
 
-function App() {
+function App(props) {
   return (
     <div>
-      <nav className="navbar">
-        <h1>Price Action for Bitcoin and Ethereum</h1>
-      </nav>
+      <div className="header">
+        <h1>Cryptocurrency Tracker</h1>
+      </div>
       <div className="favorites">
         <Favorites />
       </div>
@@ -21,4 +22,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    cryptos: state.cryptos,
+  };
+};
+
+export default connect(mapStateToProps)(App);
