@@ -2,10 +2,10 @@ import { START_FETCH, SUCCESSFUL_FETCH, FAILD_FETCH } from "./../actions";
 
 const initialState = {
   dog: {
-    image: ''
+    image: ""
   },
   isFetching: false,
-  error: ''
+  error: ""
 };
 
 export const reducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action) => {
         return ({
             ...state,
             isFetching: true,
-            error: ''
+            error: ""
         });
     case (SUCCESSFUL_FETCH):
         return ({
