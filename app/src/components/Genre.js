@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import { fetchFail, fetchSuccess } from '../actions';
+import { fetchFail, fetchSuccess, fetchStart } from '../actions';
 
 export const Genre = (props) => {
 
     const { error, genre } = props;
 
     const handleClick = () => {
+        props.fetchStart();
         axios.get('https://binaryjazz.us/wp-json/genrenator/v1/genre/')
           .then(resp => {
             // console.log(resp.data);
@@ -46,4 +47,4 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps, {fetchFail, fetchSuccess})(Genre);
+export default connect(mapStateToProps, {fetchFail, fetchStart, fetchSuccess})(Genre);
