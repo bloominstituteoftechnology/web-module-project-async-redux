@@ -6,7 +6,6 @@ const Teams = (props) => {
     const { teams, isFetching, error } = props;
 
     useEffect(() => {
-        // console.log('useEffect works')
         props.getTeams();
     }, []);
 
@@ -19,7 +18,6 @@ const Teams = (props) => {
     }
 
     const handleClick = () => {
-        // console.log('click works')
         props.getTeams();
     }
 

@@ -4,15 +4,19 @@ export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 
+function randomId(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 export const getTeams = () => {
-    // console.log('getTeams works')
     return(dispatch) => {
         dispatch(fetchStart());
 
         axios.get('https://statsapi.web.nhl.com/api/v1/teams/')
         .then(res => {
-            console.log('RES',res.data.teams[0])
-            dispatch(fetchSuccess(res.data.teams[0]));
+            dispatch(fetchSuccess(res.data.teams[randomId(1,55)]));
         })
         .catch(err => {
             dispatch(fetchFail(err));

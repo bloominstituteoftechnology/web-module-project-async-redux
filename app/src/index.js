@@ -13,7 +13,12 @@ import reducer from './reducers';
 
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(
+  reducer, 
+  composeWithDevTools(applyMiddleware(thunk, logger))
+);
 
 ReactDOM.render(
   <Provider store={store}>
