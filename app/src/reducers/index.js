@@ -11,14 +11,7 @@ const initialState = {
     error: ''
 }
 
-// const initialCatState = {
 
-//     cat: {
-//         image:''
-//     },
-//     isFetching: false,
-//     error: ''
-// }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type){
