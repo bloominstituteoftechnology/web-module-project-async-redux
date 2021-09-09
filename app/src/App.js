@@ -1,11 +1,11 @@
 import './App.css';
-import Genre from './components/Genre';
+import Show from './components/Show';
 
 function App() {
   return (
     <div className="App">
       <h1>Genrenate a new sound for your ears!</h1>
-        <Genre />
+        <Show />
     </div>
   );
 };

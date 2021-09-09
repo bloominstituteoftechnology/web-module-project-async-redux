@@ -1,7 +1,11 @@
 import { FETCH_FAIL, FETCH_SUCCESS, FETCH_START } from "../actions";
 
 const initialState = {
-    genre: '',
+    show: {
+        date: '',
+        venue_name: '',
+        tracks: [{}]
+    },
     isFetching: false,
     error: ''
 };
@@ -11,27 +15,27 @@ const reducer = (state = initialState, action) => {
         case FETCH_START:
             return({
                 ...state,
-                genre: 'Phish is probably still better...',
+                show: {},
                 isFetching: true,
                 error: ''
-            })
+            });
         case FETCH_SUCCESS:
             return({
                 ...state,
-                genre: action.payload,
+                show: action.payload,
                 isFetching: false,
                 error: ''
-            })
+            });
         case FETCH_FAIL:
             return({
                 ...state,
                 error: `No more music?! Say it ain't so!!`,
                 isFetching: false,
-                genre: `Would still rather be at Phish...`
-            })
+                show: {}
+            });
         default:
-            return state
-    }
+            return state;
+    };
 };
 
 export default reducer;
