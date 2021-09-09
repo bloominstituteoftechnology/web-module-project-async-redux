@@ -5,14 +5,14 @@ import { Provider } from "react-redux";
 
 import reducer from "./reducers/index";
 
-// import logger from "redux-logger";
+import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <React.StrictMode>

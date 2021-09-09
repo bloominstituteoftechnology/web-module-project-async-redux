@@ -11,7 +11,7 @@ const Favorites = (props) => {
       </div>
       <div>
         {props.favorites.map((fav) => {
-          return <Fav key={fav.market_cap_rank} fav={fav} />;
+          return <Fav key={fav.id} fav={fav} />;
         })}
       </div>
     </>
@@ -20,7 +20,6 @@ const Favorites = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    cryptos: state.list.cryptos,
     favorites: state.favorites.favorites,
   };
 };

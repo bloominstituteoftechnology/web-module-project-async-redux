@@ -7,9 +7,9 @@ import "./Components.css";
 
 const Crypto = (props) => {
   const handleClick = () => {
-    console.log(crypto);
-    props.addFavorites(crypto);
+    props.addFavorites(props.crypto);
   };
+
   return (
     <div className="crypto">
       <div className="image">
@@ -39,11 +39,4 @@ const Crypto = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cryptos: state.list.cryptos,
-    favorites: state.favorites.favorites,
-  };
-};
-
-export default connect(mapStateToProps, { addFavorites })(Crypto);
+export default connect(null, { addFavorites })(Crypto);

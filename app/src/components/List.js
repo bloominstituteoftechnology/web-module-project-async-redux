@@ -14,7 +14,7 @@ const List = (props) => {
   return (
     <div>
       {cryptos.map((crypto) => {
-        return <Crypto key={crypto.market_cap_rank} crypto={crypto} />;
+        return <Crypto key={crypto.id} crypto={crypto} />;
       })}
     </div>
   );

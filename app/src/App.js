@@ -5,11 +5,11 @@ import Favorites from "./components/Favorites";
 
 import "./App.css";
 
-function App(props) {
+function App() {
   return (
     <div>
       <nav className="header">
-        <h1>Cryptocurrency Tracker</h1>
+        <h1>Cryptocurrency Price Tracker</h1>
       </nav>
       <div className="bodyContainer">
         <div className="favorites">
