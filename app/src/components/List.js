@@ -6,7 +6,7 @@ import Crypto from "./Crypto";
 import { getCoinData } from "../actions/listAction";
 
 const List = (props) => {
-  const { cryptos, isFetching, error } = props;
+  const { cryptos } = props;
   useEffect(() => {
     props.getCoinData();
   }, []);
@@ -21,7 +21,6 @@ const List = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     cryptos: state.list.cryptos,
     isFetching: state.list.isFetching,

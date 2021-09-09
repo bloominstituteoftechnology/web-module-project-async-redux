@@ -1,11 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Favorites = () => {
+import Fav from "./Fav";
+
+const Favorites = (props) => {
   return (
-    <div>
-      <h1>working</h1>
-    </div>
+    <>
+      <div>
+        <h3> Favorites Price Tracker </h3>
+      </div>
+      <div>
+        {props.favorites.map((fav) => {
+          return <Fav key={fav.market_cap_rank} fav={fav} />;
+        })}
+      </div>
+    </>
   );
 };
 
-export default Favorites;
+const mapStateToProps = (state) => {
+  return {
+    cryptos: state.list.cryptos,
+    favorites: state.favorites.favorites,
+  };
+};
+
+export default connect(mapStateToProps)(Favorites);
