@@ -23,10 +23,14 @@ const Teams = (props) => {
 
     return(
         <>
-            <div>
+           {teams && <div>
                 <h2>Team Name: {teams.name}</h2>
-            </div>
-            <button onClick={handleClick}>Get new name</button>
+                <p>Division: {teams.division.name}</p>
+                <p>Conference: {teams.conference.name}</p>
+                <a href={teams.officialSiteUrl} target='_blank'>Official Site</a>
+            </div>}
+            <br></br>
+            <button onClick={handleClick}>Get new team</button>
         </>
     );
 }

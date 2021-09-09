@@ -3,6 +3,13 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from './../actions';
 const initialState = {
     teams: {
         name: '',
+        division: {
+            name: '',
+        },
+        conference: {
+            name: '',
+        },
+        officialSiteUrl: '',
     },
     isFetching: false,
     error: ''
@@ -13,7 +20,7 @@ const reducer = (state = initialState, action) => {
         case (FETCH_START):
             return ({
                 ...state,
-                teams: {},
+                // teams: {},
                 isFetching: true,
                 error: ''
             });
@@ -27,7 +34,7 @@ const reducer = (state = initialState, action) => {
         case (FETCH_FAIL):
             return ({
                 ...state,
-                teams: {},
+                // teams: {},
                 isFetching: false,
                 error: action.payload
             })

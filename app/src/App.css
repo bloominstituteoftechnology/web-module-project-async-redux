@@ -4,5 +4,9 @@
 
 h2{
   color: red;
+  font-size: large;
+}
+
+p{
   font-size: medium;
 }

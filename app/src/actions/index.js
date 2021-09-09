@@ -5,9 +5,7 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 
 function randomId(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 export const getTeams = () => {
@@ -16,10 +14,11 @@ export const getTeams = () => {
 
         axios.get('https://statsapi.web.nhl.com/api/v1/teams/')
         .then(res => {
-            dispatch(fetchSuccess(res.data.teams[randomId(1,55)]));
+            const teams = res.data.teams[randomId(0,32)]
+            dispatch(fetchSuccess(teams));
         })
         .catch(err => {
-            dispatch(fetchFail(err));
+            dispatch(fetchFail('Was not able to load team!'));
         });
     }
 }
