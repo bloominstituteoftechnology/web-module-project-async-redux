@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import Fav from "./Fav";
 
+import "./Components.css";
+
 const Favorites = (props) => {
   return (
     <>
-      <div>
+      <div className="favHeader">
         <h3> Favorites Price Tracker </h3>
       </div>
       <div>

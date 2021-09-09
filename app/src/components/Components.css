@@ -139,3 +139,20 @@ table {
   justify-content: center;
   line-height: 1.5;
 }
+
+.favHeader {
+  font-size: 1.5rem;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.isCurrently {
+  margin: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.stopTrackBtn {
+  margin: 10px;
+  font-size: 1rem;
+}
