@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import { getDog } from './../actions/index';
+import { getDog, fetchFail } from './../actions/index';
 import styled from 'styled-components';
 
 const DogWrapper = styled.div`
@@ -63,7 +63,7 @@ const Dog = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log('Dog.js ln:59 state', state);
+    console.log('Dog.js ln:66 state', state);
     return {
         dog: state.dog,
         isFetching: state.isFetching,
@@ -72,4 +72,4 @@ const mapStateToProps = state => {
 }
 
 // export default Dog;
-export default connect(mapStateToProps, { getDog })(Dog);
+export default connect(mapStateToProps, { getDog, fetchFail })(Dog);
