@@ -6,6 +6,11 @@ This project allows you to practice the concepts and techniques learned in this 
 
 This is the chance to let your skills shine! You have learned _sooo_ much the last month, and now you get to put all of your hard-earned skills to work. Choose an open api ([this list](https://github.com/public-apis/public-apis) has a lot of great ones - look for ones with `Auth: no` and `HTTPS: yes` - or just do a google search for `open apis`). Protip - don't take too long choosing an API. Pick one that looks interesting, and get building.
 
+FDgeYqZEzcYYiN0XM4CO6EJDYPGNsYq8
+Giphy API Key
+End Point: Random
+Request URL: https://api.giphy.com/v1/gifs/random?api_key=FDgeYqZEzcYYiN0XM4CO6EJDYPGNsYq8&tag=&rating=g
+
 Once you have chosen an API to consume, build an app that makes sense for the data you will be retrieving. Have fun with this. You get to be the creative mind. You get to make all the decisions here. I'm excited to see what you build!
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this project.**
@@ -46,4 +51,5 @@ In this project you'll choose an api to consume. You will build an application f
 Take the app as far as you can go! Styling, redux hooks, another API, an input to fetch data dynamically, etc. Work on it, improve it until the end of the day. If you find yourself finishing with time left to spare, jump on with your TL or fellow student to ask them what feature they think you should build next. Good luck!
 
 ## Submission Format
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
