@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <h1>Dog Lovers Search Engine</h1>
+      <h1>Animal Lovers Search Engine</h1>
       <h2>🐕🐕🐕🐕</h2>
       <Dog />
     </Wrapper>

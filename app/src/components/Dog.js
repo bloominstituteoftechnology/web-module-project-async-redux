@@ -46,7 +46,7 @@ const Dog = (props) => {
     }, []);
 
     if (isFetching){
-        return <h2>Fetching Dog Stand By...</h2>
+        return <h2>Fetching Animal Stand By...</h2>
     }
     if (error) {
         return <h2>Error: {error}</h2>
@@ -62,7 +62,7 @@ const Dog = (props) => {
             </div>
             <div>
                 <button onClick={handleClick}>
-                    Fetch another Dog
+                    Fetch another Animal
                 </button>
             </div>
         </DogWrapper>
