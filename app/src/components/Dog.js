@@ -43,6 +43,7 @@ const Dog = (props) => {
 
     useEffect(() => {
         props.getDog();
+        // eslint-disable-next-line
     }, []);
 
     if (isFetching){

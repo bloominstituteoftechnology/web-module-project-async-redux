@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import { getCat, fetchFail } from './../actions/index';
 import styled from 'styled-components';
+
 const CatWrapper = styled.div`
 display: flex;
     flex-direction: column;
@@ -41,6 +42,7 @@ const {cat, isFetching, error } = props;
 
 useEffect(() => {
     props.getCat();
+    // eslint-disable-next-line
 }, []);
 
 if (isFetching){
@@ -67,7 +69,7 @@ return(
 )
 };
 const mapStateToProps = state => {
-    console.log('Cat.js ln:70 state', state);
+    // console.log('Cat.js ln:70 state', state);
     return {
         cat: state.cat,
         isFetching: state.isFetching,
