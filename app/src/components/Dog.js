@@ -51,12 +51,19 @@ const Dog = (props) => {
     if (error) {
         return <h2>Error: {error}</h2>
     }
+    const handleClick = () =>{
+        props.getDog();
+    }
     return (
         <DogWrapper>
             <div>
                 <h2> So Cute!! </h2>
                 <DogImageStyle src={dog} />
-
+            </div>
+            <div>
+                <button onClick={handleClick}>
+                    Fetch another Dog
+                </button>
             </div>
         </DogWrapper>
     )

@@ -9,7 +9,7 @@ export const getDog = () => {
         dispatch(fetchStart());
         axios.get('https://dog.ceo/api/breeds/image/random')
         .then(res=>{
-            console.log('Actions/index.js ln:8 res.data', res.data);
+            // console.log('Actions/index.js ln:8 res.data', res.data);
             dispatch(fetchSuccess(res.data.message))
         })
     }
