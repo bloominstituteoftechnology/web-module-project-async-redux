@@ -34,27 +34,67 @@ export const Show = (props) => {
 
     return (
     <div>
-        <button onClick={handleClick}>Genrenate Another!</button>
-        <button onClick={handleError}>Wrong Note?</button>
+        <button onClick={handleClick}>Go Phish</button>
+        <button onClick={handleError}>Ripcord?</button>
         <div>   
-            <h1>{show.date}</h1>          
-            <h1>{show.venue_name}</h1>
-            <ul>
-                {show.tracks.map(track => {
+            <h5>{show.date}</h5>          
+            <h2>{show.venue_name}</h2>
+            {/* <h4>{show.venue.location}</h4> */}
+            
+                    <h4 className='set-one'>SET ONE</h4>
+                    {show.tracks.map(track => {
+                        return (
+                            <div>
+                                {track.set === '1'
+                                ?   <div>
+                                        <li
+                                            className='track'
+                                            key={track.id}
+                                        >
+                                            {track.title}
+                                        </li>    
+                                    </div>
+                                : <div></div>}
+                            </div>
+                        )
+                    })}
 
-                    return (
-                        <div>
-                            <li
-                                className='track'
-                                key={track.id}
+                    <h4 className='set-one'>SET TWO</h4>
+                    {show.tracks.map(track => {
+                        return (
+                            <div>
+                                {track.set === '2'
+                                ?   <div>
+                                        <li
+                                            className='track'
+                                            key={track.id}
+                                        >
+                                            {track.title}
+                                        </li>    
+                                    </div>
+                                : <div></div>}
+                            </div>
+                        )
+                    })}
 
-                            >
-                                {track.title}
-                            </li>
-                        </div> 
-                    )
-                })}
-            </ul>          
+                    <h4 className='set-one'>ENCORE</h4>
+                    {show.tracks.map(track => {
+                        return (
+                            <div>
+                                {track.set === 'E'
+                                ?   <div>
+                                        <li
+                                            className='track'
+                                            key={track.id}
+                                        >
+                                            {track.title}
+                                        </li>    
+                                    </div>
+                                : <div></div>}
+                            </div>
+                        )
+                    })}
+                    
         </div>
 
     </div> 

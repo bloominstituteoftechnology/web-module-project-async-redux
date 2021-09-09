@@ -39,5 +39,6 @@
 
 .track {
   list-style: none;
-  cursor: pointer;
+  /* cursor: pointer; */
+  /* cursor: mouse; */
 }
