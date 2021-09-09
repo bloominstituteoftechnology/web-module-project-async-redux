@@ -1,31 +1,26 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import List from "./components/List";
-import Favorites from "./components/List";
+import Favorites from "./components/Favorites";
 
 import "./App.css";
 
 function App(props) {
   return (
     <div>
-      <div className="header">
+      <nav className="header">
         <h1>Cryptocurrency Tracker</h1>
-      </div>
-      <div className="favorites">
-        <Favorites />
-      </div>
-      <div className="list">
-        <List />
+      </nav>
+      <div className="bodyContainer">
+        <div className="favorites">
+          <Favorites />
+        </div>
+        <div className="list">
+          <List />
+        </div>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    cryptos: state.cryptos,
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

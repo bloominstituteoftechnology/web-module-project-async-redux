@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Crypto from "./Crypto";
 
-import { getCoinData } from "./../actions/";
+import { getCoinData } from "../actions/listAction";
 
 const List = (props) => {
   const { cryptos, isFetching, error } = props;
@@ -21,10 +21,11 @@ const List = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    cryptos: state.cryptos,
-    isFetching: state.isFetching,
-    error: state.error,
+    cryptos: state.list.cryptos,
+    isFetching: state.list.isFetching,
+    error: state.list.error,
   };
 };
 

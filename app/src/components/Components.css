@@ -123,19 +123,19 @@ table {
   border-spacing: 0;
 }
 
-.header {
-  padding: 10px;
-  background-color: black;
-}
-
-.header h1 {
-  color: white;
-  text-align: center;
-  font-size: 3rem;
-}
-
-.bodyContainer {
+.crypto {
   display: flex;
-  flex-flow: row nowrap;
+}
+
+.image {
+  border: 1px solid black;
   margin: 10px;
+  margin-bottom: 20px;
+}
+
+.cryptoInfo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  line-height: 1.5;
 }

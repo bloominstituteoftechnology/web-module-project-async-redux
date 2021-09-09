@@ -12,13 +12,10 @@ export const getCoinData = () => {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((res) => {
-        //dispatch({ type: FETCH_SUCCESS, payload: res.data. whatever else needed })
-        // dispatch(fetchSuccess(res.data));
         console.log(res.data);
+        dispatch(fetchSuccess(res.data));
       })
       .catch((err) => {
-        //dispatch({ type: FETCH_FAIL, payload: err })
-        //dispatch(fetchFail(err))
         console.log(err);
       });
   };
