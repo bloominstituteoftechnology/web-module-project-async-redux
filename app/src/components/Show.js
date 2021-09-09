@@ -33,25 +33,33 @@ export const Show = (props) => {
     };
 
     return (
-    <div>
+    <div className='content'>
         <button onClick={handleClick}>Go Phish</button>
         <button onClick={handleError}>Ripcord?</button>
-        <div>   
-            <h5>{show.date}</h5>          
-            <h2>{show.venue_name}</h2>
-            {/* <h4>{show.venue.location}</h4> */}
-            
+        <div className='show-container'>
+            <div className='show-info'>  
+                <h5>{show.date}</h5>          
+                <h2>{show.venue_name}</h2>
+                <h4>{show.venue.location}</h4>
+            </div>
+                <div className='setlist-container'>
                     <h4 className='set-one'>SET ONE</h4>
                     {show.tracks.map(track => {
                         return (
-                            <div>
+                            <div className='set-one-container'>
                                 {track.set === '1'
                                 ?   <div>
                                         <li
                                             className='track'
                                             key={track.id}
                                         >
-                                            {track.title}
+                                            <a
+                                                className='audio-link'
+                                                target='_blank'
+                                                href={track.mp3}
+                                            >
+                                                {track.title}
+                                            </a>
                                         </li>    
                                     </div>
                                 : <div></div>}
@@ -59,17 +67,25 @@ export const Show = (props) => {
                         )
                     })}
 
-                    <h4 className='set-one'>SET TWO</h4>
+                    <h4 className='set-two'>SET TWO</h4>
                     {show.tracks.map(track => {
                         return (
-                            <div>
+                            <div className='set-two-container'>
                                 {track.set === '2'
                                 ?   <div>
                                         <li
                                             className='track'
                                             key={track.id}
                                         >
-                                            {track.title}
+                                            <a
+                                                className='audio-link'
+                                                target='_blank'
+                                                href={track.mp3}
+                                            >
+                                                <div className='track-info'>
+                                                {track.title}
+                                                </div>
+                                            </a>
                                         </li>    
                                     </div>
                                 : <div></div>}
@@ -77,26 +93,31 @@ export const Show = (props) => {
                         )
                     })}
 
-                    <h4 className='set-one'>ENCORE</h4>
+                    <h4 className='encore'>ENCORE</h4>
                     {show.tracks.map(track => {
                         return (
-                            <div>
+                            <div className='encore-container'>
                                 {track.set === 'E'
                                 ?   <div>
                                         <li
                                             className='track'
                                             key={track.id}
                                         >
-                                            {track.title}
+                                            <a
+                                                className='audio-link'
+                                                target='_blank'
+                                                href={track.mp3}
+                                            >
+                                                {track.title}
+                                            </a>
                                         </li>    
                                     </div>
                                 : <div></div>}
                             </div>
                         )
                     })}
-                    
+                </div>        
         </div>
-
     </div> 
     );
 };

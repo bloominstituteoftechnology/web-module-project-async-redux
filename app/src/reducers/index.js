@@ -1,7 +1,10 @@
 import { FETCH_FAIL, FETCH_SUCCESS, FETCH_START } from "../actions";
 
 const initialState = {
-    show: {},
+    show: {
+        tracks: [{}],
+        venue: {}
+    },
     isFetching: false,
     error: ''
 };
