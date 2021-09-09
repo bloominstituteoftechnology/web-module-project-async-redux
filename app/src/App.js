@@ -1,6 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
 import Dog from './components/Dog'
+import Cat from './components/Cat'
 
 const Wrapper = styled.div`
   background-image: url('https://wallpaperaccess.com/full/340452.png');
@@ -23,6 +24,7 @@ function App() {
       <h1>Animal Lovers Search Engine</h1>
       <h2>🐕🐕🐕🐕</h2>
       <Dog />
+      <Cat />
     </Wrapper>
 
   );

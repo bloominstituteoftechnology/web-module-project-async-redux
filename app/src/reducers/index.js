@@ -1,12 +1,24 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from "../actions";
+import { FETCH_START, FETCH_DOG_SUCCESS, FETCH_CAT_SUCCESS, FETCH_FAIL } from "../actions";
 
 const initialState = {
     dog: {
         image: ''
     },
+    cat: {
+        image:''
+    },
     isFetching: false,
     error: ''
 }
+
+// const initialCatState = {
+
+//     cat: {
+//         image:''
+//     },
+//     isFetching: false,
+//     error: ''
+// }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type){
@@ -16,10 +28,16 @@ export const reducer = (state = initialState, action) => {
             isFetching: true, 
             error: ''
         })
-        case(FETCH_SUCCESS):
+        case(FETCH_DOG_SUCCESS):
         return({
             ...state, 
             dog: action.payload,
+            isFetching: false
+        })
+        case(FETCH_CAT_SUCCESS):
+        return({
+            ...state, 
+            cat: action.payload,
             isFetching: false
         })
         case (FETCH_FAIL):

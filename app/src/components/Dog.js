@@ -62,7 +62,7 @@ const Dog = (props) => {
             </div>
             <div>
                 <button onClick={handleClick}>
-                    Fetch another Animal
+                    Fetch another Dog
                 </button>
             </div>
         </DogWrapper>
@@ -70,7 +70,7 @@ const Dog = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log('Dog.js ln:66 state', state);
+    // console.log('Dog.js ln:73 state', state);
     return {
         dog: state.dog,
         isFetching: state.isFetching,
