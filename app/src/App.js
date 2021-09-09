@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+import Dog from './components/Dog'
+
+const Wrapper = styled.div`
+  background-image: url('https://wallpaperaccess.com/full/340452.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: dodgerblue;
+  box-sizing: border-box;
+    padding:0;
+    margin: 0;
+    max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <h1>Dog Lovers Search Engine</h1>
+      <h2>🐕🐕🐕🐕</h2>
+      <Dog />
+    </Wrapper>
+
   );
 }
 
