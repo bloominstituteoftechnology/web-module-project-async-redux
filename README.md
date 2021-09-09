@@ -1,5 +1,17 @@
 # Module Project: Async Redux - React Redux App
 
+- [Module Project: Async Redux - React Redux App](#module-project-async-redux---react-redux-app)
+  - [Description](#description)
+  - [Introduction](#introduction)
+    - [Commits](#commits)
+    - [Description](#description-1)
+  - [Instructions](#instructions)
+    - [Task 1: Project Set Up](#task-1-project-set-up)
+    - [Task 2: Minimum Viable Product](#task-2-minimum-viable-product)
+    - [Task 3: Stretch Problems](#task-3-stretch-problems)
+  - [Submission Format](#submission-format)
+  - [Rick Mansfield's PUll request link](#rick-mansfields-pull-request-link)
+## Description
 This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored asyncronous action creators in Redux. In your project you will demonstrate proficiency of these subjects and principles by building an app from scratch that consumes and API of your choosing, and displays data fetched from that API.
 
 ## Introduction
