@@ -3,6 +3,7 @@ import axios from "axios";
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
+export const SEARCH_CRYPTO = "SEARCH_CRYPTO";
 
 export const getCoinData = () => {
   return (dispatch) => {
@@ -31,4 +32,8 @@ export const fetchSuccess = (data) => {
 
 export const fetchFail = (error) => {
   return { type: FETCH_FAIL, payload: error };
+};
+
+export const searchCrypto = (data) => {
+  return { type: SEARCH_CRYPTO, payload: data };
 };

@@ -6,6 +6,10 @@ import { removeFavorites } from "../actions/favoritesAction";
 import "./Components.css";
 
 const Fav = (props) => {
+  const handleClick = (id) => {
+    console.log(id);
+    props.removeFavorites(id);
+  };
   return (
     <div className="isCurrently">
       <p style={{ fontSize: "1.2rem" }}>
@@ -15,7 +19,9 @@ const Fav = (props) => {
       </p>
 
       <div className="stopTrackBtn">
-        <button>Stop Tracking {props.fav.name}</button>
+        <button onClick={() => handleClick(props.fav.id)}>
+          Stop Tracking {props.fav.name}
+        </button>
       </div>
     </div>
   );
@@ -28,3 +34,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { removeFavorites })(Fav);
+
+//props.fav.price_change_24h > 0 ? style={{ fontSize: '2rem', color: 'darkgreen'}} : style={{ fontSize: '2rem', color: 'crimson'}}

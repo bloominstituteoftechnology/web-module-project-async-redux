@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Crypto from "./Crypto";
+import Search from "./Search";
 
 import { getCoinData } from "../actions/listAction";
 
@@ -13,9 +14,14 @@ const List = (props) => {
 
   return (
     <div>
-      {cryptos.map((crypto) => {
-        return <Crypto key={crypto.id} crypto={crypto} />;
-      })}
+      <div>
+        <Search />
+      </div>
+      <div>
+        {cryptos.map((crypto) => {
+          return <Crypto key={crypto.id} crypto={crypto} />;
+        })}
+      </div>
     </div>
   );
 };

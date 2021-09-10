@@ -2,6 +2,7 @@ import {
   FETCH_START,
   FETCH_SUCCESS,
   FETCH_FAIL,
+  SEARCH_CRYPTO,
 } from "../actions/listAction.js";
 
 const initialState = {
@@ -31,6 +32,16 @@ const reducer = (state = initialState, action) => {
         cryptos: [],
         isFetching: false,
         error: action.payload,
+      };
+    case SEARCH_CRYPTO:
+      return {
+        ...state,
+        cryptos: state.cryptos.filter((item) => {
+          const searchName = item.id.toLowerCase();
+          return searchName.includes(action.payload);
+        }),
+        isFetching: false,
+        error: "",
       };
     default:
       return state;

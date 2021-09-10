@@ -7,12 +7,18 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITES:
+      if (state.favorites.find((item) => item.id == action.payload.id)) {
+        return state;
+      }
       return {
         ...state,
         favorites: [...state.favorites, action.payload],
       };
     case REMOVE_FAVORITES:
-      return state;
+      return {
+        ...state,
+        favorites: state.favorites.filter((item) => action.payload !== item.id),
+      };
     default:
       return state;
   }
