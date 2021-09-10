@@ -8,15 +8,17 @@ function App(props) {
 
   const { loading, brewery } = props //step 11
 
-  if (error !== '') { //step 14 
-    return <h3>{error}</h3>;
-  }
+ 
 
   return (
     <div className="App">
      <h1>Search for Drinks</h1>
 
      <BreweryForm /> 
+     
+      {
+        (error !== '') && <h3>{error}</h3>// step 14 
+      }
 
      {
        loading ? <h3>We are loading</h3> : <BreweryList brewery={brewery}/>
