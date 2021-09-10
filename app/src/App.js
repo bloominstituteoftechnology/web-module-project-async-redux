@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import BreweryList from './Components/BreweryList';
-import data from './Data/brewery';
+// import data from './Data/brewery';
 import BreweryForm from './Components/BreweryForm';
 
 function App(props) {
-  const brewery = data; 
-  const loading = false; 
-  const error = '';
+
+  const { loading, brewery } = props //step 11
+
+  if (error !== '') { //step 14 
+    return <h3>{error}</h3>;
+  }
 
   return (
     <div className="App">
@@ -21,5 +24,12 @@ function App(props) {
     </div>
   );
 }
+const mapStateToProps = state => {//step 10 
+  return{
+    brewery: state.brewery,
+    loeading: state.loading,
+    error: state.error // step 15 
+  }
+}
 
-export default App;
+export default connect(mapStateToProps)(App);//step 9 connect 
