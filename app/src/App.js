@@ -7,6 +7,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Hockey Teams</h1>
+        <span role="img" aria-label="ice-hockey">🏒</span>
       <Teams/>
     </div>
   );

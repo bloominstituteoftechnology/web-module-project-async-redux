@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getTeams, fetchFail } from '../actions';
 
+import styled from 'styled-components';
+
+const StyledTeams = styled.div`
+    
+`
+
 const Teams = (props) => {
     const { teams, isFetching, error } = props;
 
@@ -22,16 +28,16 @@ const Teams = (props) => {
     }
 
     return(
-        <>
+        <StyledTeams>
            {teams && <div>
                 <h2>Team Name: {teams.name}</h2>
-                <p>Division: {teams.division.name}</p>
                 <p>Conference: {teams.conference.name}</p>
+                <p>Division: {teams.division.name}</p>
                 <a href={teams.officialSiteUrl} target='_blank'>Official Site</a>
             </div>}
             <br></br>
             <button onClick={handleClick}>Get new team</button>
-        </>
+        </StyledTeams>
     );
 }
 

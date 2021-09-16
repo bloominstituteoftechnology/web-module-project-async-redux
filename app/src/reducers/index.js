@@ -3,10 +3,10 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from './../actions';
 const initialState = {
     teams: {
         name: '',
-        division: {
+        conference: {
             name: '',
         },
-        conference: {
+        division: {
             name: '',
         },
         officialSiteUrl: '',

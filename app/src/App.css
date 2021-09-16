@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-color: lightgrey;
+  padding: 20px;
+}
+
+h1{
+  font-family: 'Allerta Stencil';
+  font-size:xx-large;
 }
 
 h2{
