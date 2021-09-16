@@ -12,7 +12,7 @@ const Teams = (props) => {
     const { teams, isFetching, error } = props;
 
     useEffect(() => {
-        props.getTeams();
+        getTeams();
     }, []);
 
     if (error) {
