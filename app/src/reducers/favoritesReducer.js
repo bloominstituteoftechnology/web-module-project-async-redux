@@ -7,7 +7,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVORITES:
-      if (state.favorites.find((item) => item.id == action.payload.id)) {
+      if (state.favorites.find((item) => item.id === action.payload.id)) {
         return state;
       }
       return {

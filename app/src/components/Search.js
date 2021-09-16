@@ -7,8 +7,8 @@ import "./Components.css";
 const Search = (props) => {
   const [state, setState] = useState("");
 
-  const handleChange = (e) => {
-    setState(state);
+  const handleChange = (word) => {
+    setState(word);
     props.searchCrypto(state);
   };
 
@@ -17,7 +17,9 @@ const Search = (props) => {
       <label>Search Crypto:</label>
       <input
         name="search"
+        type="text"
         placeholder="Type in your crypto"
+        value={state}
         onChange={(e) => handleChange(e.target.value)}
       />
     </div>

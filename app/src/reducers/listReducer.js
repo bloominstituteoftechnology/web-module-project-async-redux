@@ -3,6 +3,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
   SEARCH_CRYPTO,
+  fetchStart,
 } from "../actions/listAction.js";
 
 const initialState = {
@@ -34,11 +35,14 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
       };
     case SEARCH_CRYPTO:
+      if (action.payload === "") {
+        return state;
+      }
       return {
         ...state,
-        cryptos: state.cryptos.filter((item) => {
-          const searchName = item.id.toLowerCase();
-          return searchName.includes(action.payload);
+        cryptos: state.cryptos.map((item) => {
+          const searchWord = action.payload.toLowerCase();
+          return item.name.toLowerCase() === searchWord;
         }),
         isFetching: false,
         error: "",
