@@ -33,6 +33,7 @@ const Teams = (props) => {
                 <h2>Team Name: {teams.name}</h2>
                 <p>Conference: {teams.conference.name}</p>
                 <p>Division: {teams.division.name}</p>
+                <p>Example Tag</p>
                 <a href={teams.officialSiteUrl} target='_blank'>Official Site</a>
             </div>}
             <br></br>
