@@ -11,7 +11,7 @@ import {
   };
   
   function reducer(state = initialState, action) {
-    console.log('reducer', action);
+   
     switch (action.type) {
       case FETCH_CATS_START:
         return {
@@ -36,5 +36,5 @@ import {
     }
   }
   
-  export default reducerCreator.js;
+  export default reducer;
   
