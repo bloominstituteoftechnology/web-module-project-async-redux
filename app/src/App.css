@@ -1,0 +1,10 @@
+.App{
+    background-color:salmon;
+    display:flex;
+    flex-direction: column;
+}
+
+.App h1{
+    
+    
+}
