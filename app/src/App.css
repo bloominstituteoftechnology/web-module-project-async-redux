@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+
+.Character-Div{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.characterCard{
+  margin: 10px 50px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
