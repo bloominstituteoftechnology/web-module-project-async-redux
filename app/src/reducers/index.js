@@ -17,12 +17,14 @@ const reducer = (state = initialState, action) => {
         case GET_POKEMON_SUCCESS:
             return({
                 ...state,
-                pokedex: action.payload
+                pokedex: action.payload,
+                isGetting: false
             })
         case GET_POKEMON_FAIL:
             return({
                 ...state,
-                error: action.payload
+                error: action.payload,
+                isGetting: false
             })
         default:
             return state
