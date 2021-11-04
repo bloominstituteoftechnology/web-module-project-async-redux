@@ -8,7 +8,7 @@ export const getMovie = ()=> {
             return Math.floor(Math.random() * max);
           }
          
-        const id = getRandomInt(100);  
+        const id = getRandomInt(239);  
 
         axios.get(`https://api.tvmaze.com/shows/${id}`)
           .then(resp=> {   

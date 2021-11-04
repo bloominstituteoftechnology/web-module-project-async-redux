@@ -33,10 +33,10 @@ const Movie = ({ movie, isFetching, error, dispatch }) => {
       <div>     
         <h2>{movie.name} </h2>        
         <img src={movie.image.medium}/>
-        <p>network: {movie.network.name} </p>
-        
-        { ReactHtmlParser(movie.summary) }             
-        
+        {/* <p>network: {movie.network.name} </p> */}
+        <div>
+          { ReactHtmlParser(movie.summary) }
+        </div>
         <p>rating: {movie.rating.average} </p>
       </div>
       <button onClick={handleClick}>Choose me another show</button>
