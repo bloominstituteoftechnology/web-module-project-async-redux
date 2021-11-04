@@ -22,6 +22,7 @@ const Suggestion = (props) => {
   }
   const handleClick2 = () =>{
     props.dispatch(addFavorite({activity:props.state.suggestion.activity, type:props.state.suggestion.type, id:props.state.suggestion.id}))
+    props.dispatch(getSuggestion())
   }
 
   return (
