@@ -14,8 +14,8 @@ import { reducer } from './reducers';
 
 const store = createStore(
     reducer, 
-    applyMiddleware(thunk)
-    // applyMiddleware(thunk, logger)
+    // applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   );
 
 const rootElement = document.getElementById('root');
