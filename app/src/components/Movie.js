@@ -1,5 +1,8 @@
 import React, { useEffect} from 'react'
+
 import { connect } from 'react-redux'
+
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import {    
   getMovie
@@ -31,7 +34,9 @@ const Movie = ({ movie, isFetching, error, dispatch }) => {
         <h2>{movie.name} </h2>        
         <img src={movie.image.medium}/>
         <p>network: {movie.network.name} </p>
-        {movie.summary} 
+        
+        { ReactHtmlParser(movie.summary) }             
+        
         <p>rating: {movie.rating.average} </p>
       </div>
       <button onClick={handleClick}>Choose me another show</button>
