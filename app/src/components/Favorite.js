@@ -7,7 +7,6 @@ import './Favorites.css'
 
 const Favorite = (props) => {
 
-console.log('props from fav',props)
 const handleClick = () =>{
     props.dispatch(deleteFavorite(props.id))
 }

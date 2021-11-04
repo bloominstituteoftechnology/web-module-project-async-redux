@@ -38,3 +38,6 @@ export const addFavorite = (suggestion) => {
 export const deleteFavorite = (id) => {
     return({type:DELETE_FAVORITE, payload:id})
 }
+
+
+

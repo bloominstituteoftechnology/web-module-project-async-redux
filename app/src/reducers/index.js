@@ -1,4 +1,4 @@
-import { FETCH_SUCCESS, IS_FETCHING, ERROR, ADD_FAVORITE, DELETE_FAVORITE } from './../actions';
+import { FETCH_SUCCESS, IS_FETCHING, ERROR, ADD_FAVORITE, DELETE_FAVORITE, ADD_HISTORY } from './../actions';
 
 const initialState = {
     suggestion:{
@@ -8,7 +8,8 @@ const initialState = {
     },
     isFetching: false,
     error:'',
-    favorites:[]
+    favorites:[],
+    history:[]
 }
 
 export const reducer = (state = initialState, action) =>{
@@ -36,14 +37,16 @@ export const reducer = (state = initialState, action) =>{
                 favorites:[...state.favorites, action.payload]
             })
         case(DELETE_FAVORITE):
-        console.log('delete fav',action.payload)
             return({
                 ...state,
-                favorites: [state.favorites.filter(favorite=>{
-                    if(!action.payload === favorite.id){
-                        return favorite
-                    }}
-                )]
+                favorites: state.favorites.filter(favorite=>{
+                    return favorite.id !== action.payload
+                }),
+                history: 
+                    [...state.history,
+                    state.favorites.find(favorite=>{
+                    return (favorite.id === action.payload)
+                    })],
             })
         default:
             return state;

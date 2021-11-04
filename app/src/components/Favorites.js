@@ -6,7 +6,6 @@ import Favorite from './Favorite'
 
 const Favorites = (props) => {
 
-console.log('props from favs',props.state.favorites)
 
   if (props.state.favorites.length===0) {
     return <p className='suggestion'>No favorites added. Add favorites to this list.</p>;
