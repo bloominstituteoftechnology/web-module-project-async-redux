@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Trending from './components/Trending';
+import { getTrendingMovies } from './actions/movieActions';
+import { connect } from 'react-redux';
 import './App.css';
 
-function App() {
+
+function App({ getTrendingMovies, movies }) {
+  const [trendingMovies, setTrendingMovies] = useState(movies)
+
+  useEffect(() => {
+    getTrendingMovies()
+}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="movies">
+        <Trending trendingMovies={trendingMovies}/>
+      </div>
     </div>
+
   );
 }
+const mapStateToProps = ({ movieReducers }) => {
+  return ({
+      movies: movieReducers
+  })
+}
 
-export default App;
+export default connect(mapStateToProps, {getTrendingMovies})(App)
