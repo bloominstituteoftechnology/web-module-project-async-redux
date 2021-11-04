@@ -3,7 +3,8 @@
     box-sizing: border-box;
     width:400px;
     min-height:250px;
-    background-color: #fca311;
+    background-color: pink;
+    color: black;
     display:flex;
     justify-content:center;
     align-items: center;
