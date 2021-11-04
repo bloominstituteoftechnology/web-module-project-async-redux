@@ -8,9 +8,9 @@ import {
 
 const Movie = ({ movie, isFetching, error, dispatch }) => {
   
-  // useEffect(()=> {
-  //   dispatch(getMovie());    
-  // }, []);
+  useEffect(()=> {
+    dispatch(getMovie());    
+  }, []);
 
   if (error) {
     return <h2>We got an error: {error}</h2>;

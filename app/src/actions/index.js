@@ -2,7 +2,24 @@ import axios from 'axios'
 
 export const getMovie = ()=> {
     return (dispatch) => {
-        dispatch(fetchStart());          
+        dispatch(fetchStart());     
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+          }
+         
+        const id = getRandomInt(100);  
+
+        axios.get(`https://api.tvmaze.com/shows/${id}`)
+          .then(resp=> {   
+              
+            console.log('resp.data[0]', resp.data[2]);   
+            // debugger 
+            dispatch(fetchSuccess(resp.data));
+        })
+        .catch(err => {            
+            // dispatch(fetchError(err));
+        });        
 
     }
 }
