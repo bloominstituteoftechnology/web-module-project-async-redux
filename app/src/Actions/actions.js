@@ -11,7 +11,7 @@ export const getData = () => dispatch => {
     axios.get("https://datausa.io/api/data?drilldowns=Nation&measures=Population")
         .then(resp=> {
             dispatch(fetchSuccess(resp.data.data[Math.floor(Math.random() * resp.data.data.length)]));
-            console.log('axios', resp.data.data[Math.floor(Math.random() * resp.data.data.length)]);
+            console.log(resp.data[0]);
         })
         .catch(err => {
             dispatch(fetchFail(err));

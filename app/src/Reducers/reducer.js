@@ -3,10 +3,10 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from '../Actions/actions';
 const initialState = {
     data: {
         "ID Nation": "asd",
-        "Nation": "asd",
-         "ID Year": "456",
-        "Year": "123",
-        "Population": "asd",
+        "Nation": "USA",
+        "ID Year": "456",
+        "Year": "2021",
+        "Population": "A lot",
         "Slug Nation": "asd"
     },
     isFetching: false,

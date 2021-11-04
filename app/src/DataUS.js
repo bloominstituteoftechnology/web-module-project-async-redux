@@ -1,14 +1,13 @@
-import './App.css';
-import React, { useEffect } from 'react';
-import { connect } from 'react';
+import "./App.css";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-import { getData, fetchFail } from './Actions/actions';
-
+import { getData, fetchFail } from "./Actions/actions";
 
 const DataUS = (props) => {
-  const { data, isFetching, error} = props;
+  const { data, isFetching, error } = props;
   useEffect(() => {
-    props.getData();
+    getData();
   }, []);
 
   if (error) {
@@ -16,31 +15,30 @@ const DataUS = (props) => {
   }
 
   if (isFetching) {
-    return <h2>Fetching person for ya!</h2>;
+    return <h2>Fetching nation for ya!</h2>;
   }
 
-  const handleClick = ()=> {
+  const handleClick = () => {
     props.getData();
   };
 
-  
   return (
     <div className="App">
-        <h2> Data: ------- </h2>
-        <h3>Year: {data.Year}</h3>
-        <h3>Nation: {data.Nation}</h3>
-        <h3>Population: {data.Population}</h3>
-        <button onClick={handleClick}>Get new data</button>
+      <h2> Data </h2>
+      <h3>Year: {data.Year}</h3>
+      <h3>Nation: {data.Nation}</h3>
+      <h3>Population: {data.Population}</h3>
+      <button onClick={handleClick}>Get new data</button>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  console.log('state',state);
+const mapStateToProps = (state) => {
+  console.log("state", state);
   return {
     data: state.data,
     isFetching: state.isFetching,
-    error: state.error
+    error: state.error,
   };
 };
 
