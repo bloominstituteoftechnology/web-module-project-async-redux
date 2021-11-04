@@ -13,7 +13,7 @@ export const getMovie = ()=> {
         axios.get(`https://api.tvmaze.com/shows/${id}`)
           .then(resp=> {   
               
-            console.log('resp.data[0]', resp.data[2]);   
+            // console.log('resp.data[0]', resp.data[2]);   
             // debugger 
             dispatch(fetchSuccess(resp.data));
         })
