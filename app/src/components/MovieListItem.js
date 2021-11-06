@@ -1,8 +1,8 @@
 import { useEffect} from 'react'
 import { connect } from 'react-redux'
 import ReactHtmlParser from 'react-html-parser';
-import {getMovie, fetchSuccess, fetchStart, fetchError } from '../actions/movieActions';
-import axios from 'axios';
+import {getMovie} from '../actions/movieActions';
+
 
 const Movie = ( props ) => {
   const { movie, isFetching, error, dispatch } = props
