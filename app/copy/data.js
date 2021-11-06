@@ -37,8 +37,24 @@ let movies = [
         "original": "https://static.tvmaze.com/uploads/images/original_untouched/163/407679.jpg"
       },
       director: "Peter Jackson",
+      network: {
+        "id": 2,
+        "name": "CBS",
+        "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+        }
+      },
       metascore: 92,
-      genre: "Fantasy",
+      rating: {
+        "average": 8.9
+      },
+      "genres": [
+        "Action",
+        "Crime",
+        "Science-Fiction"
+      ],
       description: "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."
     },
     {
@@ -49,8 +65,24 @@ let movies = [
         "original": "https://static.tvmaze.com/uploads/images/original_untouched/0/15.jpg"
       },
       director: "James Cameron",
+      network: {
+        "id": 7,
+        "name": "CTV Sci-Fi Channel",
+        "country": {
+            "name": "Canada",
+            "code": "CA",
+            "timezone": "America/Halifax"
+        }
+      },
       metascore: 94,
-      genre: "Action",
+      rating: {
+        "average": 7.6
+      },
+      genres: [
+        "Drama",
+        "Horror",
+        "Romance"
+      ],
       description: "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced and powerful cyborg."
     },
     {
@@ -61,8 +93,24 @@ let movies = [
         "original": "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg"
       },
       director: "The Farely Brothers",
+      network: {
+        "id": 5,
+        "name": "The CW",
+        "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+        }
+      },
       metascore: 76,
-      genre: "Comedy",
+      rating: {
+        "average": 7.4
+      },
+      genres: [
+        "Drama",
+        "Action",
+        "Science-Fiction"
+      ],
       description: "After a woman leaves a briefcase at the airport terminal, a dumb limo driver and his dumber friend set out on a hilarious cross-country road trip to Aspen to return it."
     },
     {
@@ -73,8 +121,24 @@ let movies = [
         "original": "https://static.tvmaze.com/uploads/images/original_untouched/178/445621.jpg"
       },
       director: "George P. Cosmatos",
+      network: {
+        "id": 8,
+        "name": "HBO",
+        "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+        }
+      },
       metascore: 89,
-      genre: "Drama",
+      rating: {
+        "average": 8.3
+      },
+      genres: [
+        "Drama",
+        "Crime",
+        "Thriller"
+      ],
       description: "A successful lawman's plans to retire anonymously in Tombstone, Arizona are disrupted by the kind of outlaws he was famous for eliminating."
     },
     {
@@ -85,8 +149,24 @@ let movies = [
         "original": "https://static.tvmaze.com/uploads/images/original_untouched/257/642675.jpg"
       },
       director: "Francis Ford Coppola",
+      network: {
+        "id": 5,
+        "name": "The CW",
+        "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+        }
+      },
       metascore: 100,
-      genre: "Drama",
+      rating: {
+        "average": 8.3
+      },
+      genres: [
+        "Drama",
+        "Crime",
+        "Thriller"
+      ],
       description: "War hero Michael is the prodigal son of aging but fearsome crime patriarch Don Vito Corleone. When Michael returns home only to be thrust into an all-too-familiar world of hitmen, corrupt cops, and simmering mafia rivalries, he is forced to choose between his own path and the Corleone family legacy."
     }
   ];
