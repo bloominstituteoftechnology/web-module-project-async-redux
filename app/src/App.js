@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Suggestion from './components/Suggestion.js'
 import Favorites from './components/Favorites'

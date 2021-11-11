@@ -1,4 +1,4 @@
-import { FETCH_SUCCESS, IS_FETCHING, ERROR, ADD_FAVORITE, DELETE_FAVORITE, ADD_HISTORY } from './../actions';
+import { FETCH_SUCCESS, IS_FETCHING, ERROR, ADD_FAVORITE, DELETE_FAVORITE } from './../actions';
 
 const initialState = {
     suggestion:{

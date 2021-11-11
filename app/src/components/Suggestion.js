@@ -5,10 +5,10 @@ import './Suggestions.css'
 
 
 const Suggestion = (props) => {
-
+  const { dispatch } = props
   useEffect(()=>{
-   props.dispatch(getSuggestion())
-  },[]);
+   dispatch(getSuggestion())
+  },[dispatch]);
 
   if (props.state.isFetching) {
     return <p className='suggestion'>Fetching your suggestion...</p>;
@@ -18,11 +18,11 @@ const Suggestion = (props) => {
   }
   
   const handleClick = () =>{
-    props.dispatch(getSuggestion())
+    dispatch(getSuggestion())
   }
   const handleClick2 = () =>{
-    props.dispatch(addFavorite({activity:props.state.suggestion.activity, type:props.state.suggestion.type, id:props.state.suggestion.id}))
-    props.dispatch(getSuggestion())
+    dispatch(addFavorite({activity:props.state.suggestion.activity, type:props.state.suggestion.type, id:props.state.suggestion.id}))
+    dispatch(getSuggestion())
   }
 
   return (
