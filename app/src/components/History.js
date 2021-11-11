@@ -16,7 +16,7 @@ const History = (props) => {
        <button onClick={handleClick}>{isToggled ? 'Hide History' : 'Show History'}</button>
             {isToggled && 
             history.map(item=>{
-                return <p>{item.activity}</p>
+                return <p>{`• ${item.activity}`}</p>
             })
             }
       </div>
