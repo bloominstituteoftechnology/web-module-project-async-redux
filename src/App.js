@@ -1,13 +1,21 @@
 import {connect} from 'react-redux'
 import React from 'react';
 import './App.css';
+
+import { useEffect } from 'react';
+
 import { data } from './data/jokes';
 import JokesList from './components/JokesList';
 import JokeForm from './components/JokeForm';
+import { fetchError, fetchStart, fetchSuccess, getJokes } from './action';
 
 function App(props) {
-  const {loading, error} = props
+  const {loading, error, getJokes} = props
 
+
+  useEffect(()=> {
+    getJokes();
+  },[])
   // if(error !== ''){
   //   return <h3>{error}</h3>
   // }
@@ -34,4 +42,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+// const mapActionsToProps = () => {
+//   return {
+//     fetchStart: fetchStart
+//   }
+// } This is what the second part of mapState means
+
+export default connect(mapStateToProps, {getJokes})(App);

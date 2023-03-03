@@ -13,7 +13,7 @@ const JokesList = props => {
                 jokes.map(joke => {
                     return (
                         <div>
-                            <Joke key={joke.id} joke={joke}/>
+                            <Joke joke={joke}/>
                         </div>
                     )
                 })
