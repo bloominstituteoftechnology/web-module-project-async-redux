@@ -8,7 +8,21 @@ function ZipCodeFormat(props) {
       {zipCodes.map((data) => {
         return (
           <div className="zipCodeData">
-            <h1>{data.country}</h1>
+            <h1>Zip Code: {data["post code"]}</h1>
+
+            <h2>
+              City:{" "}
+              {data.places.map((place) => {
+                return place["place name"];
+              })}
+            </h2>
+            <h2>
+              State:{" "}
+              {data.places.map((place) => {
+                return place.state;
+              })}
+            </h2>
+            <h2>Country: {data.country}</h2>
           </div>
         );
       })}

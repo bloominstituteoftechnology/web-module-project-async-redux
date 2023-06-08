@@ -6,7 +6,7 @@ import { createStore } from "redux";
 
 import reducer from "./reducer";
 import App from "./App";
-import SchoolForm from "./components/schoolForm";
+
 import "./index.css";
 
 const store = createStore(reducer);
