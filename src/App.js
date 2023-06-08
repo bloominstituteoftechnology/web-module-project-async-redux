@@ -1,12 +1,28 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import ZipCodeForm from "./components/ZipCodeForm";
+import { connect } from "react-redux";
 
-function App() {
+import "./App.css";
+import ZipCodeFormat from "./components/ZipCodeFormat";
+
+function App(props) {
+  const { loading, zipCodeData } = props;
   return (
     <div className="App">
-      Async Redux Project
+      <h1>Zip Code Data</h1>
+      <ZipCodeForm />
+      {loading ? (
+        <h2>Gathering Data</h2>
+      ) : (
+        <ZipCodeFormat zipCodes={zipCodeData} />
+      )}
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading,
+    zipCodeData: state.zipCodeData,
+  };
+};
+export default connect(mapStateToProps)(App);
