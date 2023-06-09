@@ -1,13 +1,18 @@
 import React from "react";
 import ZipCodeForm from "./components/ZipCodeForm";
-import { connect } from "react-redux";
 
+import { fetchStart, getZipCode, successfulFetch } from "./actions";
+
+import { connect } from "react-redux";
+import { useEffect } from "react";
 import "./App.css";
 import ZipCodeFormat from "./components/ZipCodeFormat";
 
 function App(props) {
   const { loading, zipCodeData, error } = props;
-
+  useEffect(() => {
+    getZipCode();
+  }, []);
   return (
     <div className="App">
       <h1>Zip Code Data</h1>
@@ -28,4 +33,4 @@ const mapStateToProps = (state) => {
     error: state.error,
   };
 };
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { fetchStart, successfulFetch })(App);
