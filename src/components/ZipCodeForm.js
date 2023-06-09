@@ -1,14 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { getZipCode } from "../actions";
 
-function ZipCodeForm() {
+function ZipCodeForm(props) {
   const [zipCode, setZipCode] = useState("");
   const handleChange = (evt) => {
     evt.preventDefault();
-    setZipCode(e.target.value);
+    setZipCode(evt.target.value);
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    props.getZipCode(zipCode);
     console.log("clicked");
   };
   return (
@@ -30,4 +33,4 @@ function ZipCodeForm() {
 const mapStateToProps = (state) => {
   zipCodeData: state.zipCodeData;
 };
-export default ZipCodeForm;
+export default connect(null, { getZipCode })(ZipCodeForm);
