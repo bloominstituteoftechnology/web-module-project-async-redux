@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
-import { FiveCards } from "../actions";
+import { FIVE_CARDS } from "../actions";
 import HardList from "./CardList";
 import styled from "styled-components";
  

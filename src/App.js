@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Splash from './components/Splash';
 import CardView from './components/CardView';
-import Card from './com components/Card';
+import Card from './components/Card';
 import { Route, Switch } from 'react-router-dom'; 
 import { connect } from 'react-redux';
 

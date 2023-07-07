@@ -45,8 +45,8 @@ const cardReducer = (state = initialState, action) => {
         case SET_CURRENT_CARD:
             return {
                 ...state,
-                currentCard: 
-                }
+                currentCard: action.payload
+            }
         default:
             return state;
     }
