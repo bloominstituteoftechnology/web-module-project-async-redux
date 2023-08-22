@@ -13,7 +13,7 @@ const GifForm = (props) => {
                 value={currentInput}
                 onChange={(e) => setCurrentInput(e.target.value)}
             />
-            <button onClick={() => search(currentInput)}>Search</button>
+            <button onClick={(e) => e.preventDefault()/search(currentInput)/setCurrentInput("")}>Search</button>
         </form>
     )
 }

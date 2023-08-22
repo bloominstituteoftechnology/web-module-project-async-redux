@@ -5,22 +5,29 @@ import GifForm from "./components/GifForm";
 import { connect } from 'react-redux';
 
 function App(props) {
-  const { isFetching, error } = props
-
-  if (isFetching) {
-    return <h2>We are loading</h2>;
-  }
-
-  else if (error) {
-    return <h2>ERROR: {error}</h2>
+  const { isFetching, error, data } = props
+  
+  if (error) {
+    return <div>
+      <h2 className="Error">{error}</h2>
+      <h1>Search for Gifs</h1>
+      <GifForm className="GifForm" />
+      <GifList className="GifList" />
+    </div>
   }
   else {
     return (
       <div className="App">
+        {isFetching ? <h2>We are loading</h2> : <></>}
         <h1>Search for Gifs</h1>
-
-        <GifForm />
-        <GifList />
+        {data.length === 0 ? <div>
+          <p className="Error"><strong >Search Bar EMPTY!</strong></p>
+          <GifForm className="GifForm" />
+          <GifList className="GifList" />
+        </div> : <div>
+          <GifForm className="GifForm" />
+          <GifList className="GifList" />
+        </div>}
       </div>
     );
   }
@@ -28,6 +35,7 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
+    data: state.data,
     isFetching: state.isFetching,
     error: state.error
   }
