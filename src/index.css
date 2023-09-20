@@ -2,3 +2,18 @@
 body {
 	background: #f5f5f5;
 }
+
+/* Import the custom font using @font-face */
+@font-face {
+	font-family: 'PokemonSolid';
+	src: url('./font/Pokemon\ Solid.ttf') format('truetype');
+	/* You may need to specify other font formats (e.g., woff, woff2) depending on your font files */
+  }
+  
+  /* Apply the custom font and set the font size for the heading class */
+  .heading1 {
+	font-family: 'PokemonSolid', sans-serif; /* Use the custom font as the first choice and fallback to a sans-serif font */
+	font-size: 24px; /* Set the font size to make it pretty big */
+	/* You can adjust the font-size value as needed */
+  }
+  
