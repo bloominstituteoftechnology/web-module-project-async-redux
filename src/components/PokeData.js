@@ -1,8 +1,6 @@
-// PokemonCard.js
+import React from "react";
 
-import React from 'react';
-
-const PokemonCard = ({ pokemon }) => {
+const PokeData = ({ pokemon }) => {
   return (
     <div className="pokemon-card">
       <h3>Name: {pokemon.name}</h3>
@@ -10,11 +8,145 @@ const PokemonCard = ({ pokemon }) => {
       <p>Supertype: {pokemon.supertype}</p>
       <p>Level: {pokemon.level}</p>
       <p>HP: {pokemon.hp}</p>
-      <p>Type: {pokemon.types.join(', ')}</p>
-      {/* Add more information */}
-      <img src={pokemon.images.small} alt={pokemon.name} />
+      <p>Type: {pokemon.types.join(", ")}</p>
+
+     
+      {pokemon.subtypes && <p>Subtypes: {pokemon.subtypes.join(", ")}</p>}
+
+      
+      {pokemon.abilities && (
+        <div>
+          <h4>Abilities:</h4>
+          <ul>
+            {pokemon.abilities.map((ability, index) => (
+              <li key={index}>
+                <strong>Name:</strong> {ability.name}
+                <br />
+                <strong>Type:</strong> {ability.type}
+                <br />
+                <strong>Text:</strong> {ability.text}
+                <br />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      
+      {pokemon.attacks && (
+        <div>
+          <h4>Attacks:</h4>
+          <ul>
+            {pokemon.attacks.map((attack, index) => (
+              <li key={index}>
+                <strong>Name:</strong> {attack.name}
+                <br />
+                <strong>Cost:</strong> {attack.cost.join(", ")}
+                <br />
+                <strong>Converted Energy Cost:</strong>{" "}
+                {attack.convertedEnergyCost}
+                <br />
+                <strong>Damage:</strong> {attack.damage}
+                <br />
+                <strong>Text:</strong> {attack.text}
+                <br />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {pokemon.weaknesses && (
+        <div>
+          <h4>Weaknesses:</h4>
+          <ul>
+            {pokemon.weaknesses.map((weakness, index) => (
+              <li key={index}>
+                <strong>Type:</strong> {weakness.type}
+                <br />
+                <strong>Value:</strong> {weakness.value}
+                <br />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {pokemon.resistances && (
+        <div>
+          <h4>Resistences:</h4>
+          <ul>
+            {pokemon.resistances.map((resistance, index) => (
+              <li key={index}>
+                <strong>Type:</strong> {resistance.type}
+                <br />
+                <strong>Value:</strong> {resistance.value}
+                <br />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      
+      {pokemon.retreatCost && (
+        <p>Retreat Cost: {pokemon.retreatCost.join(", ")}</p>
+      )}
+
+    
+      {pokemon.set && (
+        <div>
+          <h4>Set Details:</h4>
+          <p>ID: {pokemon.set.id}</p>
+          <p>Name: {pokemon.set.name}</p>
+          <p>Series: {pokemon.set.series}</p>
+          <p>Release Date: {pokemon.set.releaseDate}</p>
+          <img src={pokemon.set.images.symbol} alt="Set Symbol" />
+          <img src={pokemon.set.images.logo} alt="Set Logo" />
+        </div>
+      )}
+   
+      {pokemon.evolvesFrom && <p>Evolves From: {pokemon.evolvesFrom}</p>}
+      {pokemon.rarity && <p>Rarity: {pokemon.rarity}</p>}
+      {pokemon.flavorText && <p>Flavor Text: {pokemon.flavorText}</p>}
+
+      {pokemon.nationalPokedexNumbers && (
+        <div>
+          <h4>National Pokedex Numbers:</h4>
+          <ul>
+            {pokemon.nationalPokedexNumbers.map((number, index) => (
+              <li key={index}>{number}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {pokemon.legalities && (
+        <div>
+          <h4>Legalities:</h4>
+          <p>Unlimited: {pokemon.legalities.unlimited}</p>
+        </div>
+      )}
+
+      
+      {pokemon.tcgplayer && (
+        <div>
+          <h4>TCGPlayer Data:</h4>
+          <p>URL: {pokemon.tcgplayer.url}</p>
+          <p>Updated At: {pokemon.tcgplayer.updatedAt}</p>
+        </div>
+      )}
+
+      
+      {pokemon.cardmarket && (
+        <div>
+          <h4>CardMarket Data:</h4>
+          <p>URL: {pokemon.cardmarket.url}</p>
+          <p>Updated At: {pokemon.cardmarket.updatedAt}</p>
+        </div>
+      )}
     </div>
   );
 };
 
-export default PokemonCard;
+export default PokeData;
