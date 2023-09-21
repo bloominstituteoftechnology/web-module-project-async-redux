@@ -1,22 +1,27 @@
 import React from 'react';
-import testPokemonData from './PokemonData';
 import PokeData from './PokeData';
+import { connect } from 'react-redux';
 
-function PokeSearchForm() {
-  // Map over the testPokemonData array and render a PokeData component for each Pokémon
-  const renderedPokemon = testPokemonData.map((pokemon, index) => (
-    <PokeData key={index} pokemon={pokemon} />
-  ));
+function PokeSearchForm(props) {
+  const { pokemonList } = props;
 
   return (
     <div>
       <form>
         <input />
-        <button className='initialButton'> Search </button>
+        <button className='initialButton'>Search</button>
       </form>
-      {renderedPokemon}
+      {pokemonList && pokemonList.map((pokemon, index) => (
+        <PokeData key={index} pokemon={pokemon} />
+      ))}
     </div>
   );
 }
 
-export default PokeSearchForm;
+const mapStateToProps = state => {
+  return {
+    pokemonList: state.pokemon,
+  };
+};
+
+export default connect(mapStateToProps)(PokeSearchForm);

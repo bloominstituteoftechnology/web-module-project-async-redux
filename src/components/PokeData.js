@@ -1,6 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const PokeData = ({ pokemon }) => {
+const PokeData = (props) => {
+  const { pokemon } = props
+  
+  if (!pokemon) {
+    return null
+  }
+
   return (
     <div className="pokemon-card">
       <h3>Name: {pokemon.name}</h3>
@@ -22,7 +28,7 @@ const PokeData = ({ pokemon }) => {
               <li key={index}>
                 <strong>Name:</strong> {ability.name}
                 <br />
-                <strong>Type:</strong> {ability.type}
+                <strong>Types:</strong> {ability.types}
                 <br />
                 <strong>Text:</strong> {ability.text}
                 <br />
@@ -62,7 +68,7 @@ const PokeData = ({ pokemon }) => {
           <ul>
             {pokemon.weaknesses.map((weakness, index) => (
               <li key={index}>
-                <strong>Type:</strong> {weakness.type}
+                <strong>Type:</strong> {weakness.types}
                 <br />
                 <strong>Value:</strong> {weakness.value}
                 <br />
@@ -78,7 +84,7 @@ const PokeData = ({ pokemon }) => {
           <ul>
             {pokemon.resistances.map((resistance, index) => (
               <li key={index}>
-                <strong>Type:</strong> {resistance.type}
+                <strong>Type:</strong> {resistance.types}
                 <br />
                 <strong>Value:</strong> {resistance.value}
                 <br />

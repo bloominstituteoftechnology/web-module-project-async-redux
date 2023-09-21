@@ -1,4 +1,4 @@
-const testPokemonData = [
+const PokemonData = [
     {
     "id": "dp3-1",
     "name": "Ampharos",
@@ -252,5 +252,5 @@ const testPokemonData = [
 
   ];
   
-  export default testPokemonData;
+  export default PokemonData;
   

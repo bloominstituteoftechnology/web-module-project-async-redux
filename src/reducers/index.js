@@ -1,8 +1,7 @@
-
-import testPokemonData from "../components/PokemonData";
-
+import PokemonData from "../components/PokemonData";
 const initialState = {
-    pokemon: testPokemonData,
+    
+    pokemon: PokemonData,
     loading: false,
     error: ''
 }
@@ -11,5 +10,6 @@ const initialState = {
             default:
                 return(state);
         }
-    }
+}
+    
 export default reducer
