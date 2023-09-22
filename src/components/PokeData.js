@@ -1,11 +1,10 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 const PokeData = (props) => {
-  const { pokemon } = props
-  
-  if (!pokemon) {
-    return null
-  }
+  const { pokemon } = props;
+  // if (!pokemon) {
+  //   return null
+  // }
 
   return (
     <div className="pokemon-card">
@@ -14,11 +13,7 @@ const PokeData = (props) => {
       <p>Supertype: {pokemon.supertype}</p>
       <p>Level: {pokemon.level}</p>
       <p>HP: {pokemon.hp}</p>
-      <p>Type: {pokemon.types.join(", ")}</p>
-
-     
-      {pokemon.subtypes && <p>Subtypes: {pokemon.subtypes.join(", ")}</p>}
-
+  
       
       {pokemon.abilities && (
         <div>
@@ -155,4 +150,12 @@ const PokeData = (props) => {
   );
 };
 
-export default PokeData;
+const MapStateProps = state => {
+  console.log(state.pokemon)
+  return {
+    pokemon: state.pokemon
+    
+  }
+} 
+
+export default connect(MapStateProps) (PokeData);

@@ -1,27 +1,30 @@
 import React from 'react';
-import PokeData from './PokeData';
 import { connect } from 'react-redux';
-
+import { fetchPokemon } from '../actions';
+import { useState } from 'react';
 function PokeSearchForm(props) {
-  const { pokemonList } = props;
+  const [searchTerm, setSearchTerm ] = useState('')
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.fetchPokemon(searchTerm)
+  };
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+} 
   return (
     <div>
-      <form>
-        <input />
-        <button className='initialButton'>Search</button>
+      <form onSubmit={handleSubmit}>
+        <input
+   onChange={handleChange}
+        />
+        <button className='initialButton' type="submit">Search</button>
       </form>
-      {pokemonList && pokemonList.map((pokemon, index) => (
-        <PokeData key={index} pokemon={pokemon} />
-      ))}
+      
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    pokemonList: state.pokemon,
-  };
-};
 
-export default connect(mapStateToProps)(PokeSearchForm);
+export default connect(null,{fetchPokemon})(PokeSearchForm);
