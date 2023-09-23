@@ -2,10 +2,9 @@ import React, {useEffect} from 'react';
 import './App.css';
 import './index.css';
 import PokeSearchForm from './components/PokeSearchForm';
-import PokeData from './components/PokeData';
 import { connect } from 'react-redux';
 import { fetchPokemon } from './actions'; // Import your action creator
-
+import PokeList from './components/PokeList';
 function App(props) {
   const { loading, fetchPokemon} = props;
 
@@ -18,7 +17,7 @@ function App(props) {
     <div className="App">
       <h1 className='heading1'>Pokemon Card Finder!!</h1>
       <PokeSearchForm />
-      {loading ? <h3> Gotta Load em all</h3> : <PokeData />}
+      {loading ? <h3> Gotta Load em all</h3> : <PokeList />}
       
     </div>
   );

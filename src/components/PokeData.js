@@ -1,31 +1,28 @@
+import React from "react";
 
-import React from 'react';
-import { connect } from 'react-redux';
-const PokeData = (props) => {
-  const { pokemon } = props;
-  if (!pokemon) {
-    return null
-  }
-  
-
+const PokeData = ({ pokemons }) => {
   return (
-    <div className="pokemon-card">
-      <h3>Name: {pokemon.name}</h3>
-      <p>ID: {pokemon.id}</p>
-      <p>Supertype: {pokemon.supertype}</p>
-      <p>Level: {pokemon.level}</p>
-      <p>HP: {pokemon.hp}</p>
-  
+    <div className="pokemons-card">
+      <h3>Name: {pokemons.name}</h3>
+      <p>ID: {pokemons.id}</p>
+      <p>Supertype: {pokemons.supertype}</p>
+      <p>Level: {pokemons.level}</p>
+      <p>HP: {pokemons.hp}</p>
+      {/* <p>Type: {pokemons.types.join(", ")}</p>
+
+     
+      {pokemons.subtypes && <p>Subtypes: {pokemons.subtypes.join(", ")}</p>} */}
+
       
-      {pokemon.abilities && (
+      {pokemons.abilities && (
         <div>
           <h4>Abilities:</h4>
           <ul>
-            {pokemon.abilities.map((ability, index) => (
+            {pokemons.abilities.map((ability, index) => (
               <li key={index}>
                 <strong>Name:</strong> {ability.name}
                 <br />
-                <strong>Types:</strong> {ability.types}
+                <strong>Type:</strong> {ability.type}
                 <br />
                 <strong>Text:</strong> {ability.text}
                 <br />
@@ -36,11 +33,11 @@ const PokeData = (props) => {
       )}
 
       
-      {pokemon.attacks && (
+      {pokemons.attacks && (
         <div>
           <h4>Attacks:</h4>
           <ul>
-            {pokemon.attacks.map((attack, index) => (
+            {pokemons.attacks.map((attack, index) => (
               <li key={index}>
                 <strong>Name:</strong> {attack.name}
                 <br />
@@ -59,13 +56,13 @@ const PokeData = (props) => {
         </div>
       )}
 
-      {pokemon.weaknesses && (
+      {pokemons.weaknesses && (
         <div>
           <h4>Weaknesses:</h4>
           <ul>
-            {pokemon.weaknesses.map((weakness, index) => (
+            {pokemons.weaknesses.map((weakness, index) => (
               <li key={index}>
-                <strong>Type:</strong> {weakness.types}
+                <strong>Type:</strong> {weakness.type}
                 <br />
                 <strong>Value:</strong> {weakness.value}
                 <br />
@@ -75,13 +72,13 @@ const PokeData = (props) => {
         </div>
       )}
 
-      {pokemon.resistances && (
+      {pokemons.resistances && (
         <div>
           <h4>Resistences:</h4>
           <ul>
-            {pokemon.resistances.map((resistance, index) => (
+            {pokemons.resistances.map((resistance, index) => (
               <li key={index}>
-                <strong>Type:</strong> {resistance.types}
+                <strong>Type:</strong> {resistance.type}
                 <br />
                 <strong>Value:</strong> {resistance.value}
                 <br />
@@ -92,90 +89,81 @@ const PokeData = (props) => {
       )}
 
       
-      {pokemon.retreatCost && (
-        <p>Retreat Cost: {pokemon.retreatCost.join(", ")}</p>
+      {pokemons.retreatCost && (
+        <p>Retreat Cost: {pokemons.retreatCost.join(", ")}</p>
       )}
 
     
-      {pokemon.set && (
+      {pokemons.set && (
         <div>
           <h4>Set Details:</h4>
-          <p>ID: {pokemon.set.id}</p>
-          <p>Name: {pokemon.set.name}</p>
-          <p>Series: {pokemon.set.series}</p>
-          <p>Release Date: {pokemon.set.releaseDate}</p>
-          <img src={pokemon.set.images.symbol} alt="Set Symbol" />
-          <img src={pokemon.set.images.logo} alt="Set Logo" />
+          <p>ID: {pokemons.set.id}</p>
+          <p>Name: {pokemons.set.name}</p>
+          <p>Series: {pokemons.set.series}</p>
+          <p>Release Date: {pokemons.set.releaseDate}</p>
+          <img src={pokemons.set.images.symbol} alt="Set Symbol" />
+          <img src={pokemons.set.images.logo} alt="Set Logo" />
         </div>
       )}
    
-      {pokemon.evolvesFrom && <p>Evolves From: {pokemon.evolvesFrom}</p>}
-      {pokemon.rarity && <p>Rarity: {pokemon.rarity}</p>}
-      {pokemon.flavorText && <p>Flavor Text: {pokemon.flavorText}</p>}
+      {pokemons.evolvesFrom && <p>Evolves From: {pokemons.evolvesFrom}</p>}
+      {pokemons.rarity && <p>Rarity: {pokemons.rarity}</p>}
+      {pokemons.flavorText && <p>Flavor Text: {pokemons.flavorText}</p>}
 
-      {pokemon.nationalPokedexNumbers && (
+      {pokemons.nationalPokedexNumbers && (
         <div>
           <h4>National Pokedex Numbers:</h4>
           <ul>
-            {pokemon.nationalPokedexNumbers.map((number, index) => (
+            {pokemons.nationalPokedexNumbers.map((number, index) => (
               <li key={index}>{number}</li>
             ))}
           </ul>
         </div>
       )}
 
-      {pokemon.legalities && (
+      {pokemons.legalities && (
         <div>
           <h4>Legalities:</h4>
-          <p>Unlimited: {pokemon.legalities.unlimited}</p>
+          <p>Unlimited: {pokemons.legalities.unlimited}</p>
         </div>
       )}
 
       
-      {pokemon.tcgplayer && (
+      {pokemons.tcgplayer && (
         <div>
           <h4>TCGPlayer Data:</h4>
-          <p>URL: {pokemon.tcgplayer.url}</p>
-          <p>Updated At: {pokemon.tcgplayer.updatedAt}</p>
+          <p>URL: {pokemons.tcgplayer.url}</p>
+          <p>Updated At: {pokemons.tcgplayer.updatedAt}</p>
         </div>
       )}
 
       
-      {pokemon.cardmarket && (
+      {pokemons.cardmarket && (
         <div>
           <h4>CardMarket Data:</h4>
-          <p>URL: {pokemon.cardmarket.url}</p>
-          <p>Updated At: {pokemon.cardmarket.updatedAt}</p>
+          <p>URL: {pokemons.cardmarket.url}</p>
+          <p>Updated At: {pokemons.cardmarket.updatedAt}</p>
         </div>
       )}
     </div>
   );
 };
-
-const MapStateProps = state => {
-  console.log(state.pokemon)
-  return {
-    pokemon: state.pokemon
-    
-  }
-} 
-
-export default connect(MapStateProps)(PokeData);
+ export  default PokeData
 
 // import React from "react";
 // import { connect } from 'react-redux';
 
 
 // const PokeData = props => {
-//   const { pokemon  } = props;
-//   const array = Object.keys(pokemon)
+//   const { pokemons  } = props;
+//   const array = Object.keys(pokemons)
 //   console.log(array)
 
 //   return (
-//     <div className="pokemon-card">
+//     <div className="pokemons-card">
 //       <h2>pokemonlisto</h2>
 //       <ol>
-//         {Object.keys(pokemon).map((item) => (
+//         {Object.keys(pokemons).map((item) => (
 //           <li key={item.id}>
 //             <strong className="opener">{item.name}</strong>
             
@@ -191,7 +179,7 @@ export default connect(MapStateProps)(PokeData);
 
 // const mapStateToProps = state => {
 //   return {
-//     pokemon: state.pokemon,
+//     pokemons: state.pokemons,
 //     // Assuming you have this in your state
 //   };
 // };
