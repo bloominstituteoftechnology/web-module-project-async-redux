@@ -19,7 +19,7 @@ function App(props) {
       <h1 className='heading1'>Pokemon Card Finder!!</h1>
       <PokeSearchForm />
       {loading ? <h3> Gotta Load em all</h3> : <PokeData />}
-      {}
+      
     </div>
   );
 }

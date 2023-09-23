@@ -1,5 +1,5 @@
 import {
-  SUBMIT_POKEMON_SEARCH,
+  // SUBMIT_POKEMON_SEARCH,
   FETCH_POKEMON_REQUEST,
   FETCH_POKEMON_SUCCESS,
   FETCH_POKEMON_FAILURE,
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         pokemon: action.payload,
-        error: '',
+        error: null,
       };
     case FETCH_POKEMON_FAILURE:
       return {

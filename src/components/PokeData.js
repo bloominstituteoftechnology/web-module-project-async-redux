@@ -1,10 +1,12 @@
+
 import React from 'react';
 import { connect } from 'react-redux';
 const PokeData = (props) => {
   const { pokemon } = props;
-  // if (!pokemon) {
-  //   return null
-  // }
+  if (!pokemon) {
+    return null
+  }
+  
 
   return (
     <div className="pokemon-card">
@@ -158,4 +160,42 @@ const MapStateProps = state => {
   }
 } 
 
-export default connect(MapStateProps) (PokeData);
+export default connect(MapStateProps)(PokeData);
+
+// import React from "react";
+// import { connect } from 'react-redux';
+
+
+// const PokeData = props => {
+//   const { pokemon  } = props;
+//   const array = Object.keys(pokemon)
+//   console.log(array)
+
+//   return (
+//     <div className="pokemon-card">
+//       <h2>pokemonlisto</h2>
+//       <ol>
+//         {Object.keys(pokemon).map((item) => (
+//           <li key={item.id}>
+//             <strong className="opener">{item.name}</strong>
+            
+
+//             <ul> {item.set}</ul>
+//           </li>
+//         ))}
+//       </ol>
+
+//     </div>
+//   );
+// };
+
+// const mapStateToProps = state => {
+//   return {
+//     pokemon: state.pokemon,
+//     // Assuming you have this in your state
+//   };
+// };
+
+
+// export default connect(mapStateToProps)(PokeData);
+

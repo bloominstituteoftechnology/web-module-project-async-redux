@@ -13,7 +13,7 @@ export const fetchPokemonRequest = () => ({
   type: FETCH_POKEMON_REQUEST,
 });
 
-export const fetchPokemonSuccess = (pokemon) => ({
+export const fetchPokemonSuccess = pokemon => ({
   type: FETCH_POKEMON_SUCCESS,
   payload: pokemon,
 });
@@ -37,10 +37,10 @@ export const fetchPokemon = (searchTerm) => {
       })
       .then((response) => {
         // Assuming the API response contains the Pokemon data
-        console.log(response);
+        console.log(response.data.data);
 
         // Dispatch success action with the received data
-        dispatch(fetchPokemonSuccess(response.data));
+        dispatch(fetchPokemonSuccess(response.data.data));
       })
       .catch((error) => {
         // Dispatch failure action with the error message
